@@ -19,22 +19,24 @@
 
 ## 3. 저장소
 
-- GitHub(진실본 업로드 시작점): https://github.com/world-top-leaders/main
-- Google Drive(복사본): https://drive.google.com/drive/folders/1dSR2StutFYuN7imgH3RV40I8A0KdbJZm
+- GitHub(진실본 업로드 시작점, public): https://github.com/world-top-leaders/main
+- Google Drive(복사본, 협업자 전용): https://drive.google.com/drive/folders/1dSR2StutFYuN7imgH3RV40I8A0KdbJZm
 - 운영 사이트: https://world-top-leaders.netlify.app
 - 테스트 사이트: https://wtl-test.netlify.app
 - 로컬: `E:\world-top-leaders`
 
+Drive는 협업자만 공개한다. 더 넓게 공개할 일이 있으면 먼저 이야기한 뒤에 한다.
+
 ## 4. 파일 규칙
 
 1. 파일은 항상 GitHub에 먼저 올린다. Drive는 복사본이다.
-2. 같은 문서는 양쪽에 같은 파일명을 쓴다.
+2. GitHub와 Drive의 파일은 이름·내용을 같게 둔다.
 3. Drive만 고치고 GitHub를 안 고치지 않는다.
 4. 같은 날 같은 순위 파일을 여러 AI가 동시에 고치지 않는다.
 5. 일일 리포트 이름:
    - `AI_Leaders_Report_YYYY-MM-DD.csv`
    - `AI_Leaders_News_YYYY-MM-DD.md`
-   - xlsx/docx 원본은 Drive에도 둔다
+   - xlsx/docx 원본도 양쪽에 같은 이름으로 둔다
 6. 규칙·회의록은 `docs/`에 둔다.
 
 ## 5. 랭킹 규칙
