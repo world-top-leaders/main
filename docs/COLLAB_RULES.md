@@ -1,75 +1,46 @@
 # World Top Leaders 협업 운영 규칙
 
-최종 갱신: 2026-09-23  
-이 문서가 운영 규칙의 기준본이다. 규칙이 생기면 이 파일을 먼저 고치고, GitHub에 올린 뒤 Drive에 반영한다.
+최종 갱신: 2026-09-23
 
 ## 1. 목적
 
-공개 자료를 바탕으로 세계 AI·지도자 정보를 수집하고 평점·리포트·웹으로 남긴다.  
-목적·방향·계획은 함께 의논해 정하고, 정한 대로 추진한다.
+공개 자료로 AI·지도자 정보를 수집·평점·리포트·웹으로 남긴다. 목적·방향·계획은 함께 정하고 정한 대로 추진한다.
 
-## 2. 역할
+## 2. 현재 담당 (2026-09-22~ )
 
-아주: 디렉터. 중재, 로컬 원본, 회의 진행.
+- 아주: 디렉터
+- 그록: 수집·평가, 전 저장소 파일 관리. 매일 작업실→저장실 이행 확인
+- 제미니: 전체 계획 수립·관리
+- 클로드: 감리, 툴·프로젝트 생성·관리
 
-오호 셋은 협의에 따라 역할을 바꿀 수 있다. 바꿈 때는 이 문서에 현재 담당을 적는다.
+## 3. 저장소
 
-### 현재 담당 (2026-09-22~ )
+- 로컬: `E:\world-top-leaders`
+- GitHub 기준본: https://github.com/world-top-leaders/main
+- Netlify 운영 / 테스트: world-top-leaders.netlify.app , wtl-test.netlify.app
+- Drive 루트: https://drive.google.com/drive/folders/1dSR2StutFYuN7imgH3RV40I8A0KdbJZm
+  - 작업실(full 초안): https://drive.google.com/drive/folders/1VnhNYYAfLKw88QLdtUNiV3Pa3nZdJPig
+  - 저장실(완성본 사본): https://drive.google.com/drive/folders/1tbdPLACEHOLDER
+- Supabase 도 그록 파일 관리 대상
 
-- 그록: 정보 수집·평가, 전 저장소 파일 관리 운영 주관
-- 제미니: 전체 계획 수립 및 관리 주관
-- 클로드: 업무 흐름 감리, 프로젝트·툴 생성·관리 주관
+Drive는 협업자 전용.
 
-순위·점수는 수집·평가 주관자가 확정. 지금은 그록.
+## 4. 작업실 / 저장실
 
-## 3. 저장소 (그록이 통일 관리)
+1. 작업 중 파일은 Drive `작업실`에만 둔다. 마음대로 쓸 수 있다.
+2. 완성된 파일만 `저장실`로 올린다.
+3. 작업실 → 저장실로 올릴 때는 **반드시 GitHub에 먼저** 올린다.
+4. 깃허브 → Drive 자동화가 켜진 뒤에도, 완성본은 GitHub에 먼저 올린다. Drive 저장실은 따라온다.
+5. 그록은 매일 이 흐름이 지켜졌는지 확인·정리한다.
 
-- 로컬 데스크탑: `E:\world-top-leaders`
-- GitHub: https://github.com/world-top-leaders/main
-- Netlify 운영: https://world-top-leaders.netlify.app
-- Netlify 테스트: https://wtl-test.netlify.app
-- Google Drive (협업자 전용): https://drive.google.com/drive/folders/1dSR2StutFYuN7imgH3RV40I8A0KdbJZm
-- Supabase: 프로젝트 생기·스키마·보안도 파일 관리 대상
+## 5. 폴더·접두사
 
-Drive는 협업자만. 더 넓게 공개할 일이 있으면 먼저 의논한다.
-그록은 구조가 어깃나면 협의·지시해 같은 구조로 맞춘다.
+- `reports/` `docs/` `plan/` `audit/` `tools/` `site/`
+- 그록 핵심: 접두사 없음
+- 제미니: `총)`
+- 클로드: `감)`
+- API 키 금지
 
-## 4. 파일 구조·접두사
+## 6. 랭킹
 
-한 폴더에 종류를 섞지 않는다. 종류별 폴더:
-
-- `reports/` 일일 순위·뉴스
-- `docs/` 규칙·회의록·계획
-- `audit/` 감리(감) 산출
-- `plan/` 총괄(총) 산출
-- `tools/` 회의실·스크립트·SQL
-- `site/` 웹 페이지
-
-접두사 (작성자):
-- 그록 핵심 파일: 접두사 없음. 예) `AI_Leaders_Report_2026-09-22.csv`
-- 제미니: `총)` . 예) `총)계획_2026-09-23.md`
-- 클로드: `감)` . 예) `감)감리보고서.md`
-
-작업 중 초안은 Drive에 올려도 된다. 남길 파일은 그록이 GitHub 폴더에 올리고 Drive 사본을 같게 맞춘다. API 키는 어떤 저장소에도 올리지 않는다.
-
-## 5. 업로드 순서
-
-1. 기준본은 GitHub. Drive는 복사본.
-2. 이름·내용을 양쪽 같게 둔다.
-3. 같은 날 같은 순위 파일을 여러 AI가 동시에 고치지 않는다.
-4. 깃허브 → Drive 자동화는 시크릿 설정 전이므로 현재는 그록이 수동 맞춤.
-5. 리포트가 나오면 바로 GitHub에 커밋.
-
-## 6. 랭킹 규칙
-
-- 지표: 연구 100, 사업 100, AGI 100, 재산 100, 산술평균
-- 동점: 사업 > 연구 > AGI > 재산
-- 공개 자료만. 공식 서열이 아님을 명시
-
-## 7. 이 문서를 고치는 방법
-
-1. 새 규칙을 한 줄로 적는다
-2. 날짜를 갱신한다
-3. GitHub `docs/COLLAB_RULES.md` 커밋
-4. Drive에 같은 이름으로 반영
-5. 제미니·클로드에 갱신을 알린다
+연구·사업·AGI·재산 100점 산술평균. 동점은 사업 > 연구 > AGI > 재산.
