@@ -1,13 +1,21 @@
-## World Top Leaders Information
+# World Top Leaders
 
-## 세계 톱 지도자 정보
+웹: https://world-top-leaders.netlify.app
 
-Latest: 2026-09-21
+## 협업 공간 (이곳만 보면 됨)
 
-- Rankings: `AI_Leaders_Report_2026-09-21.csv`
-- Daily news: `AI_Leaders_News_2026-09-21.md`
-- Previous Office files remain: 2026-09-20 xlsx/docx
+| 공간 | 경로 |
+|---|---|
+| 새소식 | [`새소식/`](새소식/) |
+| 업무협조 | [`업무협조/`](업무협조/) |
+| 대화실 | [`대화실/`](대화실/) · [`tools/`](tools/) |
+| 제안실 | [`제안실/`](제안실/) |
+| 작업실 | Drive 전용 |
+| 저장실 | 이 리포 완성본 |
+| 배포실 | [`배포실/`](배포실/) · [`reports/`](reports/) · `index.html` |
+| 프로필 | [`프로필/`](프로필/) |
 
-Web: https://world-top-leaders.netlify.app
+규칙: [`docs/COLLAB_RULES.md`](docs/COLLAB_RULES.md)
+지도: [`docs/협업공간_구조.md`](docs/협업공간_구조.md)
 
-# world-top-leaders
+루트의 오래된 xlsx/docx/csv는 다음 커밋에 `reports/`로 정리. Netlify 때문에 `index.html`만 루트 유지.
