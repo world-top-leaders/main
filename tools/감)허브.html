@@ -13,7 +13,6 @@
   header{padding:20px 24px 8px;}
   header h1{margin:0 0 4px;font-size:22px;}
   header p{margin:0;color:var(--muted);font-size:13px;}
-
   nav{display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:16px 24px;border-bottom:1px solid var(--border);position:relative;}
   nav a, nav .dropdown-btn{
     display:flex;align-items:center;gap:6px;
@@ -34,10 +33,8 @@
     border-bottom:1px solid var(--border);font-size:13px;font-weight:500;
   }
   .dropdown-menu a:last-child{border-bottom:none;}
-
   main{padding:20px 24px 60px;display:grid;grid-template-columns:1fr;gap:20px;max-width:1000px;margin:0 auto;}
   @media(min-width:800px){ main{grid-template-columns:1fr 1fr;} }
-
   .card{background:var(--panel);border:1px solid var(--border);border-radius:14px;overflow:hidden;display:flex;flex-direction:column;}
   .card .card-head{padding:12px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;gap:10px;}
   .card .card-head h2{margin:0;font-size:15px;flex-shrink:0;}
@@ -48,40 +45,35 @@
   }
   .card .card-head .open-link{font-size:12px;color:var(--muted);text-decoration:none;flex-shrink:0;}
   .card iframe{width:100%;height:320px;border:none;background:#fff;}
-
   .wide{grid-column:1 / -1;}
   footer{text-align:center;color:var(--muted);font-size:11px;padding:20px;}
 </style>
 </head>
 <body>
-
 <header>
   <h1>🌐 World Top Leaders 허브</h1>
-  <p>업무 흐름 순서대로 정리한 프로젝트 관제탑 · 업데이트: 2026-09-24 · 감)클로드 제작</p>
+  <p>업무 흐름 순서대로 정리한 프로젝트 관제탑 · 업데이트: 2026-09-24 · 감)클로드 제작 · 1단계</p>
 </header>
-
 <nav>
   <a href="https://drive.google.com/drive/folders/1IlGRSGvsToqVV3yVwG4AGvjLkX1ZiakH" target="_blank">🆕 새소식</a>
-  <a href="https://drive.google.com/drive/folders/1VRrJBocRWxjSgs1TJ2S18TcO91ntW6h7" target="_blank">💬 대화실</a>
+  <a href="https://drive.google.com/drive/folders/1EN87c56uUaVep7whDa0CnLphn9B-x75Y" target="_blank">🗣️ 회의자료</a>
   <a href="https://drive.google.com/drive/folders/17bnp3xBi-buSj3FTo3IuZeo1RD8YoVvC" target="_blank">💡 제안실</a>
-  <a href="https://drive.google.com/drive/folders/1VnhNYYAfLKw88QLdtUNiV3Pa3nZdJPig" target="_blank">📝 작업실</a>
-  <a href="https://drive.google.com/drive/folders/1vEvkq_eyI8ZynDULrgQel607BzgSqp9u" target="_blank">📦 저장실</a>
   <a href="https://drive.google.com/drive/folders/1gFQ98hzbn7JHGm4JLwy7Ts8so3QET7kD" target="_blank">🚀 배포실</a>
   <a href="https://drive.google.com/drive/folders/1eYVnqvMWR0SHpDPvmGVzSkwd8AFnddUV" target="_blank">🤝 업무협조</a>
-
+  <a href="https://drive.google.com/drive/folders/1nxYyq7caPJ_aO-vL5AVOZD-jZFvrJUQB" target="_blank">👤 프로필</a>
+  <a href="https://drive.google.com/drive/folders/1afW8Wh7G9f4BkoYTQz3Gu0a6Bw2SME9J" target="_blank">📜 규칙집</a>
+  <a href="https://drive.google.com/drive/folders/1VnhNYYAfLKw88QLdtUNiV3Pa3nZdJPig" target="_blank">📝 작업실</a>
+  <a href="https://drive.google.com/drive/folders/1vEvkq_eyI8ZynDULrgQel607BzgSqp9u" target="_blank">📦 저장실</a>
   <div class="dropdown" id="quickDropdown">
     <div class="dropdown-btn" id="quickBtn">⚡ 바로가기 ▾</div>
     <div class="dropdown-menu">
-      <a href="https://drive.google.com/file/d/1qEhNJuWmmLV5s36PYv-RRZVDtTmLxLNP/view" target="_blank">🗣️ 회의실 파일</a>
       <a href="https://supabase.com/dashboard/project/hwdzjmeklzkszfqxbvsz" target="_blank">🧪 Supabase</a>
       <a href="https://github.com/world-top-leaders/main" target="_blank">🐙 GitHub</a>
-      <a href="https://world-top-leaders.netlify.app" target="_blank">🌍 사이트</a>
+      <a href="https://world-top-leaders.netlify.app" target="_blank">🌍 넷리파이</a>
     </div>
   </div>
 </nav>
-
 <main>
-
   <div class="card wide" data-card="news">
     <div class="card-head">
       <h2>🆕 새소식</h2>
@@ -95,7 +87,6 @@
     </div>
     <iframe src="https://drive.google.com/file/d/1_A3kYWoZAeUco7UG5XP3ndoV4__avz5w/preview"></iframe>
   </div>
-
   <div class="card" data-card="collab">
     <div class="card-head">
       <h2>🤝 업무협조</h2>
@@ -109,7 +100,6 @@
     </div>
     <iframe src="https://docs.google.com/document/d/1TVDknVDUjO8jDZTdJ1oYujqOGDvnYe0iRq4yIYOk22M/preview"></iframe>
   </div>
-
   <div class="card" data-card="proposal">
     <div class="card-head">
       <h2>💡 업무제안</h2>
@@ -122,11 +112,8 @@
     </div>
     <iframe src="https://docs.google.com/document/d/1-nCOefW8Ad7PrIN_chaAIzWscJ8NBkgwf-IRicphipA/preview"></iframe>
   </div>
-
 </main>
-
-<footer>이 페이지는 직접 열어서 쓰는 로컬 허브입니다 · 아이프레임 내용이 안 보이면 구글 계정으로 브라우저에 로그인돼 있는지 확인하세요 · 파일 선택 목록은 15분마다 자동으로 갱신됩니다.</footer>
-
+<footer>이 페이지는 직접 열어서 쓰는 로컬 허브입니다 · 아이프레임이 안 보이면 구글 로그인 확인 · 1단계: 회의자료·작업실·저장실 버튼</footer>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
   const quickDropdown = document.getElementById("quickDropdown");
@@ -135,32 +122,21 @@
     quickDropdown.classList.toggle("open");
   });
   document.addEventListener("click", () => quickDropdown.classList.remove("open"));
-
   document.querySelectorAll(".card").forEach((card) => {
     const select = card.querySelector(".file-select");
     const iframe = card.querySelector("iframe");
     const openLink = card.querySelector(".open-link");
-    function updateOpenLink(){
-      openLink.href = select.value.replace("/preview", "/view");
-    }
+    function updateOpenLink(){ openLink.href = select.value.replace("/preview", "/view"); }
     updateOpenLink();
-    select.addEventListener("change", () => {
-      iframe.src = select.value;
-      updateOpenLink();
-    });
+    select.addEventListener("change", () => { iframe.src = select.value; updateOpenLink(); });
   });
-
   const SUPABASE_URL = "https://hwdzjmeklzkszfqxbvsz.supabase.co";
   const SUPABASE_ANON_KEY = "sb_publishable_2JorYW_R1etapUtiZMI8Yg_gQTRO-f5";
   const driveClient = typeof supabase !== "undefined" ? supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
-
   function previewUrlFor(file){
-    if (file.mime_type === "application/vnd.google-apps.document") {
-      return `https://docs.google.com/document/d/${file.file_id}/preview`;
-    }
+    if (file.mime_type === "application/vnd.google-apps.document") return `https://docs.google.com/document/d/${file.file_id}/preview`;
     return `https://drive.google.com/file/d/${file.file_id}/preview`;
   }
-
   async function refreshCardFromDrive(card){
     if (!driveClient) return;
     const folderKey = card.dataset.card;
@@ -183,9 +159,7 @@
     iframe.src = select.value;
     openLink.href = select.value.replace("/preview", "/view");
   }
-
   document.querySelectorAll(".card[data-card]").forEach(refreshCardFromDrive);
 </script>
-
 </body>
 </html>
