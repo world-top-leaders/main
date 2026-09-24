@@ -1,4 +1,4 @@
-# reports
+# reports (이동)
 
-일일 순위·뉴스 완성본.
-이름: `AI_Leaders_Report_YYYY-MM-DD.csv`, `AI_Leaders_News_YYYY-MM-DD.md`
+일일 뉴스·순위는 `배포실/` 로 옮김.
+새 파일은 `배포실/` 에만 올린다. 이 폴더는 좀 드단 후 삭제.
