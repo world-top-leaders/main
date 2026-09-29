@@ -1,0 +1,3 @@
+-- WTL comments Phase 3 schema copy. Applied on Supabase already.
+-- body 10-1000, slug ALL or leader slug, rate limit 1/min, likes RPC.
+-- See tools/감)Phase3_완료보고.md
