@@ -1,12 +1,12 @@
 rank,slug,name_en,name_ko,org,role_en,wiki_en,wiki_ko,photo,R,B,AGI,W,avg
-1,dario-amodei,Dario Amodei,다리오 아모데이,Anthropic,Co-founder & CEO,https://en.wikipedia.org/wiki/Dario_Amodei,,assets/leaders/dario-amodei.jpg,90,97,98,78,90.75
-2,elon-musk,Elon Musk,일론 머스크,xAI / SpaceX / Tesla,Founder & CEO,https://en.wikipedia.org/wiki/Elon_Musk,https://ko.wikipedia.org/wiki/일론_머스크,assets/leaders/elon-musk.jpg,60,98,95,100,88.25
-3,jensen-huang,Jensen Huang,젠슨 황,NVIDIA,"Founder, CEO & President",https://en.wikipedia.org/wiki/Jensen_Huang,https://ko.wikipedia.org/wiki/젠슨_황,assets/leaders/jensen-huang.jpg,78,100,72,96,86.50
+1,dario-amodei,Dario Amodei,다리오 아모데이,Anthropic,Co-founder & CEO,https://en.wikipedia.org/wiki/Dario_Amodei,,assets/leaders/dario-amodei.jpg,90,98,98,78,91.00
+2,elon-musk,Elon Musk,일론 머스크,xAI / SpaceX / Tesla,Founder & CEO,https://en.wikipedia.org/wiki/Elon_Musk,https://ko.wikipedia.org/wiki/일론_머스크,assets/leaders/elon-musk.jpg,60,98,95,99,88.00
+3,jensen-huang,Jensen Huang,젠슨 황,NVIDIA,"Founder, CEO & President",https://en.wikipedia.org/wiki/Jensen_Huang,https://ko.wikipedia.org/wiki/젠슨_황,assets/leaders/jensen-huang.jpg,78,100,72,95,86.25
 4,greg-brockman,Greg Brockman,그레그 브록머,OpenAI,President & Co-founder,https://en.wikipedia.org/wiki/Greg_Brockman,,assets/leaders/greg-brockman.jpg,75,90,88,85,84.50
 5,mark-zuckerberg,Mark Zuckerberg,마크 저커버그,Meta,"Founder, Chairman & CEO",https://en.wikipedia.org/wiki/Mark_Zuckerberg,https://ko.wikipedia.org/wiki/마크_저커버그,assets/leaders/mark-zuckerberg.jpg,65,95,85,92,84.25
-6,daniela-amodei,Daniela Amodei,다니엘라 아모데이,Anthropic,President & Co-founder,https://en.wikipedia.org/wiki/Daniela_Amodei,,assets/leaders/daniela-amodei.jpg,80,90,90,75,83.75
+6,daniela-amodei,Daniela Amodei,다니엘라 아모데이,Anthropic,President & Co-founder,https://en.wikipedia.org/wiki/Daniela_Amodei,,assets/leaders/daniela-amodei.jpg,80,91,90,75,84.00
 7,ilya-sutskever,Ilya Sutskever,일리야 수츠케버,Safe Superintelligence,Co-founder & CEO,https://en.wikipedia.org/wiki/Ilya_Sutskever,https://ko.wikipedia.org/wiki/일리야_수츠케버,assets/leaders/ilya-sutskever.jpg,95,75,98,65,83.25
-8,demis-hassabis,Demis Hassabis,데미스 허사비스,Google DeepMind / Alphabet,Chair & Chief Scientist,https://en.wikipedia.org/wiki/Demis_Hassabis,https://ko.wikipedia.org/wiki/데미스_허사비스,assets/leaders/demis-hassabis.jpg,99,88,97,40,81.00
+8,demis-hassabis,Demis Hassabis,데미스 허사비스,Google DeepMind / Alphabet,Chair & Chief Scientist,https://en.wikipedia.org/wiki/Demis_Hassabis,https://ko.wikipedia.org/wiki/데미스_허사비스,assets/leaders/demis-hassabis.jpg,99,87,97,40,80.75
 9,liang-wenfeng,Liang Wenfeng,량문봉,DeepSeek,Founder & CEO,https://en.wikipedia.org/wiki/Liang_Wenfeng,,assets/leaders/liang-wenfeng.jpg,85,88,80,70,80.75
 10,sam-altman,Sam Altman,샘 올트먼,OpenAI,CEO & Co-founder,https://en.wikipedia.org/wiki/Sam_Altman,https://ko.wikipedia.org/wiki/샘_올트먼,assets/leaders/sam-altman.jpg,70,99,96,48,78.25
 11,mark-chen,Mark Chen,마크 첸,OpenAI,Chief Research Officer,https://en.wikipedia.org/wiki/Mark_Chen_(researcher),,assets/leaders/mark-chen.jpg,92,75,90,55,78.00
