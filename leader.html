@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>World Top Leaders — Leader</title>
+  <style>
+    :root { --bg:#071018; --card:#0e1a28; --line:#1e3348; --gold:#d4af37; --text:#e8eef5; --muted:#8aa0b5; --link:#7ec8ff; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, sans-serif; background: radial-gradient(1200px 600px at 10% -10%, #123 0%, var(--bg) 50%); color: var(--text); min-height:100vh; }
+    a { color: var(--link); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 16px 24px 64px; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 8px 0 16px; }
+    .back { color: var(--muted); text-decoration:none; font-size:14px; }
+    .hero { display:grid; grid-template-columns: 168px 1fr; gap: 28px; align-items:center; background: var(--card); border:1px solid var(--line); border-radius:16px; padding: 24px; }
+    .photo { width:168px; height:168px; border-radius:50%; object-fit:cover; border:2px solid var(--gold); background:#0b1622; }
+    .rank { display:inline-block; font-family: Georgia, serif; color:#071018; background: var(--gold); border-radius:999px; padding: 3px 12px; font-weight:700; font-size:14px; }
+    h1 { font-family: Georgia, serif; font-weight:600; letter-spacing:.04em; margin: 10px 0 2px; font-size: clamp(26px, 4vw, 40px); }
+    .alt { color: var(--muted); font-size: 15px; }
+    .role { margin-top: 10px; font-size: 15px; }
+    .hero-actions { margin-top: 14px; display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    .btn { display:inline-flex; align-items:center; gap:6px; border:1px solid var(--line); background:#071018; color: var(--text); border-radius:8px; padding: 7px 12px; text-decoration:none; font-size:14px; }
+    .avg-box { margin-left:auto; text-align:right; }
+    .avg-num { font-family: Georgia, serif; font-size: 44px; color: var(--gold); font-variant-numeric: tabular-nums; line-height:1; }
+    .avg-lbl { color: var(--muted); font-size:12px; }
+    .grid2 { display:grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+    .card { background: var(--card); border:1px solid var(--line); border-radius:16px; padding: 20px; }
+    .card h2 { margin:0 0 14px; font: 600 18px Georgia, serif; letter-spacing:.04em; }
+    .bar { display:grid; grid-template-columns: 72px 1fr 40px; gap:10px; align-items:center; margin: 10px 0; font-size:14px; }
+    .track { height:12px; background:#071018; border:1px solid var(--line); border-radius:999px; overflow:hidden; }
+    .fill { height:100%; background: linear-gradient(90deg, #8a6d1d, var(--gold)); border-radius:999px; }
+    .val { text-align:right; font-variant-numeric: tabular-nums; }
+    dl { display:grid; grid-template-columns: 110px 1fr; gap: 8px 12px; margin:0; font-size:14px; }
+    dt { color: var(--muted); }
+    dd { margin:0; word-break: break-word; }
+    .pending { margin-top: 12px; color: var(--muted); font-size: 12px; line-height:1.5; }
+    .notfound { text-align:center; padding: 80px 16px; color: var(--muted); }
+    footer { text-align:center; padding: 32px 16px; color: var(--muted); font-size:12px; }
+    @media (max-width: 720px) {
+      .hero { grid-template-columns: 1fr; text-align:center; justify-items:center; }
+      .grid2 { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="index.html" data-i18n="back_to_list">← Top 50</a>
+      <div id="langbar"></div>
+    </div>
+    <main id="main"></main>
+    <div id="comments-box"></div>
+  </div>
+  <footer>World Top Leaders · <span data-i18n="note_disclaimer">Public-source composite. Not investment advice.</span></footer>
+  <script src="assets/wtl-common.js"></script>
+  <script>
+  (function () {
+    var W = window.WTL, el = W.el;
+    var slug = new URLSearchParams(location.search).get("slug") || "";
+    var main = document.getElementById("main");
+    var L = null;
+    var EXTRA_FIELDS = ["birth", "gender", "nationality", "education", "career", "expertise", "net_worth", "achievements"];
+    W.mountLangSwitch(document.getElementById("langbar"));
+    function metric(labelKey, v) {
+      var n = Math.max(0, Math.min(100, parseFloat(v) || 0));
+      var row = el("div", { className: "bar" });
+      row.appendChild(el("span", null, W.t(labelKey)));
+      var tr = el("div", { className: "track" }); var f = el("div", { className: "fill" }); f.style.width = n + "%";
+      tr.appendChild(f); row.appendChild(tr);
+      row.appendChild(el("span", { className: "val" }, String(v || "–")));
+      return row;
+    }
+    function dlRow(dl, key, val) {
+      if (!val) return;
+      dl.appendChild(el("dt", null, W.t(key)));
+      dl.appendChild(el("dd", null, val));
+    }
+    function render() {
+      main.innerHTML = "";
+      if (!L) {
+        main.appendChild(el("div", { className: "notfound" }, W.t("not_found")));
+        return;
+      }
+      var name = W.leaderName(L);
+      document.title = name + " — World Top Leaders";
+      var hero = el("section", { className: "hero" });
+      var img = el("img", { className: "photo", alt: L.name_en, width: 168, height: 168 });
+      var fallback = W.initialsSVG(L.name_en, L.slug, 168);
+      img.onerror = function () { img.onerror = null; img.src = fallback; };
+      img.src = L.photo ? L.photo : fallback;
+      hero.appendChild(img);
+      var info = el("div");
+      info.appendChild(el("span", { className: "rank" }, W.t("rank_badge", { n: L.rank })));
+      info.appendChild(el("h1", null, name));
+      var alt = W.lang() === "ko" ? L.name_en : L.name_ko;
+      if (alt && alt !== name) info.appendChild(el("div", { className: "alt" }, alt));
+      info.appendChild(el("div", { className: "role" }, [L.role_en, L.org].filter(Boolean).join(" · ")));
+      var acts = el("div", { className: "hero-actions" });
+      var w = W.wikiFor(L);
+      if (w.url) {
+        var wl = el("a", { className: "btn", href: w.url, target: "_blank", rel: "noopener" }, "📖 " + W.t("wiki_label"));
+        if (w.fallback) {
+          wl.appendChild(el("span", { className: "wtl-badge-en", title: W.t("msg_wiki_fallback") }, W.t("badge_en")));
+          wl.addEventListener("click", function () { W.toast(W.t("msg_wiki_fallback")); });
+        }
+        acts.appendChild(wl);
+      }
+      var ab = el("div", { className: "avg-box" });
+      ab.appendChild(el("div", { className: "avg-num" }, L.avg));
+      ab.appendChild(el("div", { className: "avg-lbl" }, W.t("th_score")));
+      acts.appendChild(ab);
+      info.appendChild(acts);
+      hero.appendChild(info);
+      main.appendChild(hero);
+      var g = el("div", { className: "grid2" });
+      var mc = el("section", { className: "card" });
+      mc.appendChild(el("h2", null, W.t("metrics_title")));
+      mc.appendChild(metric("m_research", L.R));
+      mc.appendChild(metric("m_business", L.B));
+      mc.appendChild(metric("m_agi", L.AGI));
+      mc.appendChild(metric("m_wealth", L.W));
+      g.appendChild(mc);
+      var pc = el("section", { className: "card" });
+      pc.appendChild(el("h2", null, W.t("profile_title")));
+      var dl = el("dl");
+      dlRow(dl, "p_rank", "#" + L.rank);
+      dlRow(dl, "p_org", L.org);
+      dlRow(dl, "p_role", L.role_en);
+      dlRow(dl, "p_avg", L.avg);
+      var hasExtra = false;
+      EXTRA_FIELDS.forEach(function (k) { if (L[k]) { hasExtra = true; dlRow(dl, "p_" + k, L[k]); } });
+      pc.appendChild(dl);
+      if (!hasExtra) pc.appendChild(el("div", { className: "pending" }, W.t("profile_pending")));
+      g.appendChild(pc);
+      main.appendChild(g);
+    }
+    Promise.all([W.loadLocales(""), W.loadLeaders("")]).then(function (res) {
+      res[1].forEach(function (x) { if (x.slug === slug) L = x; });
+      render();
+      W.onLang(render);
+      if (L) {
+        W.mountCommentSheet(document.getElementById("comments-box"), L.slug, {
+          id: "comments",
+          title: function () { return W.leaderName(L) + " · " + W.t("comments_leader_title"); }
+        }).then(function () { if (location.hash === "#comments") { var c = document.getElementById("comments"); if (c) c.scrollIntoView(); } });
+      }
+      W.setLang(W.lang());
+    }).catch(function (e) {
+      console.error(e); main.appendChild(el("div", { className: "notfound" }, W.t("not_found")));
+    });
+  })();
+  </script>
+</body>
+</html>
