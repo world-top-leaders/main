@@ -1,15 +1,15 @@
-# WTL 고객의견 표준 컬럼 (8)
+# WTL 고객의견 표준 컬럼 최종안 (8)
 
-제미니 확정 · 2026-09-29
+제미니 · 2026-09-29
 적용: Drive `WTL_고객의견_관리시트` + Supabase comments
 
-| 컬럼 | 형 | 설명 |
-|---|---|---|
-| comment_id | string | 고유 ID |
-| timestamp | ISO 8601 | 작성 시각 |
-| leader_slug | string | `data/leaders.csv` slug. 전체 의견은 `site` |
-| author | string | 작성자. 빈 값 허용 |
-| language | `ko` \| `en` | 작성 언어 |
-| content | string | 10–300자 |
-| likes | integer | 공감 수. 기본 0 |
-| parent_id | string \| empty | 대댓글이면 부모 comment_id |
+| 순번 | 컬럼명 (DB Key) | 시트 표기명 | 타입 / 포맷 | 설명 |
+| --- | --- | --- | --- | --- |
+| 1 | comment_id | 의견ID | String (UUID/텍스트) | 예: cmt_20260929_001 |
+| 2 | timestamp | 작성시각 | ISO 8601 String | 2026-09-29T22:50:00Z |
+| 3 | leader_slug | 지도자 slug | String | 예: sam-altman. 사이트 전체 의견은 ALL |
+| 4 | author | 작성자 | String (20자 이하) | 닉네임 |
+| 5 | language | 작성언어 | String (ko / en) | 원문 언어 |
+| 6 | content | 의견본문 | Text (10~300자) | 셀 미리보기, 클릭 시 확장 |
+| 7 | likes | 좋아요수 | Integer | 기본 0, 추천 시 +1 |
+| 8 | parent_id | 부모댓글ID | String (Nullable) | 최상위는 빈칸, 대댓글은 원글 comment_id |
