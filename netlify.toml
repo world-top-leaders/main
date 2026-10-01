@@ -1,0 +1,6 @@
+# World Top Leaders — Netlify 배포 설정 (감수: 클로드 2026-10-01)
+# 공개 사이트에는 아래 build_public.sh가 고른 파일만 올라간다(허용 목록 방식).
+# 내부 자료(새소식·작업실·역사실·docs·audit 등)는 저장소에 있어도 웹에 나가지 않는다.
+[build]
+  publish = "public"
+  command = "bash scripts/build_public.sh"
