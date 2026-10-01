@@ -10,7 +10,7 @@
   var SUPABASE_KEY = "sb_publishable_2JorYW_R1etapUtiZMI8Yg_gQTRO-f5";
   var REST = SUPABASE_URL + "/rest/v1";
   var TABLE = "wtl_comments";
-  var COLS = "id,slug,parent_comment_id,author,lang,body,likes,created_at";
+  var COLS = "id,slug,parent_comment_id,author,lang,body,likes,created_at,edited_at,deleted_at";
   var BODY_MIN = 10, BODY_MAX = 1000, AUTHOR_MAX = 20, COOLDOWN_MS = 60000;
 
   /* ---------- 다국어 ---------- */
@@ -27,7 +27,13 @@
       comments_count: "{n} comments",
       write_comment: "Write",
       no_comment_cell: "Write a comment",
-      anonymous: "Anonymous",
+      anonymous: "Participant",
+      placeholder_pw: "Password (optional, for edit/delete)",
+      btn_edit: "Edit", btn_delete: "Delete", btn_save: "Save", btn_cancel: "Cancel", btn_confirm_delete: "Delete now?",
+      pw_prompt: "Password", edited: "edited", deleted_msg: "This comment was deleted by its author.",
+      ok_edited: "Updated.", ok_deleted: "Deleted.", err_secret: "Password does not match.",
+      err_tries: "Too many attempts. Please try again in 10 minutes.", err_gone: "This comment no longer exists.",
+      err_pw_len: "Password must be 4–30 characters.",
       err_len: "Comment must be 10–1,000 characters.",
       err_author: "Name can be up to 20 characters.",
       err_rate: "You can post once per minute. Please try again shortly.",
@@ -63,7 +69,13 @@
       comments_count: "의견 {n}개",
       write_comment: "의견 쓰기",
       no_comment_cell: "의견 쓰기",
-      anonymous: "익명",
+      anonymous: "참여자",
+      placeholder_pw: "비밀번호 (선택 · 수정/삭제용)",
+      btn_edit: "수정", btn_delete: "삭제", btn_save: "저장", btn_cancel: "취소", btn_confirm_delete: "정말 삭제할까요?",
+      pw_prompt: "비밀번호", edited: "수정됨", deleted_msg: "작성자가 삭제한 의견입니다.",
+      ok_edited: "수정되었습니다.", ok_deleted: "삭제되었습니다.", err_secret: "비밀번호가 맞지 않아요.",
+      err_tries: "시도가 너무 많아요. 10분 뒤에 다시 해 주세요.", err_gone: "이미 삭제된 의견이에요.",
+      err_pw_len: "비밀번호는 4~30자로 써 주세요.",
       err_len: "의견은 10~1,000자로 써 주세요.",
       err_author: "닉네임은 20자까지 쓸 수 있어요.",
       err_rate: "1분에 한 번만 등록할 수 있어요. 잠시 뒤 다시 시도해 주세요.",
@@ -230,7 +242,20 @@
     var q = "?select=" + COLS + "&order=created_at.desc&limit=1000" + (slug ? "&slug=eq." + encodeURIComponent(slug) : "");
     return api("/" + TABLE + q);
   }
-  function postComment(row) { return api("/" + TABLE, { method: "POST", body: row, prefer: "return=minimal" }); }
+  function postComment(row) { return api("/" + TABLE + "?select=id", { method: "POST", body: row, prefer: "return=representation" }); }
+  function editComment(id, secret, body) { return api("/rpc/wtl_comment_edit", { method: "POST", body: { p_id: id, p_secret: secret, p_body: body } }); }
+  function deleteComment(id, secret) { return api("/rpc/wtl_comment_delete", { method: "POST", body: { p_id: id, p_secret: secret } }); }
+  // 로그인 없이 수정·삭제: 글쓴 브라우저에는 비밀 토큰을 저장, 다른 기기에서는 비밀번호로
+  function tokens() { try { return JSON.parse(localStorage.getItem("wtl_tokens") || "{}"); } catch (e) { return {}; } }
+  function saveToken(id, tok) { try { var m = tokens(); m[id] = tok; localStorage.setItem("wtl_tokens", JSON.stringify(m)); } catch (e) {} }
+  function newToken() {
+    var a = new Uint8Array(16);
+    if (window.crypto && crypto.getRandomValues) crypto.getRandomValues(a); else for (var i = 0; i < 16; i++) a[i] = Math.floor(Math.random() * 256);
+    return Array.prototype.map.call(a, function (b) { return (b < 16 ? "0" : "") + b.toString(16); }).join("");
+  }
+  function statusMsg(s) {
+    return s === "BAD_SECRET" ? t("err_secret") : s === "TOO_MANY_TRIES" ? t("err_tries") : s === "NOT_FOUND" ? t("err_gone") : s === "BAD_LENGTH" ? t("err_len") : t("err_generic");
+  }
   function likeComment(id) { return api("/rpc/wtl_comment_like", { method: "POST", body: { p_id: id } }); }
 
   function likedSet() { try { return JSON.parse(localStorage.getItem("wtl_liked") || "[]"); } catch (e) { return []; } }
@@ -267,6 +292,8 @@
       try { author.value = localStorage.getItem("wtl_author") || ""; } catch (e) {}
       var body = el("textarea", { maxLength: BODY_MAX, rows: parentId ? 2 : 3, className: "wtl-body" });
       body.dataset.i18nPh = "placeholder_comment"; body.placeholder = t("placeholder_comment");
+      var pw = el("input", { type: "password", maxLength: 30, className: "wtl-pw", autocomplete: "new-password" });
+      pw.dataset.i18nPh = "placeholder_pw"; pw.placeholder = t("placeholder_pw");
       var counter = el("span", { className: "wtl-counter" }, "0/" + BODY_MAX);
       var btn = el("button", { type: "submit", className: "wtl-submit" }, parentId ? t("btn_reply") : t("btn_submit"));
       btn.dataset.i18n = parentId ? "btn_reply" : "btn_submit";
@@ -276,17 +303,22 @@
         counter.classList.toggle("bad", n > 0 && n < BODY_MIN);
       });
       var row = el("div", { className: "wtl-form-row" });
-      row.appendChild(author); row.appendChild(counter); row.appendChild(btn);
+      row.appendChild(author); row.appendChild(pw); row.appendChild(counter); row.appendChild(btn);
       f.appendChild(body); f.appendChild(row);
       f.addEventListener("submit", function (ev) {
         ev.preventDefault();
         var a = author.value.trim(), b = body.value.trim();
         var v = validate(a, b);
+        if (!v && pw.value && (pw.value.length < 4 || pw.value.length > 30)) v = t("err_pw_len");
         if (v) { toast(v, true); return; }
         btn.disabled = true;
-        var rec = { slug: slug, author: a || t("anonymous"), lang: lang, body: b };
+        var tok = newToken();
+        var rec = { slug: slug, author: a || "참여자", lang: lang, body: b, edit_token: tok };
+        if (pw.value) rec.edit_pw = pw.value;
         if (parentId) rec.parent_comment_id = parentId;
-        postComment(rec).then(function () {
+        postComment(rec).then(function (rows) {
+          if (rows && rows[0] && rows[0].id) saveToken(rows[0].id, tok);
+          pw.value = "";
           setLastPost();
           try { localStorage.setItem("wtl_author", a); } catch (e) {}
           body.value = ""; counter.textContent = "0/" + BODY_MAX;
@@ -297,6 +329,69 @@
           .then(function () { btn.disabled = false; });
       });
       return f;
+    }
+
+    function shownAuthor(c) { return c.author === "참여자" || c.author === "Anonymous" ? t("anonymous") : c.author; }
+    function metaText(c) { return shownAuthor(c) + " · " + fmtTime(c.created_at) + (c.edited_at ? " · " + t("edited") : ""); }
+
+    // 수정·삭제 버튼. 이 브라우저에서 쓴 글이면 바로, 아니면 비밀번호를 물어본다.
+    function ownerControls(c, bodyEl) {
+      var box = el("span", { className: "wtl-owner" });
+      var editB = el("button", { type: "button", className: "wtl-mini" }, t("btn_edit"));
+      var delB = el("button", { type: "button", className: "wtl-mini" }, t("btn_delete"));
+      box.appendChild(editB); box.appendChild(delB);
+      function withSecret(onSecret) {
+        var tok = tokens()[c.id];
+        if (tok) { onSecret(tok); return; }
+        var f = el("span", { className: "wtl-pwask" });
+        var inp = el("input", { type: "password", maxLength: 30, placeholder: t("pw_prompt"), className: "wtl-pw" });
+        var ok = el("button", { type: "button", className: "wtl-mini on" }, "OK");
+        var cancel = el("button", { type: "button", className: "wtl-mini" }, t("btn_cancel"));
+        f.appendChild(inp); f.appendChild(ok); f.appendChild(cancel);
+        box.innerHTML = ""; box.appendChild(f); inp.focus();
+        ok.addEventListener("click", function (e) { e.stopPropagation(); if (inp.value) onSecret(inp.value); });
+        inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); if (inp.value) onSecret(inp.value); } });
+        cancel.addEventListener("click", function (e) { e.stopPropagation(); render(); });
+      }
+      editB.addEventListener("click", function (ev) {
+        ev.stopPropagation();
+        withSecret(function (secret) {
+          var ta = el("textarea", { maxLength: BODY_MAX, rows: 4, className: "wtl-body wtl-edit" }); ta.value = c.body;
+          var save = el("button", { type: "button", className: "wtl-submit" }, t("btn_save"));
+          var cancel = el("button", { type: "button", className: "wtl-mini" }, t("btn_cancel"));
+          var ed = el("div", { className: "wtl-form" }); ed.appendChild(ta);
+          var r = el("div", { className: "wtl-form-row" }); r.appendChild(cancel); r.appendChild(save); ed.appendChild(r);
+          bodyEl.innerHTML = ""; bodyEl.appendChild(ed); box.innerHTML = ""; ta.focus();
+          cancel.addEventListener("click", function (e) { e.stopPropagation(); render(); });
+          save.addEventListener("click", function (e) {
+            e.stopPropagation();
+            var nb = ta.value.trim();
+            if (nb.length < BODY_MIN || nb.length > BODY_MAX) { toast(t("err_len"), true); return; }
+            save.disabled = true;
+            editComment(c.id, secret, nb).then(function (s) {
+              if (s === "OK") { toast(t("ok_edited")); return reload(); }
+              toast(statusMsg(s), true); render();
+            }).catch(function (err) { console.error(err); toast(t("err_generic"), true); render(); });
+          });
+        });
+      });
+      delB.addEventListener("click", function (ev) {
+        ev.stopPropagation();
+        withSecret(function (secret) {
+          var yes = el("button", { type: "button", className: "wtl-mini danger" }, t("btn_confirm_delete"));
+          var no = el("button", { type: "button", className: "wtl-mini" }, t("btn_cancel"));
+          box.innerHTML = ""; box.appendChild(yes); box.appendChild(no);
+          no.addEventListener("click", function (e) { e.stopPropagation(); render(); });
+          yes.addEventListener("click", function (e) {
+            e.stopPropagation(); yes.disabled = true;
+            deleteComment(c.id, secret).then(function (s) {
+              if (s === "OK") { toast(t("ok_deleted")); return reload(); }
+              toast(statusMsg(s), true); render();
+            }).catch(function (err) { console.error(err); toast(t("err_generic"), true); render(); });
+          });
+        });
+      });
+      return box;
     }
 
     function likeBtn(c) {
@@ -317,9 +412,11 @@
 
     function render() {
       headBox.innerHTML = ""; gridBox.innerHTML = "";
-      var tops = state.items.filter(function (c) { return !c.parent_comment_id; });
       var kids = {};
-      state.items.forEach(function (c) { if (c.parent_comment_id) (kids[c.parent_comment_id] = kids[c.parent_comment_id] || []).push(c); });
+      state.items.forEach(function (c) { if (c.parent_comment_id && !c.deleted_at) (kids[c.parent_comment_id] = kids[c.parent_comment_id] || []).push(c); });
+      // 삭제된 의견은 달린 댓글이 있을 때만 흔적을 남긴다
+      var tops = state.items.filter(function (c) { return !c.parent_comment_id && (!c.deleted_at || (kids[c.id] || []).length); });
+      var liveCount = state.items.filter(function (c) { return !c.deleted_at; }).length;
       Object.keys(kids).forEach(function (k) { kids[k].sort(function (a, b) { return a.created_at < b.created_at ? -1 : 1; }); });
       var byLatest = function (a, b) { return a.created_at < b.created_at ? 1 : -1; };
       tops.sort(state.sort === "likes" ? function (a, b) { return (b.likes - a.likes) || byLatest(a, b); }
@@ -328,7 +425,7 @@
 
       var head = el("div", { className: "wtl-sheet-head" });
       head.appendChild(el("h2", null, options.title ? options.title() : t("comments_leader_title")));
-      head.appendChild(el("span", { className: "wtl-count" }, t("comments_count", { n: state.items.length })));
+      head.appendChild(el("span", { className: "wtl-count" }, t("comments_count", { n: liveCount })));
       var sel = el("select", { className: "wtl-sort", "aria-label": "sort" });
       [["latest", "label_latest"], ["likes", "label_likes"], ["replies", "label_replies"]].forEach(function (o) {
         var op = el("option", { value: o[0] }, t(o[1])); if (state.sort === o[0]) op.selected = true; sel.appendChild(op);
@@ -354,8 +451,9 @@
         var tr = el("tr", { className: "wtl-row" + (state.open[c.id] ? " open" : ""), tabIndex: 0 });
         tr.setAttribute("aria-expanded", state.open[c.id] ? "true" : "false");
         tr.appendChild(el("td", { className: "c0" }, String(idx + 1)));
-        tr.appendChild(el("td", { className: "c1" }, c.author));
-        var bodyTd = el("td", { className: "c2" }); bodyTd.appendChild(el("div", { className: "wtl-ell" }, c.body)); tr.appendChild(bodyTd);
+        var gone = !!c.deleted_at;
+        tr.appendChild(el("td", { className: "c1" }, gone ? "—" : shownAuthor(c)));
+        var bodyTd = el("td", { className: "c2" }); bodyTd.appendChild(el("div", { className: "wtl-ell" + (gone ? " wtl-gone" : "") }, gone ? t("deleted_msg") : c.body)); tr.appendChild(bodyTd);
         tr.appendChild(el("td", { className: "c3" }, String(c.likes)));
         tr.appendChild(el("td", { className: "c4" }, String(reps.length)));
         tr.appendChild(el("td", { className: "c5" }, fmtTime(c.created_at)));
@@ -365,21 +463,27 @@
         tb.appendChild(tr);
         if (state.open[c.id]) {
           var dr = el("tr", { className: "wtl-detail" }); var td = el("td", { colSpan: 6 });
-          td.appendChild(el("div", { className: "wtl-full" }, c.body));
-          var act = el("div", { className: "wtl-actions" }); act.appendChild(likeBtn(c));
-          act.appendChild(el("span", { className: "wtl-meta" }, c.author + " · " + fmtTime(c.created_at) + " · " + (c.lang || "").toUpperCase()));
-          td.appendChild(act);
+          var full = el("div", { className: "wtl-full" + (gone ? " wtl-gone" : "") }, gone ? t("deleted_msg") : c.body);
+          td.appendChild(full);
+          if (!gone) {
+            var act = el("div", { className: "wtl-actions" }); act.appendChild(likeBtn(c));
+            act.appendChild(el("span", { className: "wtl-meta" }, metaText(c)));
+            act.appendChild(ownerControls(c, full));
+            td.appendChild(act);
+          }
           var rl = el("div", { className: "wtl-replies" });
           rl.appendChild(el("div", { className: "wtl-replies-h" }, t("replies") + " " + reps.length));
           reps.forEach(function (r) {
             var ri = el("div", { className: "wtl-reply" });
-            ri.appendChild(el("div", { className: "wtl-reply-meta" }, "↳ " + r.author + " · " + fmtTime(r.created_at)));
-            ri.appendChild(el("div", { className: "wtl-reply-body" }, r.body));
-            var ra = el("div", { className: "wtl-actions" }); ra.appendChild(likeBtn(r)); ri.appendChild(ra);
+            ri.appendChild(el("div", { className: "wtl-reply-meta" }, "↳ " + metaText(r)));
+            var rb = el("div", { className: "wtl-reply-body" }, r.body); ri.appendChild(rb);
+            var ra = el("div", { className: "wtl-actions" }); ra.appendChild(likeBtn(r)); ra.appendChild(ownerControls(r, rb)); ri.appendChild(ra);
             rl.appendChild(ri);
           });
-          if (!state.replyForms[c.id]) state.replyForms[c.id] = buildForm(c.id);
-          rl.appendChild(state.replyForms[c.id]);
+          if (!gone) {
+            if (!state.replyForms[c.id]) state.replyForms[c.id] = buildForm(c.id);
+            rl.appendChild(state.replyForms[c.id]);
+          }
           td.appendChild(rl); dr.appendChild(td); tb.appendChild(dr);
         }
       });
@@ -430,8 +534,11 @@
     ".wtl-like{background:transparent;border:1px solid #1e3348;color:#e8eef5;border-radius:999px;padding:3px 10px;cursor:pointer;font-size:12px}.wtl-like.on{border-color:#d4af37;color:#d4af37}" +
     ".wtl-replies{margin-top:12px;border-left:2px solid #1e3348;padding-left:12px}.wtl-replies-h{color:#8aa0b5;font-size:12px;margin-bottom:6px}" +
     ".wtl-reply{padding:6px 0;border-bottom:1px dashed #1e3348}.wtl-reply-meta{color:#8aa0b5;font-size:12px}.wtl-reply-body{white-space:pre-wrap;word-break:break-word;margin-top:2px}" +
+    ".wtl-owner{margin-left:auto;display:inline-flex;gap:6px;align-items:center}.wtl-pwask{display:inline-flex;gap:6px;align-items:center}" +
+    ".wtl-mini{background:transparent;border:1px solid #1e3348;color:#8aa0b5;border-radius:6px;padding:2px 8px;font-size:12px;cursor:pointer}.wtl-mini:hover{color:#e8eef5;border-color:#7ec8ff}.wtl-mini.on{color:#d4af37;border-color:#d4af37}.wtl-mini.danger{color:#e06c6c;border-color:#e06c6c}" +
+    ".wtl-pwask .wtl-pw{width:110px;padding:3px 6px;font-size:12px}.wtl-gone{color:#8aa0b5;font-style:italic}.wtl-form .wtl-pw{max-width:220px}" +
     ".wtl-form.reply{margin:10px 0 0}.wtl-empty{color:#8aa0b5;text-align:center;padding:18px}" +
-    "@media (max-width:640px){.wtl-grid{min-width:0}.wtl-grid .c0{display:none}.wtl-grid .c3,.wtl-grid .c4{width:34px}.wtl-grid .c1{width:72px}.wtl-grid .c5{width:88px;font-size:11px}.wtl-form-row input{max-width:none}}";
+    "@media (max-width:640px){.wtl-form-row{flex-wrap:wrap}.wtl-form-row input{flex:1 1 45%}.wtl-grid{min-width:0}.wtl-grid .c0{display:none}.wtl-grid .c3,.wtl-grid .c4{width:34px}.wtl-grid .c1{width:72px}.wtl-grid .c5{width:88px;font-size:11px}.wtl-form-row input{max-width:none}}";
   var st = document.createElement("style"); st.textContent = CSS; document.head.appendChild(st);
 
   window.WTL = {
@@ -456,7 +563,7 @@
     ".cmt-cell{max-width:240px}.cmt-cell a{color:#c9d7e6;text-decoration:none;display:flex;gap:6px;align-items:center}.cmt-cell a:hover{color:#7ec8ff}" +
     ".cmt-prev{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}" +
     ".cmt-n{flex:none;font-size:11px;color:#d4af37;border:1px solid rgba(212,175,55,.5);border-radius:999px;padding:0 6px}" +
-    ".cmt-none{color:#8aa0b5;font-size:12px}";
+    ".cmt-none{color:#8aa0b5;font-size:12px;white-space:nowrap}";
   var indexDone = false;
   function initIndex() {
     if (indexDone) return; 
@@ -524,6 +631,7 @@
       onLang(function () { paintNames(); paintComments(); });
       fetchComments(null).then(function (list) {
         (list || []).forEach(function (c) {
+          if (c.deleted_at) return;
           counts[c.slug] = (counts[c.slug] || 0) + 1;
           if (!latest[c.slug]) latest[c.slug] = c; // 최신순으로 받음
         });
