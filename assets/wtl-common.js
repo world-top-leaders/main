@@ -641,7 +641,42 @@
       setLang(lang);
     }).catch(function (e) { console.error("WTL index init", e); });
   }
+  /* ---------- 운영 공지 배너 (data/notice.json) ----------
+   * 2026-10-02 추가: 보수·점검 안내를 모든 페이지 맨 위에 띄운다.
+   * notice.json 예: {"id":"2026-10-02","active":true,"ko":"…","en":"…","link":"https://…","link_ko":"…","link_en":"…"}
+   * active를 false로 바꾸거나 파일을 지우면 배너가 사라진다. 방문자가 닫으면 같은 id는 다시 뜨지 않는다.
+   */
+  function initNotice() {
+    fetch("data/notice.json", { cache: "no-cache" }).then(function (r) { return r.ok ? r.json() : null; }).then(function (n) {
+      if (!n || !n.active) return;
+      try { if (localStorage.getItem("wtl_notice_closed") === String(n.id)) return; } catch (e) {}
+      var st3 = document.createElement("style");
+      st3.textContent = ".wtl-notice{background:#2a2410;border-bottom:1px solid #d4af37;color:#f3e6b3;font:14px/1.5 system-ui,sans-serif;padding:10px 44px 10px 16px;position:relative;text-align:center}" +
+        ".wtl-notice a{color:#7ec8ff;font-weight:600}.wtl-notice button{position:absolute;right:8px;top:50%;transform:translateY(-50%);background:transparent;border:0;color:#f3e6b3;font-size:20px;cursor:pointer;line-height:1;padding:4px 8px}";
+      document.head.appendChild(st3);
+      var bar = el("div", { className: "wtl-notice", role: "status" });
+      var txt = el("span"); bar.appendChild(txt);
+      var close = el("button", { type: "button", "aria-label": "close" }, "×"); bar.appendChild(close);
+      function paint() {
+        txt.innerHTML = "";
+        txt.appendChild(document.createTextNode(lang === "ko" ? (n.ko || n.en) : (n.en || n.ko)));
+        var sameHost = false;
+        try { sameHost = n.link && new URL(n.link).host === location.host; } catch (e) {}
+        if (n.link && !sameHost) {
+          txt.appendChild(document.createTextNode(" "));
+          txt.appendChild(el("a", { href: n.link }, lang === "ko" ? (n.link_ko || n.link) : (n.link_en || n.link)));
+        }
+      }
+      paint(); onLang(paint);
+      close.addEventListener("click", function () {
+        bar.remove();
+        try { localStorage.setItem("wtl_notice_closed", String(n.id)); } catch (e) {}
+      });
+      document.body.insertBefore(bar, document.body.firstChild);
+    }).catch(function () {});
+  }
+
   // leader.html처럼 순위표가 없는 페이지에서는 아무 일도 하지 않는다.
-  if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", initIndex);
-  else initIndex();
+  if (document.readyState === "loading") { document.addEventListener("DOMContentLoaded", initIndex); document.addEventListener("DOMContentLoaded", initNotice); }
+  else { initIndex(); initNotice(); }
 })();
