@@ -12,6 +12,8 @@
   var TABLE = "wtl_comments";
   var COLS = "id,slug,parent_comment_id,author,lang,body,likes,created_at,edited_at,deleted_at";
   var BODY_MIN = 10, BODY_MAX = 1000, AUTHOR_MAX = 20, COOLDOWN_MS = 60000;
+  // 댓글(답글)은 짧은 인사도 되도록 2자부터, 간격도 15초로 따로 센다 (2026-10-08)
+  var REPLY_MIN = 2, REPLY_COOLDOWN_MS = 15000;
 
   /* ---------- 다국어 ---------- */
   // data/locales.json(제미니 관리)이 우선. 아래 EXTRA는 locales.json에 아직 없는 키의 기본값.
@@ -35,6 +37,9 @@
       err_tries: "Too many attempts. Please try again in 10 minutes.", err_gone: "This comment no longer exists.",
       err_pw_len: "Password must be 4–30 characters.",
       err_len: "Comment must be 10–1,000 characters.",
+      err_len_reply: "Reply must be 2–1,000 characters.",
+      err_rate_reply: "Please wait a few seconds before replying again.",
+      placeholder_reply: "Write a reply (2–1,000 characters)",
       err_author: "Name can be up to 20 characters.",
       err_rate: "You can post once per minute. Please try again shortly.",
       err_generic: "Could not save. Please try again.",
@@ -77,6 +82,9 @@
       err_tries: "시도가 너무 많아요. 10분 뒤에 다시 해 주세요.", err_gone: "이미 삭제된 의견이에요.",
       err_pw_len: "비밀번호는 4~30자로 써 주세요.",
       err_len: "의견은 10~1,000자로 써 주세요.",
+      err_len_reply: "댓글은 2~1,000자로 써 주세요.",
+      err_rate_reply: "댓글은 15초에 한 번 쓸 수 있어요. 잠시 뒤 다시 눌러 주세요.",
+      placeholder_reply: "댓글을 쓰세요 (2–1,000자)",
       err_author: "닉네임은 20자까지 쓸 수 있어요.",
       err_rate: "1분에 한 번만 등록할 수 있어요. 잠시 뒤 다시 시도해 주세요.",
       err_generic: "저장하지 못했어요. 다시 시도해 주세요.",
@@ -262,17 +270,19 @@
   function markLiked(id) { try { var s = likedSet(); if (s.indexOf(id) < 0) { s.push(id); localStorage.setItem("wtl_liked", JSON.stringify(s.slice(-500))); } } catch (e) {} }
   function lastPostAt() { try { return +localStorage.getItem("wtl_last_post") || 0; } catch (e) { return 0; } }
   function setLastPost() { try { localStorage.setItem("wtl_last_post", String(Date.now())); } catch (e) {} }
-  function errMsg(e) {
+  function lastReplyAt() { try { return +localStorage.getItem("wtl_last_reply") || 0; } catch (e) { return 0; } }
+  function setLastReply() { try { localStorage.setItem("wtl_last_reply", String(Date.now())); } catch (e) {} }
+  function errMsg(e, isReply) {
     var m = (e && e.message) || "";
-    if (m.indexOf("RATE_LIMIT") >= 0) return t("err_rate");
-    if (m.indexOf("row-level security") >= 0 || m.indexOf("check constraint") >= 0) return t("err_len");
+    if (m.indexOf("RATE_LIMIT") >= 0) return t(isReply ? "err_rate_reply" : "err_rate");
+    if (m.indexOf("row-level security") >= 0 || m.indexOf("check constraint") >= 0) return t(isReply ? "err_len_reply" : "err_len");
     return t("err_generic");
   }
-  function validate(author, body) {
+  function validate(author, body, isReply) {
     if (author.length > AUTHOR_MAX) return t("err_author");
-    if (body.length < BODY_MIN || body.length > BODY_MAX) return t("err_len");
-    var wait = COOLDOWN_MS - (Date.now() - lastPostAt());
-    if (wait > 0) return t("err_rate");
+    if (body.length < (isReply ? REPLY_MIN : BODY_MIN) || body.length > BODY_MAX) return t(isReply ? "err_len_reply" : "err_len");
+    var wait = isReply ? REPLY_COOLDOWN_MS - (Date.now() - lastReplyAt()) : COOLDOWN_MS - (Date.now() - lastPostAt());
+    if (wait > 0) return t(isReply ? "err_rate_reply" : "err_rate");
     return null;
   }
 
@@ -291,7 +301,12 @@
       author.dataset.i18nPh = "placeholder_author"; author.placeholder = t("placeholder_author");
       try { author.value = localStorage.getItem("wtl_author") || ""; } catch (e) {}
       var body = el("textarea", { maxLength: BODY_MAX, rows: parentId ? 2 : 3, className: "wtl-body" });
-      body.dataset.i18nPh = "placeholder_comment"; body.placeholder = t("placeholder_comment");
+      var phKey = parentId ? "placeholder_reply" : "placeholder_comment";
+      body.dataset.i18nPh = phKey; body.placeholder = t(phKey);
+      var minLen = parentId ? REPLY_MIN : BODY_MIN;
+      // 막히면 화면 맨 아래 알림만으로는 놓치기 쉬워서, 입력칸 바로 아래에도 알려 준다
+      var note = el("div", { className: "wtl-form-note", role: "alert" });
+      function say(msg, isErr) { note.textContent = msg || ""; note.className = "wtl-form-note" + (msg ? " show" : "") + (isErr ? " err" : ""); if (msg) toast(msg, isErr); clearTimeout(note._t); if (msg && !isErr) note._t = setTimeout(function () { say(""); }, 4000); }
       var pw = el("input", { type: "password", maxLength: 30, className: "wtl-pw", autocomplete: "new-password" });
       pw.dataset.i18nPh = "placeholder_pw"; pw.placeholder = t("placeholder_pw");
       var counter = el("span", { className: "wtl-counter" }, "0/" + BODY_MAX);
@@ -300,17 +315,18 @@
       body.addEventListener("input", function () {
         var n = body.value.trim().length;
         counter.textContent = n + "/" + BODY_MAX;
-        counter.classList.toggle("bad", n > 0 && n < BODY_MIN);
+        counter.classList.toggle("bad", n > 0 && n < minLen);
+        if (note.className.indexOf("err") >= 0) { note.textContent = ""; note.className = "wtl-form-note"; }
       });
       var row = el("div", { className: "wtl-form-row" });
       row.appendChild(author); row.appendChild(pw); row.appendChild(counter); row.appendChild(btn);
-      f.appendChild(body); f.appendChild(row);
+      f.appendChild(body); f.appendChild(row); f.appendChild(note);
       f.addEventListener("submit", function (ev) {
         ev.preventDefault();
         var a = author.value.trim(), b = body.value.trim();
-        var v = validate(a, b);
+        var v = validate(a, b, !!parentId);
         if (!v && pw.value && (pw.value.length < 4 || pw.value.length > 30)) v = t("err_pw_len");
-        if (v) { toast(v, true); return; }
+        if (v) { say(v, true); return; }
         btn.disabled = true;
         var tok = newToken();
         var rec = { slug: slug, author: a || "참여자", lang: lang, body: b, edit_token: tok };
@@ -319,13 +335,13 @@
         postComment(rec).then(function (rows) {
           if (rows && rows[0] && rows[0].id) saveToken(rows[0].id, tok);
           pw.value = "";
-          setLastPost();
+          if (parentId) setLastReply(); else setLastPost();
           try { localStorage.setItem("wtl_author", a); } catch (e) {}
           body.value = ""; counter.textContent = "0/" + BODY_MAX;
-          toast(t("ok_posted"));
+          say(t("ok_posted"));
           if (parentId) state.open[parentId] = true;
           return reload().then(onDone);
-        }).catch(function (e) { console.error(e); toast(errMsg(e), true); })
+        }).catch(function (e) { console.error(e); say(errMsg(e, !!parentId), true); })
           .then(function () { btn.disabled = false; });
       });
       return f;
@@ -366,7 +382,8 @@
           save.addEventListener("click", function (e) {
             e.stopPropagation();
             var nb = ta.value.trim();
-            if (nb.length < BODY_MIN || nb.length > BODY_MAX) { toast(t("err_len"), true); return; }
+            var isRep = !!c.parent_comment_id;
+            if (nb.length < (isRep ? REPLY_MIN : BODY_MIN) || nb.length > BODY_MAX) { toast(t(isRep ? "err_len_reply" : "err_len"), true); return; }
             save.disabled = true;
             editComment(c.id, secret, nb).then(function (s) {
               if (s === "OK") { toast(t("ok_edited")); return reload(); }
@@ -522,6 +539,7 @@
     ".wtl-form textarea,.wtl-form input{background:#071018;color:#e8eef5;border:1px solid #1e3348;border-radius:8px;padding:9px 10px;font:14px system-ui,sans-serif;width:100%;box-sizing:border-box}" +
     ".wtl-form textarea{resize:vertical;min-height:44px}.wtl-form-row{display:flex;gap:8px;align-items:center}" +
     ".wtl-form-row input{flex:1;max-width:260px}.wtl-counter{color:#8aa0b5;font-size:12px;margin-left:auto;font-variant-numeric:tabular-nums}.wtl-counter.bad{color:#e06c6c}" +
+    ".wtl-form-note{display:none;font-size:13px;margin-top:6px;color:#9be3b0}.wtl-form-note.show{display:block}.wtl-form-note.err{color:#ff9a9a}" +
     ".wtl-submit{background:#d4af37;color:#071018;border:0;border-radius:8px;padding:8px 16px;font-weight:700;cursor:pointer}.wtl-submit:disabled{opacity:.5}" +
     ".wtl-grid-wrap{overflow-x:auto}.wtl-grid{width:100%;border-collapse:collapse;font-size:13px;table-layout:fixed;min-width:560px}" +
     ".wtl-grid th{background:#102033;color:#c9d7e6;text-align:left;padding:8px;border-bottom:2px solid #d4af37;position:static}" +
