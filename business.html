@@ -42,10 +42,56 @@
     <table id="rank-table">
       <thead><tr><th>#</th><th>Prev</th><th>Chg</th><th>Name</th><th>Organization</th><th>Role</th><th>R</th><th>B</th><th>AGI</th><th>W</th><th>Avg</th></tr></thead>
       <tbody>
-        <!-- GROK: 아래 예시 3줄을 지우고 같은 형식으로 50줄. 1~3위는 class="r1" "r2" "r3", 나머지는 class="". Avg는 소수 둘째 자리 -->
-        <tr class="r1"><td>1</td><td>-</td><td>NEW</td><td>Example Leader A</td><td>Company A</td><td>Chair &amp; CEO</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="avg">0.00</td></tr>
-        <tr class="r2"><td>2</td><td>-</td><td>NEW</td><td>Example Leader B</td><td>Company B</td><td>CEO</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="avg">0.00</td></tr>
-        <tr class="r3"><td>3</td><td>-</td><td>NEW</td><td>Example Leader C</td><td>Company C</td><td>Founder</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="avg">0.00</td></tr>
+        <tr class="r1"><td>1</td><td>-</td><td>NEW</td><td>Jensen Huang</td><td>NVIDIA</td><td>Founder, President & CEO</td><td>79</td><td>100</td><td>90</td><td>98</td><td class="avg">91.75</td></tr>
+        <tr class="r2"><td>2</td><td>-</td><td>NEW</td><td>Larry Page</td><td>Alphabet / Google</td><td>Co-founder</td><td>85</td><td>95</td><td>90</td><td>96</td><td class="avg">91.50</td></tr>
+        <tr class="r3"><td>3</td><td>-</td><td>NEW</td><td>Elon Musk</td><td>Tesla / SpaceX / xAI</td><td>Founder & CEO</td><td>70</td><td>99</td><td>96</td><td>99</td><td class="avg">91.00</td></tr>
+        <tr class=""><td>4</td><td>-</td><td>NEW</td><td>Sergey Brin</td><td>Alphabet / Google</td><td>Co-founder</td><td>85</td><td>94</td><td>88</td><td>95</td><td class="avg">90.50</td></tr>
+        <tr class=""><td>5</td><td>-</td><td>NEW</td><td>Mark Zuckerberg</td><td>Meta</td><td>Founder, Chairman & CEO</td><td>66</td><td>97</td><td>87</td><td>93</td><td class="avg">85.75</td></tr>
+        <tr class=""><td>6</td><td>-</td><td>NEW</td><td>Jeff Bezos</td><td>Amazon</td><td>Founder & Executive Chairman</td><td>55</td><td>98</td><td>75</td><td>98</td><td class="avg">81.50</td></tr>
+        <tr class=""><td>7</td><td>-</td><td>NEW</td><td>Larry Ellison</td><td>Oracle</td><td>Founder & CTO</td><td>50</td><td>93</td><td>70</td><td>91</td><td class="avg">76.00</td></tr>
+        <tr class=""><td>8</td><td>-</td><td>NEW</td><td>Michael Dell</td><td>Dell Technologies</td><td>Founder & CEO</td><td>60</td><td>92</td><td>55</td><td>94</td><td class="avg">75.25</td></tr>
+        <tr class=""><td>9</td><td>-</td><td>NEW</td><td>Sundar Pichai</td><td>Alphabet / Google</td><td>CEO</td><td>60</td><td>96</td><td>88</td><td>42</td><td class="avg">71.50</td></tr>
+        <tr class=""><td>10</td><td>-</td><td>NEW</td><td>Bill Gates</td><td>Microsoft / Gates Foundation</td><td>Co-founder; Co-chair</td><td>70</td><td>88</td><td>40</td><td>86</td><td class="avg">71.00</td></tr>
+        <tr class=""><td>11</td><td>-</td><td>NEW</td><td>Satya Nadella</td><td>Microsoft</td><td>Chairman & CEO</td><td>55</td><td>96</td><td>85</td><td>45</td><td class="avg">70.25</td></tr>
+        <tr class=""><td>12</td><td>-</td><td>NEW</td><td>Pony Ma</td><td>Tencent</td><td>Co-founder & Chairman</td><td>55</td><td>92</td><td>60</td><td>70</td><td class="avg">69.25</td></tr>
+        <tr class=""><td>13</td><td>-</td><td>NEW</td><td>Steve Ballmer</td><td>Microsoft</td><td>Former CEO; LA Clippers owner</td><td>40</td><td>90</td><td>50</td><td>90</td><td class="avg">67.50</td></tr>
+        <tr class=""><td>14</td><td>-</td><td>NEW</td><td>Lisa Su</td><td>AMD</td><td>Chair & CEO</td><td>80</td><td>85</td><td>70</td><td>35</td><td class="avg">67.50</td></tr>
+        <tr class=""><td>15</td><td>-</td><td>NEW</td><td>Mukesh Ambani</td><td>Reliance Industries</td><td>Chairman & Managing Director</td><td>40</td><td>94</td><td>45</td><td>82</td><td class="avg">65.25</td></tr>
+        <tr class=""><td>16</td><td>-</td><td>NEW</td><td>Robin Zeng</td><td>CATL</td><td>Founder & Chairman</td><td>70</td><td>88</td><td>40</td><td>58</td><td class="avg">64.00</td></tr>
+        <tr class=""><td>17</td><td>-</td><td>NEW</td><td>Tim Cook</td><td>Apple</td><td>CEO</td><td>45</td><td>99</td><td>70</td><td>40</td><td class="avg">63.50</td></tr>
+        <tr class=""><td>18</td><td>-</td><td>NEW</td><td>Ren Zhengfei</td><td>Huawei</td><td>Founder & CEO</td><td>70</td><td>90</td><td>50</td><td>40</td><td class="avg">62.50</td></tr>
+        <tr class=""><td>19</td><td>-</td><td>NEW</td><td>Andy Jassy</td><td>Amazon</td><td>President & CEO</td><td>50</td><td>94</td><td>75</td><td>30</td><td class="avg">62.25</td></tr>
+        <tr class=""><td>20</td><td>-</td><td>NEW</td><td>Michael Bloomberg</td><td>Bloomberg L.P.</td><td>Founder</td><td>45</td><td>85</td><td>40</td><td>78</td><td class="avg">62.00</td></tr>
+        <tr class=""><td>21</td><td>-</td><td>NEW</td><td>Lei Jun</td><td>Xiaomi</td><td>Founder & CEO</td><td>60</td><td>86</td><td>55</td><td>45</td><td class="avg">61.50</td></tr>
+        <tr class=""><td>22</td><td>-</td><td>NEW</td><td>Changpeng Zhao</td><td>Binance</td><td>Founder</td><td>40</td><td>86</td><td>35</td><td>83</td><td class="avg">61.00</td></tr>
+        <tr class=""><td>23</td><td>-</td><td>NEW</td><td>Wang Chuanfu</td><td>BYD</td><td>Founder & Chairman</td><td>65</td><td>90</td><td>35</td><td>50</td><td class="avg">60.00</td></tr>
+        <tr class=""><td>24</td><td>-</td><td>NEW</td><td>Masayoshi Son</td><td>SoftBank</td><td>Founder & Chairman</td><td>40</td><td>84</td><td>55</td><td>60</td><td class="avg">59.75</td></tr>
+        <tr class=""><td>25</td><td>-</td><td>NEW</td><td>Jack Ma</td><td>Alibaba</td><td>Co-founder</td><td>45</td><td>88</td><td>40</td><td>65</td><td class="avg">59.50</td></tr>
+        <tr class=""><td>26</td><td>-</td><td>NEW</td><td>Warren Buffett</td><td>Berkshire Hathaway</td><td>Chairman & CEO</td><td>30</td><td>96</td><td>20</td><td>89</td><td class="avg">58.75</td></tr>
+        <tr class=""><td>27</td><td>-</td><td>NEW</td><td>Patrick Collison</td><td>Stripe</td><td>Co-founder & CEO</td><td>55</td><td>80</td><td>45</td><td>55</td><td class="avg">58.75</td></tr>
+        <tr class=""><td>28</td><td>-</td><td>NEW</td><td>Arvind Krishna</td><td>IBM</td><td>Chairman & CEO</td><td>65</td><td>80</td><td>70</td><td>18</td><td class="avg">58.25</td></tr>
+        <tr class=""><td>29</td><td>-</td><td>NEW</td><td>Thomas Peterffy</td><td>Interactive Brokers</td><td>Founder & Chairman</td><td>40</td><td>82</td><td>30</td><td>77</td><td class="avg">57.25</td></tr>
+        <tr class=""><td>30</td><td>-</td><td>NEW</td><td>Bernard Arnault</td><td>LVMH</td><td>Chairman & CEO</td><td>25</td><td>95</td><td>15</td><td>88</td><td class="avg">55.75</td></tr>
+        <tr class=""><td>31</td><td>-</td><td>NEW</td><td>Carlos Slim</td><td>América Móvil</td><td>Chairman Emeritus</td><td>30</td><td>88</td><td>15</td><td>84</td><td class="avg">54.25</td></tr>
+        <tr class=""><td>32</td><td>-</td><td>NEW</td><td>Gautam Adani</td><td>Adani Group</td><td>Founder & Chairman</td><td>25</td><td>90</td><td>20</td><td>80</td><td class="avg">53.75</td></tr>
+        <tr class=""><td>33</td><td>-</td><td>NEW</td><td>Amancio Ortega</td><td>Inditex</td><td>Founder</td><td>20</td><td>92</td><td>10</td><td>85</td><td class="avg">51.75</td></tr>
+        <tr class=""><td>34</td><td>-</td><td>NEW</td><td>Brian Chesky</td><td>Airbnb</td><td>Co-founder & CEO</td><td>35</td><td>82</td><td>40</td><td>50</td><td class="avg">51.75</td></tr>
+        <tr class=""><td>35</td><td>-</td><td>NEW</td><td>Brian Armstrong</td><td>Coinbase</td><td>Co-founder & CEO</td><td>40</td><td>78</td><td>35</td><td>48</td><td class="avg">50.25</td></tr>
+        <tr class=""><td>36</td><td>-</td><td>NEW</td><td>Rob Walton</td><td>Walmart</td><td>Former Chairman</td><td>15</td><td>90</td><td>10</td><td>82</td><td class="avg">49.25</td></tr>
+        <tr class=""><td>37</td><td>-</td><td>NEW</td><td>Francoise Bettencourt Meyers</td><td>L'Oréal</td><td>Vice-chair</td><td>20</td><td>88</td><td>10</td><td>79</td><td class="avg">49.25</td></tr>
+        <tr class=""><td>38</td><td>-</td><td>NEW</td><td>Daniel Ek</td><td>Spotify</td><td>Co-founder & CEO</td><td>40</td><td>80</td><td>35</td><td>42</td><td class="avg">49.25</td></tr>
+        <tr class=""><td>39</td><td>-</td><td>NEW</td><td>Safra Catz</td><td>Oracle</td><td>CEO</td><td>40</td><td>84</td><td>50</td><td>22</td><td class="avg">49.00</td></tr>
+        <tr class=""><td>40</td><td>-</td><td>NEW</td><td>Jim Walton</td><td>Walmart / Arvest</td><td>Chairman, Arvest</td><td>15</td><td>88</td><td>10</td><td>81</td><td class="avg">48.50</td></tr>
+        <tr class=""><td>41</td><td>-</td><td>NEW</td><td>Tadashi Yanai</td><td>Fast Retailing</td><td>Founder & Chairman</td><td>25</td><td>86</td><td>15</td><td>68</td><td class="avg">48.50</td></tr>
+        <tr class=""><td>42</td><td>-</td><td>NEW</td><td>Jamie Dimon</td><td>JPMorgan Chase</td><td>Chairman & CEO</td><td>30</td><td>95</td><td>40</td><td>25</td><td class="avg">47.50</td></tr>
+        <tr class=""><td>43</td><td>-</td><td>NEW</td><td>Mary Barra</td><td>General Motors</td><td>Chair & CEO</td><td>40</td><td>85</td><td>45</td><td>15</td><td class="avg">46.25</td></tr>
+        <tr class=""><td>44</td><td>-</td><td>NEW</td><td>Alice Walton</td><td>Walmart</td><td>Heiress; Crystal Bridges</td><td>15</td><td>85</td><td>5</td><td>80</td><td class="avg">46.25</td></tr>
+        <tr class=""><td>45</td><td>-</td><td>NEW</td><td>Julia Koch</td><td>Koch, Inc.</td><td>Co-owner</td><td>15</td><td>84</td><td>10</td><td>76</td><td class="avg">46.25</td></tr>
+        <tr class=""><td>46</td><td>-</td><td>NEW</td><td>Doug McMillon</td><td>Walmart</td><td>President & CEO</td><td>30</td><td>93</td><td>35</td><td>20</td><td class="avg">44.50</td></tr>
+        <tr class=""><td>47</td><td>-</td><td>NEW</td><td>Zhong Shanshan</td><td>Nongfu Spring</td><td>Founder & Chairman</td><td>15</td><td>80</td><td>5</td><td>72</td><td class="avg">43.00</td></tr>
+        <tr class=""><td>48</td><td>-</td><td>NEW</td><td>Lakshmi Mittal</td><td>ArcelorMittal</td><td>Executive Chairman</td><td>25</td><td>84</td><td>10</td><td>52</td><td class="avg">42.75</td></tr>
+        <tr class=""><td>49</td><td>-</td><td>NEW</td><td>Bob Iger</td><td>The Walt Disney Company</td><td>CEO</td><td>25</td><td>86</td><td>30</td><td>28</td><td class="avg">42.25</td></tr>
+        <tr class=""><td>50</td><td>-</td><td>NEW</td><td>Francois-Henri Pinault</td><td>Kering</td><td>Chairman & CEO</td><td>20</td><td>82</td><td>10</td><td>55</td><td class="avg">41.75</td></tr>
       </tbody>
     </table>
     </div><!-- WTL:KEEP -->

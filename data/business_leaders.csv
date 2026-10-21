@@ -1,1 +1,51 @@
 rank,slug,name_en,name_ko,org,role_en,wiki_en,wiki_ko,photo,R,B,AGI,W,avg
+1,jensen-huang,Jensen Huang,젠슨 황,NVIDIA,"Founder, President & CEO",https://en.wikipedia.org/wiki/Jensen_Huang,https://ko.wikipedia.org/wiki/%EC%A0%A0%EC%8A%A8_%ED%99%A9,,79,100,90,98,91.75
+2,larry-page,Larry Page,래리 페이지,Alphabet / Google,Co-founder,https://en.wikipedia.org/wiki/Larry_Page,https://ko.wikipedia.org/wiki/%EB%9E%98%EB%A6%AC_%ED%8E%98%EC%9D%B4%EC%A7%80,,85,95,90,96,91.50
+3,elon-musk,Elon Musk,일론 머스크,Tesla / SpaceX / xAI,Founder & CEO,https://en.wikipedia.org/wiki/Elon_Musk,https://ko.wikipedia.org/wiki/%EC%9D%BC%EB%A1%A0_%EB%A8%B8%EC%8A%A4%ED%81%AC,,70,99,96,99,91.00
+4,sergey-brin,Sergey Brin,세르게이 브린,Alphabet / Google,Co-founder,https://en.wikipedia.org/wiki/Sergey_Brin,https://ko.wikipedia.org/wiki/%EC%84%B8%EB%A5%B4%EA%B2%8C%EC%9D%B4_%EB%B8%8C%EB%A6%B0,,85,94,88,95,90.50
+5,mark-zuckerberg,Mark Zuckerberg,마크 저커버그,Meta,"Founder, Chairman & CEO",https://en.wikipedia.org/wiki/Mark_Zuckerberg,https://ko.wikipedia.org/wiki/%EB%A7%88%ED%81%AC_%EC%A0%80%EC%BB%A4%EB%B2%84%EA%B7%B8,,66,97,87,93,85.75
+6,jeff-bezos,Jeff Bezos,제프 베이조스,Amazon,Founder & Executive Chairman,https://en.wikipedia.org/wiki/Jeff_Bezos,https://ko.wikipedia.org/wiki/%EC%A0%9C%ED%94%84_%EB%B2%A0%EC%9D%B4%EC%A1%B0%EC%8A%A4,,55,98,75,98,81.50
+7,larry-ellison,Larry Ellison,래리 엘리슨,Oracle,Founder & CTO,https://en.wikipedia.org/wiki/Larry_Ellison,https://ko.wikipedia.org/wiki/%EB%9E%98%EB%A6%AC_%EC%97%98%EB%A6%AC%EC%8A%A8,,50,93,70,91,76.00
+8,michael-dell,Michael Dell,마이클 델,Dell Technologies,Founder & CEO,https://en.wikipedia.org/wiki/Michael_Dell,https://ko.wikipedia.org/wiki/%EB%A7%88%EC%9D%B4%ED%81%B4_%EB%8D%B8,,60,92,55,94,75.25
+9,sundar-pichai,Sundar Pichai,순다르 피차이,Alphabet / Google,CEO,https://en.wikipedia.org/wiki/Sundar_Pichai,https://ko.wikipedia.org/wiki/%EC%88%9C%EB%8B%A4%EB%A5%B4_%ED%94%BC%EC%B0%A8%EC%9D%B4,,60,96,88,42,71.50
+10,bill-gates,Bill Gates,빌 게이츠,Microsoft / Gates Foundation,Co-founder; Co-chair,https://en.wikipedia.org/wiki/Bill_Gates,https://ko.wikipedia.org/wiki/%EB%B9%8C_%EA%B2%8C%EC%9D%B4%EC%B8%A0,,70,88,40,86,71.00
+11,satya-nadella,Satya Nadella,사티아 나델라,Microsoft,Chairman & CEO,https://en.wikipedia.org/wiki/Satya_Nadella,https://ko.wikipedia.org/wiki/%EC%82%AC%ED%8B%B0%EC%95%84_%EB%82%98%EB%8D%B8%EB%9D%BC,,55,96,85,45,70.25
+12,pony-ma,Pony Ma,마화텅,Tencent,Co-founder & Chairman,https://en.wikipedia.org/wiki/Ma_Huateng,https://ko.wikipedia.org/wiki/%EB%A7%88%ED%99%94%ED%85%90,,55,92,60,70,69.25
+13,steve-ballmer,Steve Ballmer,스티브 발머,Microsoft,Former CEO; LA Clippers owner,https://en.wikipedia.org/wiki/Steve_Ballmer,https://ko.wikipedia.org/wiki/%EC%8A%A4%ED%8B%B0%EB%B8%8C_%EB%B0%9C%EB%A8%B8,,40,90,50,90,67.50
+14,lisa-su,Lisa Su,리사 수,AMD,Chair & CEO,https://en.wikipedia.org/wiki/Lisa_Su,https://ko.wikipedia.org/wiki/%EB%A6%AC%EC%82%AC_%EC%88%98,,80,85,70,35,67.50
+15,mukesh-ambani,Mukesh Ambani,무케시 암바니,Reliance Industries,Chairman & Managing Director,https://en.wikipedia.org/wiki/Mukesh_Ambani,https://ko.wikipedia.org/wiki/%EB%AC%B4%EC%BC%80%EC%8B%9C_%EC%95%94%EB%B0%94%EB%8B%88,,40,94,45,82,65.25
+16,robin-zeng,Robin Zeng,쩡위췬,CATL,Founder & Chairman,https://en.wikipedia.org/wiki/Zeng_Yuqun,,,70,88,40,58,64.00
+17,tim-cook,Tim Cook,팀 쿡,Apple,CEO,https://en.wikipedia.org/wiki/Tim_Cook,https://ko.wikipedia.org/wiki/%ED%8C%80_%EC%BF%A1,,45,99,70,40,63.50
+18,ren-zhengfei,Ren Zhengfei,런정페이,Huawei,Founder & CEO,https://en.wikipedia.org/wiki/Ren_Zhengfei,https://ko.wikipedia.org/wiki/%EB%9F%B0%EC%A0%95%ED%8E%98%EC%9D%B4,,70,90,50,40,62.50
+19,andy-jassy,Andy Jassy,앤디 재시,Amazon,President & CEO,https://en.wikipedia.org/wiki/Andy_Jassy,https://ko.wikipedia.org/wiki/%EC%95%A4%EB%94%94_%EC%9E%AC%EC%8B%9C,,50,94,75,30,62.25
+20,michael-bloomberg,Michael Bloomberg,마이클 블룸버그,Bloomberg L.P.,Founder,https://en.wikipedia.org/wiki/Michael_Bloomberg,https://ko.wikipedia.org/wiki/%EB%A7%88%EC%9D%B4%ED%81%B4_%EB%B8%94%EB%A3%B8%EB%B2%84%EA%B7%B8,,45,85,40,78,62.00
+21,lei-jun,Lei Jun,레이쥔,Xiaomi,Founder & CEO,https://en.wikipedia.org/wiki/Lei_Jun,https://ko.wikipedia.org/wiki/%EB%A0%88%EC%9D%B4%EC%A5%94,,60,86,55,45,61.50
+22,changpeng-zhao,Changpeng Zhao,창펑 자오,Binance,Founder,https://en.wikipedia.org/wiki/Changpeng_Zhao,https://ko.wikipedia.org/wiki/%EC%B0%BD%ED%8E%91_%EC%9E%90%EC%98%A4,,40,86,35,83,61.00
+23,wang-chuanfu,Wang Chuanfu,왕촨푸,BYD,Founder & Chairman,https://en.wikipedia.org/wiki/Wang_Chuanfu,https://ko.wikipedia.org/wiki/%EC%99%95%EC%B6%98%ED%91%B8,,65,90,35,50,60.00
+24,masayoshi-son,Masayoshi Son,손정의,SoftBank,Founder & Chairman,https://en.wikipedia.org/wiki/Masayoshi_Son,https://ko.wikipedia.org/wiki/%EC%86%90%EC%A0%95%EC%9D%98,,40,84,55,60,59.75
+25,jack-ma,Jack Ma,마윈,Alibaba,Co-founder,https://en.wikipedia.org/wiki/Jack_Ma,https://ko.wikipedia.org/wiki/%EB%A7%88%EC%9C%A4,,45,88,40,65,59.50
+26,warren-buffett,Warren Buffett,워런 버핏,Berkshire Hathaway,Chairman & CEO,https://en.wikipedia.org/wiki/Warren_Buffett,https://ko.wikipedia.org/wiki/%EC%9B%8C%EB%9F%B0_%EB%B2%84%ED%95%8F,,30,96,20,89,58.75
+27,patrick-collison,Patrick Collison,패트릭 콜리슨,Stripe,Co-founder & CEO,https://en.wikipedia.org/wiki/Patrick_Collison,,,55,80,45,55,58.75
+28,arvind-krishna,Arvind Krishna,아르빈드 크리슈나,IBM,Chairman & CEO,https://en.wikipedia.org/wiki/Arvind_Krishna,,,65,80,70,18,58.25
+29,thomas-peterffy,Thomas Peterffy,토머스 피터피,Interactive Brokers,Founder & Chairman,https://en.wikipedia.org/wiki/Thomas_Peterffy,,,40,82,30,77,57.25
+30,bernard-arnault,Bernard Arnault,베르나르 아르노,LVMH,Chairman & CEO,https://en.wikipedia.org/wiki/Bernard_Arnault,https://ko.wikipedia.org/wiki/%EB%B2%A0%EB%A5%B4%EB%82%98%EB%A5%B4_%EC%95%84%EB%A5%B4%EB%85%B8,,25,95,15,88,55.75
+31,carlos-slim,Carlos Slim,카를로스 슬림,América Móvil,Chairman Emeritus,https://en.wikipedia.org/wiki/Carlos_Slim,https://ko.wikipedia.org/wiki/%EC%B9%B4%EB%A5%BC%EB%A1%9C%EC%8A%A4_%EC%8A%AC%EB%A6%BC,,30,88,15,84,54.25
+32,gautam-adani,Gautam Adani,가우탐 아다니,Adani Group,Founder & Chairman,https://en.wikipedia.org/wiki/Gautam_Adani,https://ko.wikipedia.org/wiki/%EA%B0%80%EC%9A%B0%ED%83%90_%EC%95%84%EB%8B%A4%EB%8B%88,,25,90,20,80,53.75
+33,amancio-ortega,Amancio Ortega,아만시오 오르테가,Inditex,Founder,https://en.wikipedia.org/wiki/Amancio_Ortega,https://ko.wikipedia.org/wiki/%EC%95%84%EB%A7%8C%EC%8B%9C%EC%98%A4_%EC%98%A4%EB%A5%B4%ED%85%8C%EA%B0%80,,20,92,10,85,51.75
+34,brian-chesky,Brian Chesky,브라이언 체스키,Airbnb,Co-founder & CEO,https://en.wikipedia.org/wiki/Brian_Chesky,,,35,82,40,50,51.75
+35,brian-armstrong,Brian Armstrong,브라이언 암스트롱,Coinbase,Co-founder & CEO,https://en.wikipedia.org/wiki/Brian_Armstrong_(businessman),,,40,78,35,48,50.25
+36,rob-walton,Rob Walton,롭 월튼,Walmart,Former Chairman,https://en.wikipedia.org/wiki/S._Robson_Walton,https://ko.wikipedia.org/wiki/%EB%A1%AD_%EC%9B%94%ED%8A%BC,,15,90,10,82,49.25
+37,francoise-bettencourt-meyers,Francoise Bettencourt Meyers,프랑수아즈 베탕쿠르 메이에르,L'Oréal,Vice-chair,https://en.wikipedia.org/wiki/Fran%C3%A7oise_Bettencourt_Meyers,,,20,88,10,79,49.25
+38,daniel-ek,Daniel Ek,다니엘 에크,Spotify,Co-founder & CEO,https://en.wikipedia.org/wiki/Daniel_Ek,,,40,80,35,42,49.25
+39,safra-catz,Safra Catz,사프라 캐츠,Oracle,CEO,https://en.wikipedia.org/wiki/Safra_Catz,,,40,84,50,22,49.00
+40,jim-walton,Jim Walton,짐 월튼,Walmart / Arvest,"Chairman, Arvest",https://en.wikipedia.org/wiki/Jim_Walton,,,15,88,10,81,48.50
+41,tadashi-yanai,Tadashi Yanai,야나이 다다시,Fast Retailing,Founder & Chairman,https://en.wikipedia.org/wiki/Tadashi_Yanai,https://ko.wikipedia.org/wiki/%EC%95%BC%EB%82%98%EC%9D%B4_%EB%8B%A4%EB%8B%A4%EC%8B%9C,,25,86,15,68,48.50
+42,jamie-dimon,Jamie Dimon,제이미 다이먼,JPMorgan Chase,Chairman & CEO,https://en.wikipedia.org/wiki/Jamie_Dimon,https://ko.wikipedia.org/wiki/%EC%A0%9C%EC%9D%B4%EB%AF%B8_%EB%8B%A4%EC%9D%B4%EB%A8%BC,,30,95,40,25,47.50
+43,mary-barra,Mary Barra,메리 바라,General Motors,Chair & CEO,https://en.wikipedia.org/wiki/Mary_Barra,https://ko.wikipedia.org/wiki/%EB%A9%94%EB%A6%AC_%EB%B0%94%EB%9D%BC,,40,85,45,15,46.25
+44,alice-walton,Alice Walton,앨리스 월튼,Walmart,Heiress; Crystal Bridges,https://en.wikipedia.org/wiki/Alice_Walton,,,15,85,5,80,46.25
+45,julia-koch,Julia Koch,줄리아 코크,"Koch, Inc.",Co-owner,https://en.wikipedia.org/wiki/Julia_Koch,,,15,84,10,76,46.25
+46,doug-mcmillon,Doug McMillon,더그 맥밀런,Walmart,President & CEO,https://en.wikipedia.org/wiki/Doug_McMillon,,,30,93,35,20,44.50
+47,zhong-shanshan,Zhong Shanshan,중산산,Nongfu Spring,Founder & Chairman,https://en.wikipedia.org/wiki/Zhong_Shanshan,,,15,80,5,72,43.00
+48,lakshmi-mittal,Lakshmi Mittal,락슈미 미탈,ArcelorMittal,Executive Chairman,https://en.wikipedia.org/wiki/Lakshmi_Mittal,https://ko.wikipedia.org/wiki/%EB%9D%BD%EC%8A%88%EB%AF%B8_%EB%AF%B8%ED%83%88,,25,84,10,52,42.75
+49,bob-iger,Bob Iger,밥 아이거,The Walt Disney Company,CEO,https://en.wikipedia.org/wiki/Bob_Iger,https://ko.wikipedia.org/wiki/%EB%B0%95_%EC%95%84%EC%9D%B4%EA%B1%B0,,25,86,30,28,42.25
+50,francois-henri-pinault,Francois-Henri Pinault,프랑수아-앙리 피노,Kering,Chairman & CEO,https://en.wikipedia.org/wiki/Fran%C3%A7ois-Henri_Pinault,,,20,82,10,55,41.75
