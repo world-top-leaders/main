@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>World Top Leaders — Board</title>
+  <!-- 게시판 · 작성: 오호(클로드) 2026-10-21 · 매일 갱신되는 index.html과 따로 있어 늘 열린다 -->
+  <style>
+    :root { --bg:#071018; --card:#0e1a28; --line:#1e3348; --gold:#d4af37; --text:#e8eef5; --muted:#8aa0b5; --link:#7ec8ff; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, sans-serif; background: radial-gradient(1200px 600px at 10% -10%, #123 0%, var(--bg) 50%); color: var(--text); min-height:100vh; }
+    a { color: var(--link); }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 16px 24px 64px; }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:12px; padding: 8px 0 16px; }
+    .back { color: var(--muted); text-decoration:none; font-size:14px; }
+    .back:hover { color: var(--text); }
+    h1 { font-family: Georgia, "Times New Roman", serif; font-weight:600; letter-spacing:.04em; margin: 8px 0 4px; font-size: clamp(24px, 4vw, 36px); color: var(--gold); }
+    .sub { color: var(--muted); font-size: 15px; margin: 0 0 20px; }
+    footer { text-align:center; padding: 32px 16px; color: var(--muted); font-size:12px; }
+    @media (max-width: 720px) { .wrap { padding: 12px 16px 48px; } }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="topbar">
+      <a class="back" href="index.html" data-i18n="back_to_list">← Top 50</a>
+      <div id="langbar"></div>
+    </div>
+    <h1 data-i18n="board_title">World Top Leaders Board</h1>
+    <p class="sub" data-i18n="board_sub">Share your thoughts on AI leaders and this site.</p>
+    <div id="board-box"></div>
+  </div>
+  <footer>World Top Leaders · <span data-i18n="note_disclaimer">Public-source composite. Not investment advice.</span></footer>
+
+  <script src="assets/wtl-common.js"></script>
+  <script>
+  (function () {
+    var W = window.WTL;
+    W.mountLangSwitch(document.getElementById("langbar"));
+    // 첫 화면의 '사이트 전체 의견'(slug ALL)과 같은 글을 보여 준다
+    W.loadLocales("").then(function () {
+      W.onLang(function () { document.title = W.t("board_title"); });
+      W.mountCommentSheet(document.getElementById("board-box"), "ALL", {
+        id: "comments",
+        title: function () { return W.t("comments_all_title"); }
+      });
+      W.setLang(W.lang());
+    });
+  })();
+  </script>
+</body>
+</html>

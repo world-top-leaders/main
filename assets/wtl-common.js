@@ -25,6 +25,7 @@
       badge_en: "EN",
       link_detail: "Profile",
       comments_all_title: "Comments on the whole site",
+      nav_board: "💬 Board", board_title: "World Top Leaders Board", board_sub: "Share your thoughts on AI leaders and this site. Please be kind.",
       comments_leader_title: "Comments",
       comments_count: "{n} comments",
       write_comment: "Write",
@@ -70,6 +71,7 @@
       badge_en: "EN",
       link_detail: "상세",
       comments_all_title: "사이트 전체 의견",
+      nav_board: "💬 게시판", board_title: "세계 톱 리더 게시판", board_sub: "AI 지도자와 이 사이트에 대한 생각을 자유롭게 나눠 주세요. 서로 존중하는 말로 부탁드립니다.",
       comments_leader_title: "의견",
       comments_count: "의견 {n}개",
       write_comment: "의견 쓰기",
@@ -581,7 +583,12 @@
     ".cmt-cell{max-width:240px}.cmt-cell a{color:#c9d7e6;text-decoration:none;display:flex;gap:6px;align-items:center}.cmt-cell a:hover{color:#7ec8ff}" +
     ".cmt-prev{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1;min-width:0}" +
     ".cmt-n{flex:none;font-size:11px;color:#d4af37;border:1px solid rgba(212,175,55,.5);border-radius:999px;padding:0 6px}" +
-    ".cmt-none{color:#8aa0b5;font-size:12px;white-space:nowrap}";
+    ".wtl-topbar{gap:12px;align-items:center}.wtl-board-link{color:#d4af37;border:1px solid rgba(212,175,55,.5);border-radius:999px;padding:4px 12px;text-decoration:none;font-size:14px}.wtl-board-link:hover{background:rgba(212,175,55,.12)}" +
+    ".cmt-none{color:#8aa0b5;font-size:12px;white-space:nowrap}" +
+    // 밝은 바탕의 순위표(10-11 이후 매일 판)에서도 이름·의견 글씨가 보이도록
+    ".wtl-light .wtl-rank .wtl-wiki{color:#1F4E79}.wtl-light .wtl-rank .wtl-wiki:hover{color:#2E75B6}" +
+    ".wtl-light .wtl-rank .wtl-detail-link{color:#9a7b16}.wtl-light .cmt-cell a{color:#1F4E79}.wtl-light .cmt-none{color:#5a6b7d}" +
+    ".wtl-light .wtl-lang{border-color:#c5d3e0}.wtl-light .wtl-lang button{color:#5a6b7d}.wtl-light .wtl-lang button.on{color:#071018}";
   var indexDone = false;
   function initIndex() {
     if (indexDone) return; 
@@ -590,6 +597,8 @@
     indexDone = true;
     var st2 = document.createElement("style"); st2.textContent = INDEX_CSS; document.head.appendChild(st2);
     table.classList.add("wtl-rank");
+    var bgm = getComputedStyle(document.body).backgroundColor.match(/\d+/g);
+    if (bgm && (+bgm[0] + +bgm[1] + +bgm[2]) / 3 > 160 && (bgm.length < 4 || +bgm[3] > 0)) document.body.classList.add("wtl-light");
     if (table.parentNode && !/table-wrap/.test(table.parentNode.className || "")) {
       var wrap = el("div", { className: "wtl-table-wrap" }); table.parentNode.insertBefore(wrap, table); wrap.appendChild(table);
     } else if (table.parentNode) table.parentNode.classList.add("wtl-table-wrap");
@@ -611,8 +620,16 @@
         var thc = el("th", null, "Comments"); thc.setAttribute("data-i18n", "th_comments"); headRow.appendChild(thc);
       }
     }
+    // 2026-10-21 추가: 순위표 위에 게시판(board.html) 바로가기
+    if (!langbar.querySelector(".wtl-board-link")) {
+      var bl = el("a", { href: "board.html", className: "wtl-board-link" }, t("nav_board"));
+      bl.setAttribute("data-i18n", "nav_board");
+      langbar.appendChild(bl);
+    }
     mountLangSwitch(langbar);
-    var norm = function (s) { return (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, ""); };
+    // 악센트 기호(U+0300~U+036F) 제거용. 파일 복사 과정에서 글자가 바뀌지 않도록 숫자로 만든다
+    var MARKS = new RegExp("[" + String.fromCharCode(0x300) + "-" + String.fromCharCode(0x36f) + "]", "g");
+    var norm = function (s) { return (s || "").toLowerCase().normalize("NFD").replace(MARKS, "").replace(/[^a-z0-9]/g, ""); };
     Promise.all([loadLocales(""), loadLeaders("")]).then(function (res) {
       var byName = {};
       res[1].forEach(function (L) { byName[norm(L.name_en)] = L; });

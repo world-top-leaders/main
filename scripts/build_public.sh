@@ -1,11 +1,19 @@
 #!/usr/bin/env bash
-# 공개 사이트에 내보낼 파일 허용 목록 + 검색 노출 준비 (감수: 클로드 2026-10-01, 10-02 보강)
+# 공개 사이트에 내보낼 파일 허용 목록 + 검색 노출 준비 (감수: 클로드 2026-10-01, 10-02 보강, 10-21 게시판)
 # 새 공개 파일이 생기면 여기에 한 줄 추가한다.
 set -euo pipefail
 SITE="https://worldtopleaders.org"
 rm -rf public
 mkdir -p public/assets public/data public/tools
 cp index.html leader.html public/
+if [ -f board.html ]; then cp board.html public/; fi
+
+# --- 게시판·다국어가 늘 켜지도록 (2026-10-21) ---
+# 매일 새로 만드는 index.html에서 wtl-common.js 줄이 빠지는 일이 잦아(10-11~10-21), 빠졌으면 여기서 넣는다.
+if ! grep -q 'assets/wtl-common.js' public/index.html; then
+  sed -i 's|</body>|<script src="assets/wtl-common.js"></script>\n</body>|' public/index.html
+  echo "index.html에 wtl-common.js 줄을 자동으로 넣었습니다."
+fi
 cp assets/wtl-common.js public/assets/
 if [ -d assets/leaders ]; then cp -r assets/leaders public/assets/; fi
 cp data/leaders.csv data/locales.json public/data/
@@ -25,17 +33,6 @@ if ! grep -q 'name="description"' public/leader.html; then
   sed -i "0,/<meta charset[^>]*>/s||&\n  $LMETA|" public/leader.html
 fi
 
-# --- 게시판·언어전환 스크립트 (감수: 클로드 2026-10-21) ---
-# 매일 새로 만든 index.html에 wtl-common.js 줄이 빠지면 게시판이 안 보인다. 없으면 자동으로 넣는다.
-if ! grep -q 'wtl-common.js' public/index.html; then
-  if grep -q '</body>' public/index.html; then
-    sed -i '0,/<\/body>/s||<script src="assets/wtl-common.js"></script>\n</body>|' public/index.html
-  else
-    echo '<script src="assets/wtl-common.js"></script>' >> public/index.html
-  fi
-  echo "index.html에 wtl-common.js 줄 자동 추가"
-fi
-
 # robots.txt
 cat > public/robots.txt <<ROBOTS
 User-agent: *
@@ -50,6 +47,7 @@ TODAY=$(date -u +%Y-%m-%d)
   echo '<?xml version="1.0" encoding="UTF-8"?>'
   echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
   echo "  <url><loc>$SITE/</loc><lastmod>$TODAY</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>"
+  echo "  <url><loc>$SITE/board</loc><lastmod>$TODAY</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>"
   tail -n +2 data/leaders.csv | awk -F',' 'NF>1 && $2 ~ /^[a-z0-9-]+$/ {print $2}' | while read -r slug; do
     echo "  <url><loc>$SITE/leader?slug=$slug</loc><lastmod>$TODAY</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>"
   done
