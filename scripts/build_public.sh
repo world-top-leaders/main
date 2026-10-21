@@ -25,6 +25,17 @@ if ! grep -q 'name="description"' public/leader.html; then
   sed -i "0,/<meta charset[^>]*>/s||&\n  $LMETA|" public/leader.html
 fi
 
+# --- 게시판·언어전환 스크립트 (감수: 클로드 2026-10-21) ---
+# 매일 새로 만든 index.html에 wtl-common.js 줄이 빠지면 게시판이 안 보인다. 없으면 자동으로 넣는다.
+if ! grep -q 'wtl-common.js' public/index.html; then
+  if grep -q '</body>' public/index.html; then
+    sed -i '0,/<\/body>/s||<script src="assets/wtl-common.js"></script>\n</body>|' public/index.html
+  else
+    echo '<script src="assets/wtl-common.js"></script>' >> public/index.html
+  fi
+  echo "index.html에 wtl-common.js 줄 자동 추가"
+fi
+
 # robots.txt
 cat > public/robots.txt <<ROBOTS
 User-agent: *
