@@ -48,7 +48,7 @@
       err_nick_taken: "That nickname is already taken.", err_login: "Nickname or password is incorrect.", err_auth_rate: "Too many sign-ups from this connection. Please try later.",
       err_auth_down: "Sign-up is not available yet. Please try again later.",
       ok_signup: "Welcome! You are signed up and logged in.", ok_login: "Logged in.", ok_logout: "Logged out.",
-      member_post_note: "Posting as {nick}. Log in on any device to edit or delete.", login_email_note: "Log in with your email and password.",
+      member_post_note: "Posting as {nick}. Log in on any device to edit or delete.", login_email_note: "Log in with your email and password.", show_pw: "Show password", nick_full: "Nicknames can be up to 20 characters. Put your email in the Email box when signing up.", nick_at: "The nickname is shown to everyone. Please don't use your email address as a nickname.",
       btn_admin_del: "🗑 Admin delete", admin_del_confirm: "Delete this post as admin?", btn_check_code: "Check code", code_ph: "6-char code",
       code_match: "✓ The secret code matches.", code_nomatch: "✗ The secret code does not match.", deleted_admin: "This post was removed by the admin.",
       nav_ai: "🤖 AI Leaders", nav_biz: "🏢 Business Leaders", back_to_biz: "← Business Top 50",
@@ -121,7 +121,7 @@
       err_nick_taken: "이미 쓰고 있는 닉네임이에요.", err_login: "닉네임이나 비밀번호가 맞지 않아요.", err_auth_rate: "이 연결에서 가입이 너무 많았어요. 나중에 다시 해 주세요.",
       err_auth_down: "회원 기능을 준비 중이에요. 잠시 뒤 다시 해 주세요.",
       ok_signup: "가입되었어요. 환영합니다! 바로 로그인되었어요.", ok_login: "로그인했어요.", ok_logout: "로그아웃했어요.",
-      member_post_note: "{nick} 님 이름으로 올라가요. 어느 기기에서든 로그인하면 수정·삭제할 수 있어요.", login_email_note: "가입한 이메일과 비밀번호로 로그인해요.",
+      member_post_note: "{nick} 님 이름으로 올라가요. 어느 기기에서든 로그인하면 수정·삭제할 수 있어요.", login_email_note: "가입한 이메일과 비밀번호로 로그인해요.", show_pw: "비밀번호 보기", nick_full: "닉네임은 20자까지 들어가요. 이메일은 회원가입의 '이메일' 칸에 넣어 주세요.", nick_at: "닉네임은 모두에게 보여요. 이메일 주소는 닉네임으로 쓰지 않는 게 좋아요.",
       btn_admin_del: "🗑 관리자 삭제", admin_del_confirm: "관리자 권한으로 이 글을 삭제할까요?", btn_check_code: "코드 확인", code_ph: "비밀코드 6자",
       code_match: "✓ 비밀코드가 맞아요.", code_nomatch: "✗ 비밀코드가 맞지 않아요.", deleted_admin: "관리자가 삭제한 글입니다.",
       nav_ai: "🤖 AI 리더", nav_biz: "🏢 비즈니스 리더", back_to_biz: "← 비즈니스 Top 50",
@@ -591,6 +591,24 @@
     });
   }
   function field(type, ph, ac) { return el("input", { type: type, placeholder: t(ph), autocomplete: ac || "off", maxLength: type === "email" ? 120 : 72 }); }
+  // 2026-10-21: "비밀번호 보기" 선택 (체크하면 입력한 비밀번호가 글자로 보인다)
+  function showPwToggle(inputs) {
+    var lab = el("label", { className: "wtl-showpw" });
+    var cb = el("input", { type: "checkbox" });
+    cb.addEventListener("change", function () { inputs.forEach(function (i) { i.type = cb.checked ? "text" : "password"; }); });
+    lab.appendChild(cb); lab.appendChild(el("span", null, t("show_pw")));
+    return lab;
+  }
+  // 2026-10-21: 닉네임 칸이 20자에서 멈추면(이메일을 넣다 잘린 경우 등) 바로 알려 준다
+  function nickWatch(input, say) {
+    var last = "";
+    input.addEventListener("input", function () {
+      var v = input.value, full = v.length >= input.maxLength;
+      var k = full ? "nick_full" : v.indexOf("@") >= 0 ? "nick_at" : "";
+      if (k && k !== last) say(t(k));
+      last = k;
+    });
+  }
   function formNote() { var n = el("div", { className: "wtl-form-note", role: "alert" }); n.say = function (m, ok) { n.textContent = m || ""; n.className = "wtl-form-note" + (m ? " show" : "") + (ok ? "" : " err"); }; return n; }
   function openAuth(mode) {
     openModal(function (box, close) {
@@ -606,10 +624,11 @@
         var agree = el("input", { type: "checkbox" });
         if (forgot) { f.appendChild(el("div", { className: "wtl-pw-hint" }, t("forgot_note"))); f.appendChild(email); }
         else if (signup) {
-          f.appendChild(email); f.appendChild(nick); f.appendChild(pw); f.appendChild(pw2);
+          f.appendChild(email); f.appendChild(nick); f.appendChild(pw); f.appendChild(pw2); f.appendChild(showPwToggle([pw, pw2]));
           var lab = el("label", { className: "wtl-consent" }); lab.appendChild(agree); lab.appendChild(el("span", null, t("consent"))); f.appendChild(lab);
-        } else { f.appendChild(el("div", { className: "wtl-pw-hint" }, t("login_email_note"))); f.appendChild(email); f.appendChild(pw); }
+        } else { f.appendChild(el("div", { className: "wtl-pw-hint" }, t("login_email_note"))); f.appendChild(email); f.appendChild(pw); f.appendChild(showPwToggle([pw])); }
         var note = formNote(); f.appendChild(note);
+        nickWatch(nick, function (m) { note.say(m, true); });
         var row = el("div", { className: "wtl-modal-row" });
         var links = el("span", { className: "wtl-links" });
         function link(key, to) { var b = el("button", { type: "button", className: "wtl-linkbtn" }, t(key)); b.addEventListener("click", function () { mode = to; paint(); }); links.appendChild(b); }
@@ -668,7 +687,7 @@
       var note = formNote();
       var go = el("button", { type: "submit", className: "wtl-submit" }, t("btn_save"));
       var row = el("div", { className: "wtl-modal-row" }); row.appendChild(go);
-      f.appendChild(pw); f.appendChild(pw2); f.appendChild(note); f.appendChild(row); box.appendChild(f);
+      f.appendChild(pw); f.appendChild(pw2); f.appendChild(showPwToggle([pw, pw2])); f.appendChild(note); f.appendChild(row); box.appendChild(f);
       f.addEventListener("submit", function (ev) {
         ev.preventDefault();
         if (pw.value.length < 6) return note.say(t("err_pw6"));
@@ -765,17 +784,19 @@
         if (note.className.indexOf("err") >= 0) { note.textContent = ""; note.className = "wtl-form-note"; }
       });
       var row = el("div", { className: "wtl-form-row" });
-      row.appendChild(author); row.appendChild(pw); row.appendChild(counter); row.appendChild(btn);
+      var pwShow = showPwToggle([pw]);
+      row.appendChild(author); row.appendChild(pw); row.appendChild(pwShow); row.appendChild(counter); row.appendChild(btn);
       f.appendChild(body); f.appendChild(row); f.appendChild(note);
       // 회원으로 로그인했으면 닉네임·비밀번호 칸 대신 안내 한 줄
       var memNote = el("div", { className: "wtl-pw-hint wtl-mem-note" });
       f.insertBefore(memNote, note);
       function syncMember() {
-        author.style.display = pw.style.display = member ? "none" : "";
+        author.style.display = pw.style.display = pwShow.style.display = member ? "none" : "";
         memNote.style.display = member ? "" : "none";
         memNote.textContent = member ? "👤 " + t("member_post_note", { nick: member.nickname }) : "";
       }
       syncMember(); onMember(syncMember); onLang(syncMember);
+      nickWatch(author, function (m) { say(m, false); });
       // 2026-10-21: 본 글 쓰기 칸 아래 안내 두 줄 (아주 문구)
       if (!parentId) {
         ["board_note1", "board_note2"].forEach(function (k) { var d = el("div", { className: "wtl-pw-hint" }, t(k)); d.dataset.i18n = k; f.appendChild(d); });
@@ -1072,6 +1093,7 @@
     ".wtl-modal-row{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:12px;flex-wrap:wrap}" +
     ".wtl-code-msg{line-height:1.7;margin:0}.wtl-code{display:inline-block;margin:0 4px;padding:1px 8px;border-radius:6px;background:#071018;border:1px solid #d4af37;color:#d4af37;font:700 17px ui-monospace,Consolas,monospace;letter-spacing:.08em}" +
     ".wtl-linkbtn{background:transparent;border:0;color:#7ec8ff;cursor:pointer;font-size:13px;padding:0}.wtl-links{display:inline-flex;gap:12px;margin-right:auto;flex-wrap:wrap}" +
+    ".wtl-showpw{display:inline-flex;gap:6px;align-items:center;font-size:12px;color:#8aa0b5;cursor:pointer;width:max-content}.wtl-showpw input{width:auto;margin:0}" +
     ".wtl-consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;line-height:1.5;color:#c9d7e6}.wtl-consent input{width:auto;margin-top:3px}" +
     ".wtl-nav-link{color:#c9d7e6;border:1px solid #1e3348;border-radius:999px;padding:4px 12px;text-decoration:none;font-size:14px}.wtl-nav-link:hover{border-color:#7ec8ff;color:#7ec8ff}" +
     ".wtl-form.reply{margin:10px 0 0}.wtl-empty{color:#8aa0b5;text-align:center;padding:18px}" +
