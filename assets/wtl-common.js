@@ -34,14 +34,21 @@
       code_title: "Your post was registered", code_msg: "The secret code for this post is {code}. If you forget your nickname and password and also change devices, you will need this code to have the post deleted.",
       btn_close: "Close", btn_copy: "Copy code", copied: "Copied.",
       signup: "Sign up", login: "Log in", logout: "Log out", hello: "{nick}", admin_mode: "Admin mode", member_badge: "Member",
-      f_nick: "Nickname (2–20 characters)", f_pw: "Password (at least 6 characters)", f_pw2: "Confirm password",
-      signup_note: "No email needed. Please remember your nickname and password: they cannot be recovered automatically.",
+      f_email: "Email", f_nick: "Nickname shown on posts (2–20 characters)", f_pw: "Password (at least 6 characters)", f_pw2: "Confirm password", f_newpw: "New password (at least 6 characters)",
+      consent: "[Required] I agree to the collection and use of my email address. Purpose: member verification and password recovery. Kept until I leave the site. Your email is never shown to others.",
+      err_consent: "Please agree to the collection of your email to sign up.", err_email: "Please enter a valid email address.",
+      signup_sent: "We sent a confirmation email to {email}. Click the link in the email to finish signing up. (Check your spam folder too.)",
+      forgot: "Forgot password?", forgot_title: "Reset password", forgot_note: "Enter the email you signed up with. We will send a link to set a new password.", btn_send: "Send",
+      forgot_sent: "If {email} is a member, a reset link has been sent.", newpw_title: "Set a new password", ok_newpw: "Your password has been changed.",
+      ok_confirmed: "Your email is confirmed. Welcome!", err_link: "The link has expired or is invalid. Please try again.",
+      account: "My account", withdraw: "Leave site", withdraw_confirm: "Delete your account and email? Your posts stay but are no longer marked as a member's.", ok_withdraw: "Your account has been deleted.",
+      err_email_taken: "This email is already registered. Please log in.", err_not_confirmed: "Please confirm your email first (check the link we sent).", err_mail_rate: "Too many emails were sent. Please try again in a while.",
       to_login: "Already a member? Log in", to_signup: "New here? Sign up",
       err_nick: "Nickname must be 2–20 characters.", err_pw6: "Password must be 6–72 characters.", err_pw_match: "Passwords do not match.",
       err_nick_taken: "That nickname is already taken.", err_login: "Nickname or password is incorrect.", err_auth_rate: "Too many sign-ups from this connection. Please try later.",
       err_auth_down: "Sign-up is not available yet. Please try again later.",
       ok_signup: "Welcome! You are signed up and logged in.", ok_login: "Logged in.", ok_logout: "Logged out.",
-      member_post_note: "Posting as {nick}. Log in on any device to edit or delete.",
+      member_post_note: "Posting as {nick}. Log in on any device to edit or delete.", login_email_note: "Log in with your email and password.",
       btn_admin_del: "🗑 Admin delete", admin_del_confirm: "Delete this post as admin?", btn_check_code: "Check code", code_ph: "6-char code",
       code_match: "✓ The secret code matches.", code_nomatch: "✗ The secret code does not match.", deleted_admin: "This post was removed by the admin.",
       nav_ai: "🤖 AI Leaders", nav_biz: "🏢 Business Leaders", back_to_biz: "← Business Top 50",
@@ -100,14 +107,21 @@
       code_title: "게시글이 등록되었어요", code_msg: "게시글의 비밀코드는 {code}입니다. 익명의 글을 닉네임과 비밀번호를 잊고, 또 기기 변경을 한 경우에 글을 지우려면 비밀코드를 제시하여야 합니다.",
       btn_close: "닫기", btn_copy: "코드 복사", copied: "복사했어요.",
       signup: "회원가입", login: "로그인", logout: "로그아웃", hello: "{nick} 님", admin_mode: "관리자 모드", member_badge: "회원",
-      f_nick: "닉네임 (2~20자)", f_pw: "비밀번호 (6자 이상)", f_pw2: "비밀번호 확인",
-      signup_note: "이메일 없이 가입해요. 닉네임과 비밀번호를 꼭 기억해 주세요. 잊으면 스스로 찾을 수 없어요.",
+      f_email: "이메일", f_nick: "글에 보일 닉네임 (2~20자)", f_pw: "비밀번호 (6자 이상)", f_pw2: "비밀번호 확인", f_newpw: "새 비밀번호 (6자 이상)",
+      consent: "[필수] 이메일 주소 수집·이용에 동의합니다. 목적: 회원 확인과 비밀번호 찾기. 보관: 회원 탈퇴 때까지. 이메일은 다른 사람에게 보이지 않습니다.",
+      err_consent: "가입하려면 이메일 수집·이용에 동의해 주세요.", err_email: "이메일 주소를 바르게 써 주세요.",
+      signup_sent: "{email} 주소로 확인 메일을 보냈어요. 메일 속 링크를 누르면 가입이 끝나요. (스팸함도 확인해 주세요)",
+      forgot: "비밀번호 찾기", forgot_title: "비밀번호 찾기", forgot_note: "가입한 이메일을 쓰시면 새 비밀번호를 정하는 링크를 보내 드려요.", btn_send: "보내기",
+      forgot_sent: "{email} 주소가 회원이면 비밀번호 재설정 링크를 보냈어요.", newpw_title: "새 비밀번호 정하기", ok_newpw: "비밀번호를 바꿨어요.",
+      ok_confirmed: "이메일 확인이 끝났어요. 환영합니다!", err_link: "링크가 만료되었거나 맞지 않아요. 다시 해 주세요.",
+      account: "내 계정", withdraw: "회원 탈퇴", withdraw_confirm: "계정과 이메일을 지울까요? 쓴 글은 남지만 회원 표시는 사라져요.", ok_withdraw: "탈퇴했어요. 그동안 고마웠어요.",
+      err_email_taken: "이미 가입한 이메일이에요. 로그인해 주세요.", err_not_confirmed: "먼저 이메일 확인 링크를 눌러 주세요.", err_mail_rate: "메일을 너무 많이 보냈어요. 잠시 뒤 다시 해 주세요.",
       to_login: "이미 회원이면 로그인", to_signup: "처음이면 회원가입",
       err_nick: "닉네임은 2~20자로 써 주세요.", err_pw6: "비밀번호는 6자 이상으로 써 주세요.", err_pw_match: "비밀번호가 서로 달라요.",
       err_nick_taken: "이미 쓰고 있는 닉네임이에요.", err_login: "닉네임이나 비밀번호가 맞지 않아요.", err_auth_rate: "이 연결에서 가입이 너무 많았어요. 나중에 다시 해 주세요.",
       err_auth_down: "회원 기능을 준비 중이에요. 잠시 뒤 다시 해 주세요.",
       ok_signup: "가입되었어요. 환영합니다! 바로 로그인되었어요.", ok_login: "로그인했어요.", ok_logout: "로그아웃했어요.",
-      member_post_note: "{nick} 님 이름으로 올라가요. 어느 기기에서든 로그인하면 수정·삭제할 수 있어요.",
+      member_post_note: "{nick} 님 이름으로 올라가요. 어느 기기에서든 로그인하면 수정·삭제할 수 있어요.", login_email_note: "가입한 이메일과 비밀번호로 로그인해요.",
       btn_admin_del: "🗑 관리자 삭제", admin_del_confirm: "관리자 권한으로 이 글을 삭제할까요?", btn_check_code: "코드 확인", code_ph: "비밀코드 6자",
       code_match: "✓ 비밀코드가 맞아요.", code_nomatch: "✗ 비밀코드가 맞지 않아요.", deleted_admin: "관리자가 삭제한 글입니다.",
       nav_ai: "🤖 AI 리더", nav_biz: "🏢 비즈니스 리더", back_to_biz: "← 비즈니스 Top 50",
@@ -322,7 +336,7 @@
     D + ".wtl-mini{border-color:#c5d3e0;color:#5a6b7d}" + D + ".wtl-mini.danger{color:#b42318;border-color:#b42318}" + D + ".wtl-mini.on{color:#8a6a0e;border-color:#b8912a}" + D + ".wtl-mini:hover{color:#14212e;border-color:#2E75B6}" +
     D + ".wtl-pw-hint{color:#5a6b7d}" + D + ".wtl-mine{color:#8a6a0e;border-color:#b8912a}" + D + ".wtl-memb{color:#2E75B6}" + D + ".wtl-hello{color:#1d3247}" +
     D + ".wtl-modal-box{background:#fff;color:#14212e;border-color:#b8912a}" + D + ".wtl-code{background:#fbf3d6;color:#8a6a0e;border-color:#b8912a}" + D + ".wtl-linkbtn{color:#1F4E79}" +
-    D + ".wtl-nav-link{color:#1d3247;border-color:#c5d3e0}" +
+    D + ".wtl-nav-link{color:#1d3247;border-color:#c5d3e0}" + D + ".wtl-consent{color:#1d3247}" +
     D + ".wtl-replies{border-left-color:#d5dee8}" + D + ".wtl-reply{border-bottom-color:#d5dee8}" +
     D + ".wtl-form-note{color:#1e7a3c}" + D + ".wtl-form-note.err{color:#b42318}" +
     D + "#wtl-toast{background:#fff;color:#14212e}" +
@@ -381,16 +395,21 @@
   /* ---------- Supabase REST ---------- */
   function api(path, opts) {
     opts = opts || {};
-    var headers = { apikey: SUPABASE_KEY, "Content-Type": "application/json" };
-    if (opts.prefer) headers.Prefer = opts.prefer;
-    return fetch(REST + path, { method: opts.method || "GET", headers: headers, body: opts.body ? JSON.stringify(opts.body) : undefined })
-      .then(function (r) {
-        return r.text().then(function (txt) {
-          var data = null; try { data = txt ? JSON.parse(txt) : null; } catch (e) {}
-          if (!r.ok) { var err = new Error((data && data.message) || ("HTTP " + r.status)); err.status = r.status; throw err; }
-          return data;
+    return accessToken().then(function (tok) {
+      var headers = { apikey: SUPABASE_KEY, "Content-Type": "application/json" };
+      if (tok) headers.Authorization = "Bearer " + tok;
+      if (opts.prefer) headers.Prefer = opts.prefer;
+      return fetch(REST + path, { method: opts.method || "GET", headers: headers, body: opts.body ? JSON.stringify(opts.body) : undefined })
+        .then(function (r) {
+          return r.text().then(function (txt) {
+            var data = null; try { data = txt ? JSON.parse(txt) : null; } catch (e) {}
+            // 로그인 열쇠가 상했으면 로그아웃하고 손님으로 한 번 더
+            if (r.status === 401 && tok && !opts._retry) { clearSession(); opts._retry = true; return api(path, opts); }
+            if (!r.ok) { var err = new Error((data && data.message) || ("HTTP " + r.status)); err.status = r.status; throw err; }
+            return data;
+          });
         });
-      });
+    });
   }
   var newCols = true;
   function fetchComments(slug) {
@@ -404,9 +423,9 @@
   function postComment(row) {
     var send = function (r) { return api("/" + TABLE + "?select=id", { method: "POST", body: r, prefer: "return=representation" }); };
     return send(row).catch(function (e) {
-      // 서버에 새 칸(edit_code, member_token)이 아직 없으면 예전 방식으로 한 번 더 보낸다
-      if ((row.edit_code || row.member_token) && /edit_code|member_token|column|permission/i.test(e.message || "")) {
-        var r2 = {}; Object.keys(row).forEach(function (k) { if (k !== "edit_code" && k !== "member_token") r2[k] = row[k]; });
+      // 서버에 새 칸(edit_code)이 아직 없으면 예전 방식으로 한 번 더 보낸다
+      if (row.edit_code && /edit_code|column|permission/i.test(e.message || "")) {
+        var r2 = {}; Object.keys(row).forEach(function (k) { if (k !== "edit_code") r2[k] = row[k]; });
         row._legacy = true; return send(r2);
       }
       throw e;
@@ -447,28 +466,92 @@
     return null;
   }
 
-  /* ---------- 회원·비밀코드·관리자 (2026-10-21) ----------
-   * 회원은 Supabase의 wtl_members 표(닉네임+비밀번호, 이메일 없음). 로그인하면 받은 열쇠를 localStorage "wtl_member"에 둔다.
-   * 관리자는 is_admin=true인 회원. 삭제·코드 확인은 모두 서버 함수가 다시 확인하므로 화면만 고쳐서는 할 수 없다.
+  /* ---------- 회원·비밀코드·관리자 (2026-10-21, 이메일 필수) ----------
+   * 회원 가입·확인 메일·로그인·비밀번호 찾기는 Supabase Auth(/auth/v1)가 맡는다. 메일은 아주의 Gmail(SMTP)로 나간다.
+   * 닉네임·관리자 여부는 wtl_members 표. 로그인 정보는 localStorage "wtl_session"(열쇠)·"wtl_member"(닉네임).
+   * 관리자 삭제·코드 확인·본인 글 수정은 모두 서버가 로그인 열쇠로 다시 확인한다.
    */
-  function rpc(name, body) { return api("/rpc/" + name, { method: "POST", body: body }); }
-  var member = (function () { try { var m = JSON.parse(localStorage.getItem("wtl_member") || "null"); return m && m.token ? m : null; } catch (e) { return null; } })();
+  var AUTH = SUPABASE_URL + "/auth/v1";
+  function loadJSON(k) { try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } }
+  function saveJSON(k, v) { try { if (v) localStorage.setItem(k, JSON.stringify(v)); else localStorage.removeItem(k); } catch (e) {} }
+  var session = loadJSON("wtl_session");
+  var member = session ? loadJSON("wtl_member") : null;
   var memberListeners = [];
   function onMember(fn) { memberListeners.push(fn); }
   function setMember(m) {
-    member = m;
-    try { if (m) localStorage.setItem("wtl_member", JSON.stringify(m)); else localStorage.removeItem("wtl_member"); } catch (e) {}
+    member = m; saveJSON("wtl_member", m);
     memberListeners.forEach(function (fn) { try { fn(member); } catch (e) { console.error(e); } });
+  }
+  function setSession(d) {
+    session = d && d.access_token ? { access_token: d.access_token, refresh_token: d.refresh_token, expires_at: d.expires_at || (Math.floor(Date.now() / 1000) + (+d.expires_in || 3600)) } : null;
+    saveJSON("wtl_session", session);
+  }
+  function clearSession() { setSession(null); if (member) setMember(null); }
+  function authCall(path, body, tok, method) {
+    var headers = { apikey: SUPABASE_KEY, "Content-Type": "application/json" };
+    if (tok) headers.Authorization = "Bearer " + tok;
+    return fetch(AUTH + path, { method: method || "POST", headers: headers, body: body ? JSON.stringify(body) : undefined }).then(function (r) {
+      return r.text().then(function (txt) {
+        var d = null; try { d = txt ? JSON.parse(txt) : null; } catch (e) {}
+        if (!r.ok) { var e = new Error((d && (d.msg || d.error_description || d.message || d.error)) || ("HTTP " + r.status)); e.status = r.status; e.code = d && (d.error_code || d.code); throw e; }
+        return d;
+      });
+    });
+  }
+  var refreshing = null;
+  function accessToken() {
+    if (!session) return Promise.resolve(null);
+    if (session.expires_at - 60 > Date.now() / 1000) return Promise.resolve(session.access_token);
+    if (!refreshing) refreshing = authCall("/token?grant_type=refresh_token", { refresh_token: session.refresh_token })
+      .then(function (d) { setSession(d); return session.access_token; })
+      .catch(function () { clearSession(); return null; })
+      .then(function (tk) { refreshing = null; return tk; });
+    return refreshing;
+  }
+  function rpc(name, body) { return api("/rpc/" + name, { method: "POST", body: body || {} }); }
+  function loadMe() {
+    return rpc("wtl_member_me").then(function (r) {
+      if (!r) { clearSession(); return null; }
+      setMember({ nickname: r.nickname, is_admin: !!r.is_admin, email: member && member.email });
+      return member;
+    });
   }
   var memberChecked = false;
   function checkMember() {
-    if (!member || memberChecked) return; memberChecked = true;
-    rpc("wtl_member_me", { p_token: member.token }).then(function (r) {
-      if (!r) setMember(null);
-      else if (r.nickname !== member.nickname || !!r.is_admin !== !!member.is_admin) setMember({ token: member.token, nickname: r.nickname, is_admin: !!r.is_admin });
-    }).catch(function (e) { if (e.status === 404) setMember(null); });
+    if (!session || memberChecked) return; memberChecked = true;
+    loadMe().catch(function (e) { console.error(e); });
   }
   function isMine(c) { return !!(member && c.is_member && c.author === member.nickname); }
+  function hereURL() { return location.origin + location.pathname + location.search; }
+  function authErr(e) {
+    var m = ((e && (e.code || "")) + " " + ((e && e.message) || "")).toLowerCase();
+    if (/already|registered|exists/.test(m)) return t("err_email_taken");
+    if (/not.?confirmed/.test(m)) return t("err_not_confirmed");
+    if (/invalid.?(login|credentials)|invalid_grant/.test(m)) return t("err_login");
+    if (/rate|too many|over_email/.test(m)) return t("err_mail_rate");
+    if (/password/.test(m)) return t("err_pw6");
+    if (/email/.test(m)) return t("err_email");
+    return t("err_generic");
+  }
+  function afterLogin(d, email) {
+    setSession(d);
+    member = { nickname: "", is_admin: false, email: email || (d.user && d.user.email) || "" };
+    return loadMe();
+  }
+
+  // 메일 속 링크(가입 확인·비밀번호 찾기)를 누르고 돌아왔을 때: 주소 # 뒤의 열쇠를 받는다
+  function handleAuthReturn() {
+    var h = location.hash || "";
+    if (h.indexOf("access_token=") < 0 && h.indexOf("error") < 0) return;
+    var q = {}; h.replace(/^#/, "").split("&").forEach(function (kv) { var i = kv.indexOf("="); if (i > 0) q[kv.slice(0, i)] = decodeURIComponent(kv.slice(i + 1).replace(/\+/g, " ")); });
+    if (!q.access_token && !q.error && !q.error_code) return;
+    try { history.replaceState(null, "", hereURL()); } catch (e) {}
+    if (q.error || q.error_code) { setTimeout(function () { toast(t("err_link"), true); }, 300); return; }
+    afterLogin(q).then(function () {
+      if (q.type === "recovery") openNewPassword();
+      else toast(t(q.type === "signup" ? "ok_confirmed" : "ok_login"));
+    }).catch(function (e) { console.error(e); toast(t("err_link"), true); });
+  }
 
   function codes() { try { return JSON.parse(localStorage.getItem("wtl_codes") || "{}"); } catch (e) { return {}; } }
   function saveCode(id, code) { try { var m = codes(); m[id] = code; localStorage.setItem("wtl_codes", JSON.stringify(m)); } catch (e) {} }
@@ -507,61 +590,132 @@
       row.appendChild(cp); row.appendChild(cl); box.appendChild(row);
     });
   }
+  function field(type, ph, ac) { return el("input", { type: type, placeholder: t(ph), autocomplete: ac || "off", maxLength: type === "email" ? 120 : 72 }); }
+  function formNote() { var n = el("div", { className: "wtl-form-note", role: "alert" }); n.say = function (m, ok) { n.textContent = m || ""; n.className = "wtl-form-note" + (m ? " show" : "") + (ok ? "" : " err"); }; return n; }
   function openAuth(mode) {
     openModal(function (box, close) {
       function paint() {
         box.innerHTML = "";
-        var signup = mode === "signup";
-        box.appendChild(el("h3", null, t(signup ? "signup" : "login")));
+        var signup = mode === "signup", forgot = mode === "forgot";
+        box.appendChild(el("h3", null, t(forgot ? "forgot_title" : signup ? "signup" : "login")));
         var f = el("form", { className: "wtl-form", noValidate: true });
-        var nick = el("input", { type: "text", maxLength: 20, placeholder: t("f_nick"), autocomplete: "username" });
-        var pw = el("input", { type: "password", maxLength: 72, placeholder: t("f_pw"), autocomplete: signup ? "new-password" : "current-password" });
-        var pw2 = el("input", { type: "password", maxLength: 72, placeholder: t("f_pw2"), autocomplete: "new-password" });
-        f.appendChild(nick); f.appendChild(pw); if (signup) { f.appendChild(pw2); f.appendChild(el("div", { className: "wtl-pw-hint" }, t("signup_note"))); }
-        var note = el("div", { className: "wtl-form-note err", role: "alert" });
-        f.appendChild(note);
+        var email = field("email", "f_email", "email");
+        var nick = field("text", "f_nick", "nickname"); nick.maxLength = 20;
+        var pw = field("password", "f_pw", signup ? "new-password" : "current-password");
+        var pw2 = field("password", "f_pw2", "new-password");
+        var agree = el("input", { type: "checkbox" });
+        if (forgot) { f.appendChild(el("div", { className: "wtl-pw-hint" }, t("forgot_note"))); f.appendChild(email); }
+        else if (signup) {
+          f.appendChild(email); f.appendChild(nick); f.appendChild(pw); f.appendChild(pw2);
+          var lab = el("label", { className: "wtl-consent" }); lab.appendChild(agree); lab.appendChild(el("span", null, t("consent"))); f.appendChild(lab);
+        } else { f.appendChild(el("div", { className: "wtl-pw-hint" }, t("login_email_note"))); f.appendChild(email); f.appendChild(pw); }
+        var note = formNote(); f.appendChild(note);
         var row = el("div", { className: "wtl-modal-row" });
-        var sw = el("button", { type: "button", className: "wtl-linkbtn" }, t(signup ? "to_login" : "to_signup"));
-        sw.addEventListener("click", function () { mode = signup ? "login" : "signup"; paint(); });
+        var links = el("span", { className: "wtl-links" });
+        function link(key, to) { var b = el("button", { type: "button", className: "wtl-linkbtn" }, t(key)); b.addEventListener("click", function () { mode = to; paint(); }); links.appendChild(b); }
+        if (signup) link("to_login", "login");
+        else if (forgot) link("login", "login");
+        else { link("to_signup", "signup"); link("forgot", "forgot"); }
         var cancel = el("button", { type: "button", className: "wtl-mini" }, t("btn_cancel"));
         cancel.addEventListener("click", close);
-        var go = el("button", { type: "submit", className: "wtl-submit" }, t(signup ? "signup" : "login"));
-        row.appendChild(sw); row.appendChild(cancel); row.appendChild(go); f.appendChild(row);
-        function say(m) { note.textContent = m || ""; note.className = "wtl-form-note err" + (m ? " show" : ""); }
+        var go = el("button", { type: "submit", className: "wtl-submit" }, t(forgot ? "btn_send" : signup ? "signup" : "login"));
+        row.appendChild(links); row.appendChild(cancel); row.appendChild(go); f.appendChild(row);
         f.addEventListener("submit", function (ev) {
           ev.preventDefault();
-          var n = nick.value.trim(), a = pw.value;
-          if (n.length < 2 || n.length > 20) return say(t("err_nick"));
-          if (a.length < 6) return say(t("err_pw6"));
-          if (signup && a !== pw2.value) return say(t("err_pw_match"));
+          var em = email.value.trim().toLowerCase(), n = nick.value.trim(), a = pw.value;
+          if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) return note.say(t("err_email"));
           go.disabled = true;
-          rpc(signup ? "wtl_member_signup" : "wtl_member_login", { p_nick: n, p_pw: a }).then(function (r) {
-            if (!r || r.error || !r.token) {
-              var e = r && r.error;
-              say(t(e === "NICK_TAKEN" ? "err_nick_taken" : e === "BAD_NICK" ? "err_nick" : e === "BAD_PW" ? "err_pw6" : e === "RATE_LIMIT" ? "err_auth_rate" : e === "TOO_MANY_TRIES" ? "err_tries" : "err_login"));
-              return;
-            }
-            setMember({ token: r.token, nickname: r.nickname, is_admin: !!r.is_admin });
-            toast(t(signup ? "ok_signup" : "ok_login")); close();
-          }).catch(function (e) { console.error(e); say(t(e.status === 404 ? "err_auth_down" : "err_generic")); })
-            .then(function () { go.disabled = false; });
+          var done = function () { go.disabled = false; };
+          if (forgot) {
+            authCall("/recover?redirect_to=" + encodeURIComponent(hereURL()), { email: em })
+              .then(function () { note.say(t("forgot_sent", { email: em }), true); })
+              .catch(function (e) { console.error(e); note.say(authErr(e)); }).then(done);
+            return;
+          }
+          if (a.length < 6) { done(); return note.say(t("err_pw6")); }
+          if (signup) {
+            if (n.length < 2 || n.length > 20) { done(); return note.say(t("err_nick")); }
+            if (a !== pw2.value) { done(); return note.say(t("err_pw_match")); }
+            if (!agree.checked) { done(); return note.say(t("err_consent")); }
+            rpc("wtl_nick_available", { p_nick: n }).then(function (ok) {
+              if (!ok) { note.say(t("err_nick_taken")); return; }
+              return authCall("/signup?redirect_to=" + encodeURIComponent(hereURL()), { email: em, password: a, data: { nickname: n } }).then(function (d) {
+                if (d && d.access_token) return afterLogin(d, em).then(function () { toast(t("ok_signup")); close(); });
+                // 확인 메일을 보낸 경우 (보통 이쪽)
+                box.innerHTML = ""; box.appendChild(el("h3", null, t("signup")));
+                box.appendChild(el("p", { className: "wtl-code-msg" }, t("signup_sent", { email: em })));
+                var r = el("div", { className: "wtl-modal-row" }); var c = el("button", { type: "button", className: "wtl-submit" }, t("btn_close"));
+                c.addEventListener("click", close); r.appendChild(c); box.appendChild(r); c.focus();
+              });
+            }).catch(function (e) { console.error(e); note.say(e.status === 404 ? t("err_auth_down") : authErr(e)); }).then(done);
+            return;
+          }
+          authCall("/token?grant_type=password", { email: em, password: a }).then(function (d) {
+            return afterLogin(d, em).then(function (m) { if (!m) throw new Error("no member"); toast(t("ok_login")); close(); });
+          }).catch(function (e) { console.error(e); note.say(e.message === "no member" ? t("err_auth_down") : authErr(e)); }).then(done);
         });
         box.appendChild(f);
-        nick.focus();
+        email.focus();
       }
       paint();
     });
+  }
+  function openNewPassword() {
+    openModal(function (box, close) {
+      box.appendChild(el("h3", null, t("newpw_title")));
+      var f = el("form", { className: "wtl-form", noValidate: true });
+      var pw = field("password", "f_newpw", "new-password"), pw2 = field("password", "f_pw2", "new-password");
+      var note = formNote();
+      var go = el("button", { type: "submit", className: "wtl-submit" }, t("btn_save"));
+      var row = el("div", { className: "wtl-modal-row" }); row.appendChild(go);
+      f.appendChild(pw); f.appendChild(pw2); f.appendChild(note); f.appendChild(row); box.appendChild(f);
+      f.addEventListener("submit", function (ev) {
+        ev.preventDefault();
+        if (pw.value.length < 6) return note.say(t("err_pw6"));
+        if (pw.value !== pw2.value) return note.say(t("err_pw_match"));
+        go.disabled = true;
+        accessToken().then(function (tok) { return authCall("/user", { password: pw.value }, tok, "PUT"); })
+          .then(function () { toast(t("ok_newpw")); close(); })
+          .catch(function (e) { console.error(e); note.say(authErr(e)); go.disabled = false; });
+      });
+    });
+  }
+  function openAccount() {
+    openModal(function (box, close) {
+      box.appendChild(el("h3", null, t("account")));
+      box.appendChild(el("p", { className: "wtl-code-msg" }, "👤 " + member.nickname + (member.email ? " · " + member.email : "")));
+      var row = el("div", { className: "wtl-modal-row" });
+      var wd = el("button", { type: "button", className: "wtl-mini danger" }, t("withdraw"));
+      wd.addEventListener("click", function () {
+        if (!window.confirm(t("withdraw_confirm"))) return;
+        rpc("wtl_member_withdraw").then(function (s) {
+          if (s === "OK") { clearSession(); toast(t("ok_withdraw")); close(); } else toast(t("err_generic"), true);
+        }).catch(function (e) { console.error(e); toast(t("err_generic"), true); });
+      });
+      var lo = el("button", { type: "button", className: "wtl-mini" }, t("logout"));
+      lo.addEventListener("click", function () { logout(); close(); });
+      var cl = el("button", { type: "button", className: "wtl-submit" }, t("btn_close"));
+      cl.addEventListener("click", close);
+      row.appendChild(wd); row.appendChild(lo); row.appendChild(cl); box.appendChild(row);
+    });
+  }
+  function logout() {
+    var tk = session && session.access_token;
+    clearSession(); toast(t("ok_logout"));
+    if (tk) authCall("/logout", null, tk).catch(function () {});
   }
   // 회원가입·로그인 단추 (게시판 맨 윗줄 오른쪽)
   function makeAuthBar() {
     var box = el("span", { className: "wtl-auth" });
     function paint() {
       box.innerHTML = "";
-      if (member) {
-        box.appendChild(el("span", { className: "wtl-hello" }, "👤 " + t("hello", { nick: member.nickname })));
+      if (member && member.nickname) {
+        var me = el("button", { type: "button", className: "wtl-hello wtl-linkbtn", title: t("account") }, "👤 " + t("hello", { nick: member.nickname }));
+        me.addEventListener("click", openAccount);
+        box.appendChild(me);
         if (member.is_admin) box.appendChild(el("span", { className: "wtl-admin-badge" }, t("admin_mode")));
         var lo = el("button", { type: "button", className: "wtl-mini" }, t("logout"));
-        lo.addEventListener("click", function () { var tk = member.token; setMember(null); rpc("wtl_member_logout", { p_token: tk }).catch(function () {}); toast(t("ok_logout")); });
+        lo.addEventListener("click", logout);
         box.appendChild(lo);
       } else {
         var su = el("button", { type: "button", className: "wtl-mini on" }, t("signup"));
@@ -636,7 +790,7 @@
         var tok = newToken();
         var rec = { slug: slug, author: a || "참여자", lang: lang, body: b, edit_token: tok };
         var code = null;
-        if (member) { rec.member_token = member.token; rec.author = member.nickname; }
+        if (member) { rec.author = member.nickname; } // 서버가 로그인 열쇠로 회원을 확인한다
         else { code = newCode(); rec.edit_code = code; if (pw.value) rec.edit_pw = pw.value; }
         if (parentId) rec.parent_comment_id = parentId;
         postComment(rec).then(function (rows) {
@@ -667,7 +821,7 @@
         ev.stopPropagation();
         if (!window.confirm(t("admin_del_confirm"))) return;
         del.disabled = true;
-        rpc("wtl_admin_delete", { p_token: member.token, p_id: c.id }).then(function (s) {
+        rpc("wtl_admin_delete", { p_id: c.id }).then(function (s) {
           if (s === "OK") { toast(t("ok_deleted")); return reload(); }
           toast(s === "NOT_ADMIN" ? t("err_generic") : statusMsg(s), true); del.disabled = false;
         }).catch(function (e) { console.error(e); toast(t("err_generic"), true); del.disabled = false; });
@@ -679,7 +833,7 @@
         var ok = el("button", { type: "button", className: "wtl-mini on" }, "OK");
         f.appendChild(inp); f.appendChild(ok); chk.replaceWith(f); inp.focus();
         function go() {
-          rpc("wtl_admin_check_code", { p_token: member.token, p_id: c.id, p_code: inp.value }).then(function (s) {
+          rpc("wtl_admin_check_code", { p_id: c.id, p_code: inp.value }).then(function (s) {
             toast(t(s === "MATCH" ? "code_match" : "code_nomatch"), s !== "MATCH");
           }).catch(function (e) { console.error(e); toast(t("err_generic"), true); });
         }
@@ -700,7 +854,7 @@
       if (myCode) box.insertBefore(el("span", { className: "wtl-meta", title: t("my_code") }, "🔑 " + myCode), editB);
       if (member && member.is_admin) adminControls(c, box);
       function withSecret(onSecret) {
-        if (isMine(c)) { onSecret(member.token); return; }
+        if (isMine(c)) { onSecret("member"); return; } // 본인 확인은 서버가 로그인 열쇠로
         var tok = tokens()[c.id];
         if (tok) { onSecret(tok); return; }
         var f = el("span", { className: "wtl-pwask" });
@@ -917,7 +1071,8 @@
     ".wtl-modal-box h3{margin:0 0 12px;font:600 18px Georgia,serif}.wtl-modal-box .wtl-form{margin:0}" +
     ".wtl-modal-row{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:12px;flex-wrap:wrap}" +
     ".wtl-code-msg{line-height:1.7;margin:0}.wtl-code{display:inline-block;margin:0 4px;padding:1px 8px;border-radius:6px;background:#071018;border:1px solid #d4af37;color:#d4af37;font:700 17px ui-monospace,Consolas,monospace;letter-spacing:.08em}" +
-    ".wtl-linkbtn{background:transparent;border:0;color:#7ec8ff;cursor:pointer;font-size:13px;margin-right:auto;padding:0}" +
+    ".wtl-linkbtn{background:transparent;border:0;color:#7ec8ff;cursor:pointer;font-size:13px;padding:0}.wtl-links{display:inline-flex;gap:12px;margin-right:auto;flex-wrap:wrap}" +
+    ".wtl-consent{display:flex;gap:8px;align-items:flex-start;font-size:12px;line-height:1.5;color:#c9d7e6}.wtl-consent input{width:auto;margin-top:3px}" +
     ".wtl-nav-link{color:#c9d7e6;border:1px solid #1e3348;border-radius:999px;padding:4px 12px;text-decoration:none;font-size:14px}.wtl-nav-link:hover{border-color:#7ec8ff;color:#7ec8ff}" +
     ".wtl-form.reply{margin:10px 0 0}.wtl-empty{color:#8aa0b5;text-align:center;padding:18px}" +
     "@media (max-width:640px){.wtl-form-row{flex-wrap:wrap}.wtl-form-row input{flex:1 1 45%}.wtl-grid{min-width:0}.wtl-grid .c0{display:none}.wtl-grid .c3,.wtl-grid .c4{width:34px}.wtl-grid .c1{width:72px}.wtl-grid .c5{width:88px;font-size:11px}.wtl-form-row input{max-width:none}}";
@@ -1085,6 +1240,7 @@
   }
 
   applyTheme(); // 저장된 주간·야간 선택을 첫 화면부터 적용
+  handleAuthReturn(); // 가입 확인·비밀번호 찾기 메일 링크로 돌아왔을 때
   if (LIST === "business") {
     var backA = document.querySelector("a.back");
     if (backA) { backA.href = "business.html"; backA.setAttribute("data-i18n", "back_to_biz"); backA.textContent = t("back_to_biz"); }
