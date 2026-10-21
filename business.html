@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>World Top Leaders — Business Leaders Top 50 | 2026-10-21</title>
+  <style>
+    :root { --bg:#071018; --card:#0e1a28; --line:#1e3348; --gold:#d4af37; --text:#e8eef5; --muted:#8aa0b5; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Georgia, "Times New Roman", serif; background: radial-gradient(1200px 600px at 10% -10%, #123 0%, var(--bg) 50%); color: var(--text); }
+    header { padding: 48px 24px 24px; text-align:center; border-bottom:1px solid var(--line); }
+    h1 { margin:0; letter-spacing:.12em; font-weight:600; font-size: clamp(28px,4vw,48px); }
+    .sub { color: var(--muted); margin-top:10px; font-family: system-ui, sans-serif; font-size:14px; }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 24px; }
+    .note { font-family: system-ui, sans-serif; color: var(--muted); font-size:13px; margin-bottom:16px; line-height:1.5; }
+    table { width:100%; border-collapse: collapse; background: var(--card); font-family: system-ui, sans-serif; font-size:13px; min-width:980px; }
+    th { text-align:left; padding:10px 8px; background:#102033; color:#c9d7e6; position:sticky; top:0; border-bottom:2px solid var(--gold); }
+    td { padding:8px; border-bottom:1px solid var(--line); vertical-align:top; }
+    tr:hover td { background:#132536; }
+    .r1 td { background: rgba(212,175,55,.18); }
+    .r2 td { background: rgba(192,192,192,.12); }
+    .r3 td { background: rgba(205,127,50,.12); }
+    .avg { font-variant-numeric: tabular-nums; font-weight:600; color: var(--gold); }
+    footer { text-align:center; padding: 32px 16px 64px; color: var(--muted); font-family: system-ui, sans-serif; font-size:12px; }
+    a { color:#7ec8ff; }
+    .topbar { display:flex; justify-content:flex-end; padding:12px 24px 0; }
+    .table-wrap { overflow-x:auto; }
+  </style>
+</head>
+<body data-wtl-list="business">
+  <!-- 비즈니스/산업계 지도자 Top 50 틀 · 작성: 오호(클로드) 2026-10-21
+       그록: 날짜(2026-10-21 세 곳)와 표 본문(tbody)의 줄만 바꾼다. 맨 아래 wtl-common.js 줄은 꼭 남긴다.
+       자료 파일은 data/business_leaders.csv (머리줄은 data/leaders.csv와 같음). 자세한 규칙: 감)비즈니스리더_그록안내.md -->
+  <div class="topbar" id="langbar"></div><!-- WTL:KEEP -->
+  <header>
+    <h1>WORLD TOP LEADERS</h1>
+    <div class="sub">Global Business &amp; Industry Leaders — Top 50 · Daily ranking · 2026-10-21</div>
+  </header>
+  <div class="wrap">
+    <p class="note">Scores: Research / Business / AGI / Wealth (each /100). Rank = arithmetic mean. Tie-break: Business > Research > AGI > Wealth. Public sources only. Editorial composite — not investment advice. Date: 2026-10-21</p>
+    <div class="table-wrap"><!-- WTL:KEEP -->
+    <table id="rank-table">
+      <thead><tr><th>#</th><th>Prev</th><th>Chg</th><th>Name</th><th>Organization</th><th>Role</th><th>R</th><th>B</th><th>AGI</th><th>W</th><th>Avg</th></tr></thead>
+      <tbody>
+        <!-- GROK: 아래 예시 3줄을 지우고 같은 형식으로 50줄. 1~3위는 class="r1" "r2" "r3", 나머지는 class="". Avg는 소수 둘째 자리 -->
+        <tr class="r1"><td>1</td><td>-</td><td>NEW</td><td>Example Leader A</td><td>Company A</td><td>Chair &amp; CEO</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="avg">0.00</td></tr>
+        <tr class="r2"><td>2</td><td>-</td><td>NEW</td><td>Example Leader B</td><td>Company B</td><td>CEO</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="avg">0.00</td></tr>
+        <tr class="r3"><td>3</td><td>-</td><td>NEW</td><td>Example Leader C</td><td>Company C</td><td>Founder</td><td>0</td><td>0</td><td>0</td><td>0</td><td class="avg">0.00</td></tr>
+      </tbody>
+    </table>
+    </div><!-- WTL:KEEP -->
+    <div id="all-comments"></div><!-- WTL:KEEP -->
+  </div>
+  <footer>World Top Leaders · Daily public-source composite · <a href="https://worldtopleaders.org">worldtopleaders.org</a></footer>
+  <script src="assets/wtl-common.js"></script>
+</body>
+</html>

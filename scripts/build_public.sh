@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# 공개 사이트에 내보낼 파일 허용 목록 + 검색 노출 준비 (감수: 클로드 2026-10-01, 10-02 보강, 10-21 게시판)
+# 공개 사이트에 내보낼 파일 허용 목록 + 검색 노출 준비 (감수: 클로드 2026-10-01, 10-02 보강, 10-21 게시판·비즈니스)
 # 새 공개 파일이 생기면 여기에 한 줄 추가한다.
 set -euo pipefail
 SITE="https://worldtopleaders.org"
@@ -7,6 +7,8 @@ rm -rf public
 mkdir -p public/assets public/data public/tools
 cp index.html leader.html public/
 if [ -f board.html ]; then cp board.html public/; fi
+# 비즈니스/산업계 지도자 Top 50 (2026-10-21). 자료가 채워지기 전에는 페이지만 있고 첫 화면 바로가기는 숨는다
+if [ -f business.html ]; then cp business.html public/; fi
 
 # --- 게시판·다국어가 늘 켜지도록 (2026-10-21) ---
 # 매일 새로 만드는 index.html에서 wtl-common.js 줄이 빠지는 일이 잦아(10-11~10-21), 빠졌으면 여기서 넣는다.
@@ -18,6 +20,7 @@ cp assets/wtl-common.js public/assets/
 if [ -d assets/leaders ]; then cp -r assets/leaders public/assets/; fi
 cp data/leaders.csv data/locales.json public/data/
 if [ -f data/notice.json ]; then cp data/notice.json public/data/; fi
+if [ -f data/business_leaders.csv ]; then cp data/business_leaders.csv public/data/; fi
 # 팀 회의실(임시로 유지 — 주소를 아는 사람은 누구나 열 수 있음)
 cp "tools/감)회의실.html" public/tools/ 2>/dev/null || true
 cp "tools/감)허브.html" public/tools/ 2>/dev/null || true
@@ -48,6 +51,9 @@ TODAY=$(date -u +%Y-%m-%d)
   echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
   echo "  <url><loc>$SITE/</loc><lastmod>$TODAY</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>"
   echo "  <url><loc>$SITE/board</loc><lastmod>$TODAY</lastmod><changefreq>daily</changefreq><priority>0.8</priority></url>"
+  if [ -f data/business_leaders.csv ] && [ "$(wc -l < data/business_leaders.csv)" -gt 1 ]; then
+    echo "  <url><loc>$SITE/business</loc><lastmod>$TODAY</lastmod><changefreq>daily</changefreq><priority>0.9</priority></url>"
+  fi
   tail -n +2 data/leaders.csv | awk -F',' 'NF>1 && $2 ~ /^[a-z0-9-]+$/ {print $2}' | while read -r slug; do
     echo "  <url><loc>$SITE/leader?slug=$slug</loc><lastmod>$TODAY</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>"
   done

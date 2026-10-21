@@ -25,7 +25,27 @@
       badge_en: "EN",
       link_detail: "Profile",
       comments_all_title: "Comments on the whole site",
-      nav_board: "💬 Board", board_title: "World Top Leaders Board", board_sub: "Share your thoughts on AI leaders and this site. Please be kind.",
+      nav_board: "💬 Board",
+      placeholder_board: "Share feedback about https://worldtopleaders.org or any other thoughts (10–1,000 characters)",
+      board_note1: "You can post after signing up, or post anonymously.",
+      board_note2: "You can edit or delete your own post even when posting anonymously. To do so from another device later, please set a nickname and password before posting.",
+      mine: "My post", mine_title: "Your post. Open it to edit or delete.", my_code: "Secret code",
+      pw_prompt2: "Password or secret code",
+      code_title: "Your post was registered", code_msg: "The secret code for this post is {code}. If you forget your nickname and password and also change devices, you will need this code to have the post deleted.",
+      btn_close: "Close", btn_copy: "Copy code", copied: "Copied.",
+      signup: "Sign up", login: "Log in", logout: "Log out", hello: "{nick}", admin_mode: "Admin mode", member_badge: "Member",
+      f_nick: "Nickname (2–20 characters)", f_pw: "Password (at least 6 characters)", f_pw2: "Confirm password",
+      signup_note: "No email needed. Please remember your nickname and password: they cannot be recovered automatically.",
+      to_login: "Already a member? Log in", to_signup: "New here? Sign up",
+      err_nick: "Nickname must be 2–20 characters.", err_pw6: "Password must be 6–72 characters.", err_pw_match: "Passwords do not match.",
+      err_nick_taken: "That nickname is already taken.", err_login: "Nickname or password is incorrect.", err_auth_rate: "Too many sign-ups from this connection. Please try later.",
+      err_auth_down: "Sign-up is not available yet. Please try again later.",
+      ok_signup: "Welcome! You are signed up and logged in.", ok_login: "Logged in.", ok_logout: "Logged out.",
+      member_post_note: "Posting as {nick}. Log in on any device to edit or delete.",
+      btn_admin_del: "🗑 Admin delete", admin_del_confirm: "Delete this post as admin?", btn_check_code: "Check code", code_ph: "6-char code",
+      code_match: "✓ The secret code matches.", code_nomatch: "✗ The secret code does not match.", deleted_admin: "This post was removed by the admin.",
+      nav_ai: "🤖 AI Leaders", nav_biz: "🏢 Business Leaders", back_to_biz: "← Business Top 50",
+      theme_to_day: "☀️ Day", theme_to_night: "🌙 Night", theme_title: "Switch day / night mode", board_title: "World Top Leaders Board", board_sub: "Share your thoughts on AI leaders and this site. Please be kind.",
       comments_leader_title: "Comments",
       comments_count: "{n} comments",
       write_comment: "Write",
@@ -71,7 +91,27 @@
       badge_en: "EN",
       link_detail: "상세",
       comments_all_title: "사이트 전체 의견",
-      nav_board: "💬 게시판", board_title: "세계 톱 리더 게시판", board_sub: "AI 지도자와 이 사이트에 대한 생각을 자유롭게 나눠 주세요. 서로 존중하는 말로 부탁드립니다.",
+      nav_board: "💬 게시판",
+      placeholder_board: "https://worldtopleaders.org에 관한 피드백이나 그외 다양한 의견을 올려주세요(10-1,000자)",
+      board_note1: "글은 회원 가입을 한 후 올려도 되고, 익명으로 올려도 됩니다.",
+      board_note2: "익명으로 올린 글도 자신의 글은 수정, 삭제할 수 있습니다. 다만 기기가 변경된 경우에도 수정,삭제를 하려면 닉네임, 비밀번호를 등록하고 올리시기 바랍니다.",
+      mine: "내 글", mine_title: "내가 쓴 글 · 눌러서 수정/삭제", my_code: "비밀코드",
+      pw_prompt2: "비밀번호 또는 비밀코드",
+      code_title: "게시글이 등록되었어요", code_msg: "게시글의 비밀코드는 {code}입니다. 익명의 글을 닉네임과 비밀번호를 잊고, 또 기기 변경을 한 경우에 글을 지우려면 비밀코드를 제시하여야 합니다.",
+      btn_close: "닫기", btn_copy: "코드 복사", copied: "복사했어요.",
+      signup: "회원가입", login: "로그인", logout: "로그아웃", hello: "{nick} 님", admin_mode: "관리자 모드", member_badge: "회원",
+      f_nick: "닉네임 (2~20자)", f_pw: "비밀번호 (6자 이상)", f_pw2: "비밀번호 확인",
+      signup_note: "이메일 없이 가입해요. 닉네임과 비밀번호를 꼭 기억해 주세요. 잊으면 스스로 찾을 수 없어요.",
+      to_login: "이미 회원이면 로그인", to_signup: "처음이면 회원가입",
+      err_nick: "닉네임은 2~20자로 써 주세요.", err_pw6: "비밀번호는 6자 이상으로 써 주세요.", err_pw_match: "비밀번호가 서로 달라요.",
+      err_nick_taken: "이미 쓰고 있는 닉네임이에요.", err_login: "닉네임이나 비밀번호가 맞지 않아요.", err_auth_rate: "이 연결에서 가입이 너무 많았어요. 나중에 다시 해 주세요.",
+      err_auth_down: "회원 기능을 준비 중이에요. 잠시 뒤 다시 해 주세요.",
+      ok_signup: "가입되었어요. 환영합니다! 바로 로그인되었어요.", ok_login: "로그인했어요.", ok_logout: "로그아웃했어요.",
+      member_post_note: "{nick} 님 이름으로 올라가요. 어느 기기에서든 로그인하면 수정·삭제할 수 있어요.",
+      btn_admin_del: "🗑 관리자 삭제", admin_del_confirm: "관리자 권한으로 이 글을 삭제할까요?", btn_check_code: "코드 확인", code_ph: "비밀코드 6자",
+      code_match: "✓ 비밀코드가 맞아요.", code_nomatch: "✗ 비밀코드가 맞지 않아요.", deleted_admin: "관리자가 삭제한 글입니다.",
+      nav_ai: "🤖 AI 리더", nav_biz: "🏢 비즈니스 리더", back_to_biz: "← 비즈니스 Top 50",
+      theme_to_day: "☀️ 주간", theme_to_night: "🌙 야간", theme_title: "주간 / 야간 모드 바꾸기", board_title: "세계 톱 리더 게시판", board_sub: "AI 지도자와 이 사이트에 대한 생각을 자유롭게 나눠 주세요. 서로 존중하는 말로 부탁드립니다.",
       comments_leader_title: "의견",
       comments_count: "의견 {n}개",
       write_comment: "의견 쓰기",
@@ -112,6 +152,13 @@
     }
   };
   var DICT = { en: {}, ko: {} };
+  // 2026-10-21: 아주가 정한 게시판 문구. locales.json보다 앞선다.
+  var FORCE = {
+    en: { comments_all_title: "Free Board", comments_count: "{n} posts", btn_submit: "Submit" },
+    ko: { comments_all_title: "자유 게시판", comments_count: "글 {n}개", btn_submit: "등록" }
+  };
+  // 브라우저 자동 번역이 게시판 문구를 엉뚱하게 바꾸던 문제(예: "전체 잠시 멈춰서") — 사이트가 KO/EN을 직접 하므로 끈다
+  document.documentElement.setAttribute("translate", "no");
   var lang = (function () {
     try { var s = localStorage.getItem("wtl_lang"); if (s === "ko" || s === "en") return s; } catch (e) {}
     return (navigator.language || "").toLowerCase().indexOf("ko") === 0 ? "ko" : "en";
@@ -119,7 +166,7 @@
   var langListeners = [];
 
   function t(key, vars) {
-    var s = (DICT[lang] && DICT[lang][key]) || (EXTRA[lang] && EXTRA[lang][key]) ||
+    var s = (FORCE[lang] && FORCE[lang][key]) || (DICT[lang] && DICT[lang][key]) || (EXTRA[lang] && EXTRA[lang][key]) ||
             (DICT.en && DICT.en[key]) || (EXTRA.en && EXTRA.en[key]) || key;
     if (vars) Object.keys(vars).forEach(function (k) { s = s.replace("{" + k + "}", vars[k]); });
     return s;
@@ -163,9 +210,16 @@
     var head = rows.shift().map(function (h) { return h.trim(); });
     return rows.map(function (r) { var o = {}; head.forEach(function (h, k) { o[h] = (r[k] || "").trim(); }); return o; });
   }
+  // 2026-10-21: 비즈니스 지도자 목록. business.html(body data-wtl-list="business") 또는 leader.html?list=business
+  var LIST = (function () {
+    var q = ""; try { q = new URLSearchParams(location.search).get("list") || ""; } catch (e) {}
+    var b = document.body && document.body.getAttribute("data-wtl-list");
+    return (b || q) === "business" ? "business" : "ai";
+  })();
+  function listFile() { return LIST === "business" ? "data/business_leaders.csv" : "data/leaders.csv"; }
   function loadLeaders(base) {
-    return fetch(base + "data/leaders.csv", { cache: "no-cache" })
-      .then(function (r) { if (!r.ok) throw new Error("leaders.csv " + r.status); return r.text(); })
+    return fetch(base + listFile(), { cache: "no-cache" })
+      .then(function (r) { if (!r.ok) throw new Error(listFile() + " " + r.status); return r.text(); })
       .then(parseCSV);
   }
   function leaderName(L) { return lang === "ko" && L.name_ko ? L.name_ko : L.name_en; }
@@ -232,7 +286,97 @@
       box.appendChild(b);
     });
     container.appendChild(box);
+    mountThemeSwitch(container);
   }
+
+  /* ---------- 주간·야간 모드 ----------
+   * 2026-10-21 추가 (아주 요청). 매일 바뀌는 index.html을 건드리지 않고 이 파일만으로 동작한다.
+   * 페이지 본래 바탕(어두운 판 = 야간, 밝은 판 = 주간)을 기본으로 두고,
+   * 방문자가 단추로 바꾸면 localStorage "wtl_theme"에 기억해 다음 방문과 다른 페이지에도 적용한다.
+   */
+  var D = "html[data-wtl-theme=day] ", N = "html[data-wtl-theme=night] ";
+  var THEME_CSS = "" +
+    ".wtl-theme{margin-left:8px;background:transparent;border:1px solid #1e3348;color:#c9d7e6;border-radius:999px;padding:5px 12px;font:13px system-ui,sans-serif;cursor:pointer;white-space:nowrap}.wtl-theme:hover{border-color:#d4af37;color:#d4af37}" +
+    "#langbar,.wtl-topbar{flex-wrap:wrap}" +
+    // 주간: 어두운 판(10-04 디자인)과 board.html을 밝게
+    D + "{color-scheme:light}" +
+    D + "body{background:#f4f6f9 !important;color:#14212e !important}" +
+    D + "header{border-color:#d5dee8 !important}" + D + "h1{color:#0b1a2a}" +
+    D + ".sub," + D + ".note," + D + "footer," + D + ".back{color:#5a6b7d !important}" +
+    D + "a{color:#1F4E79}" +
+    D + "table{background:#fff !important}" +
+    D + "th{background:#eaf0f6 !important;color:#1d3247 !important;border-bottom-color:#b8912a !important}" +
+    D + "td{border-bottom-color:#e1e8ef !important;color:#14212e}" +
+    D + "tr:hover td{background:#eef4fa !important}" +
+    D + ".r1 td{background:rgba(212,175,55,.22) !important}" + D + ".r2 td{background:rgba(150,160,170,.16) !important}" + D + ".r3 td{background:rgba(205,127,50,.16) !important}" +
+    D + ".avg{color:#8a6a0e !important}" +
+    D + ".wtl-theme{border-color:#c5d3e0;color:#1d3247}" +
+    D + ".wtl-lang{border-color:#c5d3e0}" + D + ".wtl-lang button{color:#5a6b7d}" + D + ".wtl-lang button.on{color:#071018}" +
+    D + ".wtl-board-link{color:#8a6a0e;border-color:rgba(154,123,22,.5)}" +
+    D + ".wtl-sheet{background:#fff;border-color:#d5dee8}" + D + ".wtl-sheet-head h2{color:#14212e}" +
+    D + ".wtl-count," + D + ".wtl-meta," + D + ".wtl-reply-meta," + D + ".wtl-replies-h," + D + ".wtl-counter," + D + ".wtl-gone," + D + ".wtl-empty," + D + ".wtl-grid .c0," + D + ".wtl-grid .c5{color:#5a6b7d}" +
+    D + ".wtl-sort," + D + ".wtl-form textarea," + D + ".wtl-form input{background:#fff;color:#14212e;border-color:#c5d3e0}" +
+    D + ".wtl-grid th{background:#eaf0f6 !important;color:#1d3247 !important}" + D + ".wtl-grid td{color:#14212e;border-bottom-color:#e1e8ef !important}" +
+    D + ".wtl-row:hover td," + D + ".wtl-row.open td{background:#eef4fa !important}" + D + ".wtl-detail td{background:#f6f9fc !important}" +
+    D + ".wtl-like{border-color:#c5d3e0;color:#14212e}" + D + ".wtl-like.on{border-color:#b8912a;color:#8a6a0e}" +
+    D + ".wtl-mini{border-color:#c5d3e0;color:#5a6b7d}" + D + ".wtl-mini.danger{color:#b42318;border-color:#b42318}" + D + ".wtl-mini.on{color:#8a6a0e;border-color:#b8912a}" + D + ".wtl-mini:hover{color:#14212e;border-color:#2E75B6}" +
+    D + ".wtl-pw-hint{color:#5a6b7d}" + D + ".wtl-mine{color:#8a6a0e;border-color:#b8912a}" + D + ".wtl-memb{color:#2E75B6}" + D + ".wtl-hello{color:#1d3247}" +
+    D + ".wtl-modal-box{background:#fff;color:#14212e;border-color:#b8912a}" + D + ".wtl-code{background:#fbf3d6;color:#8a6a0e;border-color:#b8912a}" + D + ".wtl-linkbtn{color:#1F4E79}" +
+    D + ".wtl-nav-link{color:#1d3247;border-color:#c5d3e0}" +
+    D + ".wtl-replies{border-left-color:#d5dee8}" + D + ".wtl-reply{border-bottom-color:#d5dee8}" +
+    D + ".wtl-form-note{color:#1e7a3c}" + D + ".wtl-form-note.err{color:#b42318}" +
+    D + "#wtl-toast{background:#fff;color:#14212e}" +
+    D + ".wtl-notice{background:#fbf3d6;color:#5b4708}" + D + ".wtl-notice a{color:#1F4E79}" + D + ".wtl-notice button{color:#5b4708}" +
+    // 야간: 밝은 판(10-11~ 매일판)을 어둡게
+    N + "{color-scheme:dark}" +
+    N + "body{background:#071018 !important;color:#e8eef5 !important}" +
+    N + ":is(header,main,section,article,nav,footer,.wrap,.container,.card,.table-wrap,.wtl-table-wrap){background-color:transparent !important}" +
+    N + ":is(h1,h2,h3,h4,p,li,caption):not([class*=wtl]){color:inherit !important}" +
+    N + "a{color:#7ec8ff}" +
+    N + "table{background:#0e1a28 !important}" +
+    N + "th{background:#102033 !important;color:#c9d7e6 !important;border-bottom-color:#d4af37 !important}" +
+    N + "td{background-color:transparent;border-color:#1e3348 !important;color:#e8eef5 !important}" +
+    N + "tr:hover td{background:#132536 !important}";
+  function nativeTheme() {
+    var cs = getComputedStyle(document.body), m = cs.backgroundColor.match(/[\d.]+/g);
+    if (!m) return "night";
+    if (m.length >= 4 && +m[3] === 0) return cs.backgroundImage === "none" ? "day" : "night"; // 바탕색이 없으면 흰 바탕 또는 그림 바탕
+    return (+m[0] + +m[1] + +m[2]) / 3 > 160 ? "day" : "night";
+  }
+  var native = null, themeBtns = [];
+  function theme() {
+    try { var s = localStorage.getItem("wtl_theme"); if (s === "day" || s === "night") return s; } catch (e) {}
+    return native || "night";
+  }
+  function applyTheme() {
+    if (!document.body) return;
+    if (!native) {
+      if (!document.getElementById("wtl-theme-css")) { var st4 = el("style", { id: "wtl-theme-css" }); st4.textContent = THEME_CSS; document.head.appendChild(st4); }
+      native = nativeTheme();
+    }
+    var cur = theme(), root = document.documentElement;
+    if (cur === native) root.removeAttribute("data-wtl-theme"); else root.setAttribute("data-wtl-theme", cur);
+    // 기존 밝은 바탕 보정(.wtl-light)을 지금 보이는 모드에 맞춘다
+    document.body.classList.toggle("wtl-light", cur === "day");
+    themeBtns.forEach(function (b) {
+      b.textContent = t(cur === "day" ? "theme_to_night" : "theme_to_day");
+      b.title = t("theme_title");
+      b.setAttribute("aria-label", t("theme_title"));
+    });
+  }
+  function setTheme(v) {
+    try { localStorage.setItem("wtl_theme", v); } catch (e) {}
+    applyTheme();
+  }
+  function mountThemeSwitch(container) {
+    if (container.querySelector(".wtl-theme")) return;
+    var b = el("button", { type: "button", className: "wtl-theme" });
+    b.addEventListener("click", function () { setTheme(theme() === "day" ? "night" : "day"); });
+    container.appendChild(b);
+    themeBtns.push(b);
+    applyTheme();
+  }
+  onLang(applyTheme);
 
   /* ---------- Supabase REST ---------- */
   function api(path, opts) {
@@ -248,11 +392,26 @@
         });
       });
   }
+  var newCols = true;
   function fetchComments(slug) {
-    var q = "?select=" + COLS + "&order=created_at.desc&limit=1000" + (slug ? "&slug=eq." + encodeURIComponent(slug) : "");
-    return api("/" + TABLE + q);
+    var tail = "&order=created_at.desc&limit=1000" + (slug ? "&slug=eq." + encodeURIComponent(slug) : "");
+    if (!newCols) return api("/" + TABLE + "?select=" + COLS + tail);
+    return api("/" + TABLE + "?select=" + COLS + ",is_member" + tail).catch(function (e) {
+      if (e.status !== 400 && e.status !== 401 && e.status !== 403) throw e;
+      newCols = false; return api("/" + TABLE + "?select=" + COLS + tail);
+    });
   }
-  function postComment(row) { return api("/" + TABLE + "?select=id", { method: "POST", body: row, prefer: "return=representation" }); }
+  function postComment(row) {
+    var send = function (r) { return api("/" + TABLE + "?select=id", { method: "POST", body: r, prefer: "return=representation" }); };
+    return send(row).catch(function (e) {
+      // 서버에 새 칸(edit_code, member_token)이 아직 없으면 예전 방식으로 한 번 더 보낸다
+      if ((row.edit_code || row.member_token) && /edit_code|member_token|column|permission/i.test(e.message || "")) {
+        var r2 = {}; Object.keys(row).forEach(function (k) { if (k !== "edit_code" && k !== "member_token") r2[k] = row[k]; });
+        row._legacy = true; return send(r2);
+      }
+      throw e;
+    });
+  }
   function editComment(id, secret, body) { return api("/rpc/wtl_comment_edit", { method: "POST", body: { p_id: id, p_secret: secret, p_body: body } }); }
   function deleteComment(id, secret) { return api("/rpc/wtl_comment_delete", { method: "POST", body: { p_id: id, p_secret: secret } }); }
   // 로그인 없이 수정·삭제: 글쓴 브라우저에는 비밀 토큰을 저장, 다른 기기에서는 비밀번호로
@@ -288,12 +447,143 @@
     return null;
   }
 
+  /* ---------- 회원·비밀코드·관리자 (2026-10-21) ----------
+   * 회원은 Supabase의 wtl_members 표(닉네임+비밀번호, 이메일 없음). 로그인하면 받은 열쇠를 localStorage "wtl_member"에 둔다.
+   * 관리자는 is_admin=true인 회원. 삭제·코드 확인은 모두 서버 함수가 다시 확인하므로 화면만 고쳐서는 할 수 없다.
+   */
+  function rpc(name, body) { return api("/rpc/" + name, { method: "POST", body: body }); }
+  var member = (function () { try { var m = JSON.parse(localStorage.getItem("wtl_member") || "null"); return m && m.token ? m : null; } catch (e) { return null; } })();
+  var memberListeners = [];
+  function onMember(fn) { memberListeners.push(fn); }
+  function setMember(m) {
+    member = m;
+    try { if (m) localStorage.setItem("wtl_member", JSON.stringify(m)); else localStorage.removeItem("wtl_member"); } catch (e) {}
+    memberListeners.forEach(function (fn) { try { fn(member); } catch (e) { console.error(e); } });
+  }
+  var memberChecked = false;
+  function checkMember() {
+    if (!member || memberChecked) return; memberChecked = true;
+    rpc("wtl_member_me", { p_token: member.token }).then(function (r) {
+      if (!r) setMember(null);
+      else if (r.nickname !== member.nickname || !!r.is_admin !== !!member.is_admin) setMember({ token: member.token, nickname: r.nickname, is_admin: !!r.is_admin });
+    }).catch(function (e) { if (e.status === 404) setMember(null); });
+  }
+  function isMine(c) { return !!(member && c.is_member && c.author === member.nickname); }
+
+  function codes() { try { return JSON.parse(localStorage.getItem("wtl_codes") || "{}"); } catch (e) { return {}; } }
+  function saveCode(id, code) { try { var m = codes(); m[id] = code; localStorage.setItem("wtl_codes", JSON.stringify(m)); } catch (e) {} }
+  function newCode() {
+    var A = "abcdefghijkmnpqrstuvwxyz23456789", a = new Uint8Array(6), s = "";
+    (window.crypto || window.msCrypto).getRandomValues(a);
+    for (var i = 0; i < 6; i++) s += A.charAt(a[i] % A.length);
+    return s;
+  }
+
+  function openModal(build) {
+    var ov = el("div", { className: "wtl-modal" });
+    var box = el("div", { className: "wtl-modal-box", role: "dialog" }); box.setAttribute("aria-modal", "true");
+    ov.appendChild(box);
+    function close() { ov.remove(); document.removeEventListener("keydown", esc); }
+    function esc(e) { if (e.key === "Escape") close(); }
+    document.addEventListener("keydown", esc);
+    ov.addEventListener("click", function (e) { if (e.target === ov) close(); });
+    build(box, close);
+    document.body.appendChild(ov);
+    var f = box.querySelector("input,button.wtl-submit"); if (f) f.focus();
+    return close;
+  }
+  function showCode(code) {
+    openModal(function (box, close) {
+      box.appendChild(el("h3", null, t("code_title")));
+      var parts = t("code_msg", { code: "\u0001" }).split("\u0001");
+      var p = el("p", { className: "wtl-code-msg" });
+      p.appendChild(document.createTextNode(parts[0])); p.appendChild(el("strong", { className: "wtl-code" }, code)); p.appendChild(document.createTextNode(parts[1] || ""));
+      box.appendChild(p);
+      var row = el("div", { className: "wtl-modal-row" });
+      var cp = el("button", { type: "button", className: "wtl-mini" }, t("btn_copy"));
+      cp.addEventListener("click", function () { try { navigator.clipboard.writeText(code).then(function () { toast(t("copied")); }); } catch (e) {} });
+      var cl = el("button", { type: "button", className: "wtl-submit" }, t("btn_close"));
+      cl.addEventListener("click", close);
+      row.appendChild(cp); row.appendChild(cl); box.appendChild(row);
+    });
+  }
+  function openAuth(mode) {
+    openModal(function (box, close) {
+      function paint() {
+        box.innerHTML = "";
+        var signup = mode === "signup";
+        box.appendChild(el("h3", null, t(signup ? "signup" : "login")));
+        var f = el("form", { className: "wtl-form", noValidate: true });
+        var nick = el("input", { type: "text", maxLength: 20, placeholder: t("f_nick"), autocomplete: "username" });
+        var pw = el("input", { type: "password", maxLength: 72, placeholder: t("f_pw"), autocomplete: signup ? "new-password" : "current-password" });
+        var pw2 = el("input", { type: "password", maxLength: 72, placeholder: t("f_pw2"), autocomplete: "new-password" });
+        f.appendChild(nick); f.appendChild(pw); if (signup) { f.appendChild(pw2); f.appendChild(el("div", { className: "wtl-pw-hint" }, t("signup_note"))); }
+        var note = el("div", { className: "wtl-form-note err", role: "alert" });
+        f.appendChild(note);
+        var row = el("div", { className: "wtl-modal-row" });
+        var sw = el("button", { type: "button", className: "wtl-linkbtn" }, t(signup ? "to_login" : "to_signup"));
+        sw.addEventListener("click", function () { mode = signup ? "login" : "signup"; paint(); });
+        var cancel = el("button", { type: "button", className: "wtl-mini" }, t("btn_cancel"));
+        cancel.addEventListener("click", close);
+        var go = el("button", { type: "submit", className: "wtl-submit" }, t(signup ? "signup" : "login"));
+        row.appendChild(sw); row.appendChild(cancel); row.appendChild(go); f.appendChild(row);
+        function say(m) { note.textContent = m || ""; note.className = "wtl-form-note err" + (m ? " show" : ""); }
+        f.addEventListener("submit", function (ev) {
+          ev.preventDefault();
+          var n = nick.value.trim(), a = pw.value;
+          if (n.length < 2 || n.length > 20) return say(t("err_nick"));
+          if (a.length < 6) return say(t("err_pw6"));
+          if (signup && a !== pw2.value) return say(t("err_pw_match"));
+          go.disabled = true;
+          rpc(signup ? "wtl_member_signup" : "wtl_member_login", { p_nick: n, p_pw: a }).then(function (r) {
+            if (!r || r.error || !r.token) {
+              var e = r && r.error;
+              say(t(e === "NICK_TAKEN" ? "err_nick_taken" : e === "BAD_NICK" ? "err_nick" : e === "BAD_PW" ? "err_pw6" : e === "RATE_LIMIT" ? "err_auth_rate" : e === "TOO_MANY_TRIES" ? "err_tries" : "err_login"));
+              return;
+            }
+            setMember({ token: r.token, nickname: r.nickname, is_admin: !!r.is_admin });
+            toast(t(signup ? "ok_signup" : "ok_login")); close();
+          }).catch(function (e) { console.error(e); say(t(e.status === 404 ? "err_auth_down" : "err_generic")); })
+            .then(function () { go.disabled = false; });
+        });
+        box.appendChild(f);
+        nick.focus();
+      }
+      paint();
+    });
+  }
+  // 회원가입·로그인 단추 (게시판 맨 윗줄 오른쪽)
+  function makeAuthBar() {
+    var box = el("span", { className: "wtl-auth" });
+    function paint() {
+      box.innerHTML = "";
+      if (member) {
+        box.appendChild(el("span", { className: "wtl-hello" }, "👤 " + t("hello", { nick: member.nickname })));
+        if (member.is_admin) box.appendChild(el("span", { className: "wtl-admin-badge" }, t("admin_mode")));
+        var lo = el("button", { type: "button", className: "wtl-mini" }, t("logout"));
+        lo.addEventListener("click", function () { var tk = member.token; setMember(null); rpc("wtl_member_logout", { p_token: tk }).catch(function () {}); toast(t("ok_logout")); });
+        box.appendChild(lo);
+      } else {
+        var su = el("button", { type: "button", className: "wtl-mini on" }, t("signup"));
+        su.addEventListener("click", function () { openAuth("signup"); });
+        var li = el("button", { type: "button", className: "wtl-mini" }, t("login"));
+        li.addEventListener("click", function () { openAuth("login"); });
+        box.appendChild(su); box.appendChild(li);
+      }
+    }
+    paint(); onLang(paint); onMember(paint);
+    return box;
+  }
+
   /* ---------- 엑셀형 의견 시트 ---------- */
   // mountCommentSheet(container, slug, { title }) — slug = 지도자 slug 또는 "ALL"
   function mountCommentSheet(container, slug, options) {
     options = options || {};
     var state = { items: [], sort: "latest", open: {}, replyForms: {} };
     var root = el("section", { className: "wtl-sheet", id: options.id || "" });
+    root.setAttribute("translate", "no");
+    var authBar = makeAuthBar();
+    checkMember();
     var headBox = el("div"), gridBox = el("div");
     container.appendChild(root);
 
@@ -303,7 +593,7 @@
       author.dataset.i18nPh = "placeholder_author"; author.placeholder = t("placeholder_author");
       try { author.value = localStorage.getItem("wtl_author") || ""; } catch (e) {}
       var body = el("textarea", { maxLength: BODY_MAX, rows: parentId ? 2 : 3, className: "wtl-body" });
-      var phKey = parentId ? "placeholder_reply" : "placeholder_comment";
+      var phKey = parentId ? "placeholder_reply" : slug === "ALL" ? "placeholder_board" : "placeholder_comment";
       body.dataset.i18nPh = phKey; body.placeholder = t(phKey);
       var minLen = parentId ? REPLY_MIN : BODY_MIN;
       // 막히면 화면 맨 아래 알림만으로는 놓치기 쉬워서, 입력칸 바로 아래에도 알려 준다
@@ -323,6 +613,19 @@
       var row = el("div", { className: "wtl-form-row" });
       row.appendChild(author); row.appendChild(pw); row.appendChild(counter); row.appendChild(btn);
       f.appendChild(body); f.appendChild(row); f.appendChild(note);
+      // 회원으로 로그인했으면 닉네임·비밀번호 칸 대신 안내 한 줄
+      var memNote = el("div", { className: "wtl-pw-hint wtl-mem-note" });
+      f.insertBefore(memNote, note);
+      function syncMember() {
+        author.style.display = pw.style.display = member ? "none" : "";
+        memNote.style.display = member ? "" : "none";
+        memNote.textContent = member ? "👤 " + t("member_post_note", { nick: member.nickname }) : "";
+      }
+      syncMember(); onMember(syncMember); onLang(syncMember);
+      // 2026-10-21: 본 글 쓰기 칸 아래 안내 두 줄 (아주 문구)
+      if (!parentId) {
+        ["board_note1", "board_note2"].forEach(function (k) { var d = el("div", { className: "wtl-pw-hint" }, t(k)); d.dataset.i18n = k; f.appendChild(d); });
+      }
       f.addEventListener("submit", function (ev) {
         ev.preventDefault();
         var a = author.value.trim(), b = body.value.trim();
@@ -332,10 +635,13 @@
         btn.disabled = true;
         var tok = newToken();
         var rec = { slug: slug, author: a || "참여자", lang: lang, body: b, edit_token: tok };
-        if (pw.value) rec.edit_pw = pw.value;
+        var code = null;
+        if (member) { rec.member_token = member.token; rec.author = member.nickname; }
+        else { code = newCode(); rec.edit_code = code; if (pw.value) rec.edit_pw = pw.value; }
         if (parentId) rec.parent_comment_id = parentId;
         postComment(rec).then(function (rows) {
-          if (rows && rows[0] && rows[0].id) saveToken(rows[0].id, tok);
+          if (rows && rows[0] && rows[0].id) { saveToken(rows[0].id, tok); if (code && !rec._legacy) saveCode(rows[0].id, code); }
+          if (code && !rec._legacy) showCode(code);
           pw.value = "";
           if (parentId) setLastReply(); else setLastPost();
           try { localStorage.setItem("wtl_author", a); } catch (e) {}
@@ -349,8 +655,40 @@
       return f;
     }
 
+    function goneMsg(c) { return c.body === "(deleted by admin)" ? t("deleted_admin") : t("deleted_msg"); }
     function shownAuthor(c) { return c.author === "참여자" || c.author === "Anonymous" ? t("anonymous") : c.author; }
     function metaText(c) { return shownAuthor(c) + " · " + fmtTime(c.created_at) + (c.edited_at ? " · " + t("edited") : ""); }
+
+    // 관리자 단추: 아무 글이나 삭제, 비밀코드 확인 (서버가 관리자인지 다시 확인한다)
+    function adminControls(c, box) {
+      var del = el("button", { type: "button", className: "wtl-mini danger" }, t("btn_admin_del"));
+      var chk = el("button", { type: "button", className: "wtl-mini" }, t("btn_check_code"));
+      del.addEventListener("click", function (ev) {
+        ev.stopPropagation();
+        if (!window.confirm(t("admin_del_confirm"))) return;
+        del.disabled = true;
+        rpc("wtl_admin_delete", { p_token: member.token, p_id: c.id }).then(function (s) {
+          if (s === "OK") { toast(t("ok_deleted")); return reload(); }
+          toast(s === "NOT_ADMIN" ? t("err_generic") : statusMsg(s), true); del.disabled = false;
+        }).catch(function (e) { console.error(e); toast(t("err_generic"), true); del.disabled = false; });
+      });
+      chk.addEventListener("click", function (ev) {
+        ev.stopPropagation();
+        var f = el("span", { className: "wtl-pwask" });
+        var inp = el("input", { type: "text", maxLength: 6, placeholder: t("code_ph"), className: "wtl-pw" });
+        var ok = el("button", { type: "button", className: "wtl-mini on" }, "OK");
+        f.appendChild(inp); f.appendChild(ok); chk.replaceWith(f); inp.focus();
+        function go() {
+          rpc("wtl_admin_check_code", { p_token: member.token, p_id: c.id, p_code: inp.value }).then(function (s) {
+            toast(t(s === "MATCH" ? "code_match" : "code_nomatch"), s !== "MATCH");
+          }).catch(function (e) { console.error(e); toast(t("err_generic"), true); });
+        }
+        ok.addEventListener("click", function (e) { e.stopPropagation(); go(); });
+        inp.addEventListener("click", function (e) { e.stopPropagation(); });
+        inp.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); go(); } });
+      });
+      box.appendChild(chk); box.appendChild(del);
+    }
 
     // 수정·삭제 버튼. 이 브라우저에서 쓴 글이면 바로, 아니면 비밀번호를 물어본다.
     function ownerControls(c, bodyEl) {
@@ -358,11 +696,15 @@
       var editB = el("button", { type: "button", className: "wtl-mini" }, t("btn_edit"));
       var delB = el("button", { type: "button", className: "wtl-mini" }, t("btn_delete"));
       box.appendChild(editB); box.appendChild(delB);
+      var myCode = codes()[c.id];
+      if (myCode) box.insertBefore(el("span", { className: "wtl-meta", title: t("my_code") }, "🔑 " + myCode), editB);
+      if (member && member.is_admin) adminControls(c, box);
       function withSecret(onSecret) {
+        if (isMine(c)) { onSecret(member.token); return; }
         var tok = tokens()[c.id];
         if (tok) { onSecret(tok); return; }
         var f = el("span", { className: "wtl-pwask" });
-        var inp = el("input", { type: "password", maxLength: 30, placeholder: t("pw_prompt"), className: "wtl-pw" });
+        var inp = el("input", { type: "password", maxLength: 30, placeholder: t("pw_prompt2"), className: "wtl-pw" });
         var ok = el("button", { type: "button", className: "wtl-mini on" }, "OK");
         var cancel = el("button", { type: "button", className: "wtl-mini" }, t("btn_cancel"));
         f.appendChild(inp); f.appendChild(ok); f.appendChild(cancel);
@@ -451,6 +793,7 @@
       });
       sel.addEventListener("change", function () { state.sort = sel.value; render(); });
       head.appendChild(sel);
+      head.appendChild(authBar);
       headBox.appendChild(head);
 
       var table = el("table", { className: "wtl-grid" });
@@ -465,14 +808,18 @@
       } else if (!tops.length) {
         var em = el("tr"); em.appendChild(el("td", { colSpan: 6, className: "wtl-empty" }, t("empty_comments"))); tb.appendChild(em);
       }
+      var myTok = tokens(); // 이 브라우저에서 쓴 글 표시용
       tops.forEach(function (c, idx) {
         var reps = kids[c.id] || [];
         var tr = el("tr", { className: "wtl-row" + (state.open[c.id] ? " open" : ""), tabIndex: 0 });
         tr.setAttribute("aria-expanded", state.open[c.id] ? "true" : "false");
         tr.appendChild(el("td", { className: "c0" }, String(idx + 1)));
         var gone = !!c.deleted_at;
-        tr.appendChild(el("td", { className: "c1" }, gone ? "—" : shownAuthor(c)));
-        var bodyTd = el("td", { className: "c2" }); bodyTd.appendChild(el("div", { className: "wtl-ell" + (gone ? " wtl-gone" : "") }, gone ? t("deleted_msg") : c.body)); tr.appendChild(bodyTd);
+        var who = el("td", { className: "c1" }, gone ? "—" : shownAuthor(c));
+        if (!gone && (myTok[c.id] || isMine(c))) who.insertBefore(el("span", { className: "wtl-mine", title: t("mine_title") }, t("mine")), who.firstChild);
+        else if (!gone && c.is_member) who.insertBefore(el("span", { className: "wtl-memb", title: t("member_badge") }, "✓"), who.firstChild);
+        tr.appendChild(who);
+        var bodyTd = el("td", { className: "c2" }); bodyTd.appendChild(el("div", { className: "wtl-ell" + (gone ? " wtl-gone" : "") }, gone ? goneMsg(c) : c.body)); tr.appendChild(bodyTd);
         tr.appendChild(el("td", { className: "c3" }, String(c.likes)));
         tr.appendChild(el("td", { className: "c4" }, String(reps.length)));
         tr.appendChild(el("td", { className: "c5" }, fmtTime(c.created_at)));
@@ -482,7 +829,7 @@
         tb.appendChild(tr);
         if (state.open[c.id]) {
           var dr = el("tr", { className: "wtl-detail" }); var td = el("td", { colSpan: 6 });
-          var full = el("div", { className: "wtl-full" + (gone ? " wtl-gone" : "") }, gone ? t("deleted_msg") : c.body);
+          var full = el("div", { className: "wtl-full" + (gone ? " wtl-gone" : "") }, gone ? goneMsg(c) : c.body);
           td.appendChild(full);
           if (!gone) {
             var act = el("div", { className: "wtl-actions" }); act.appendChild(likeBtn(c));
@@ -494,7 +841,9 @@
           rl.appendChild(el("div", { className: "wtl-replies-h" }, t("replies") + " " + reps.length));
           reps.forEach(function (r) {
             var ri = el("div", { className: "wtl-reply" });
-            ri.appendChild(el("div", { className: "wtl-reply-meta" }, "↳ " + metaText(r)));
+            var rm = el("div", { className: "wtl-reply-meta" }, "↳ " + metaText(r));
+            if (myTok[r.id] || isMine(r)) rm.appendChild(el("span", { className: "wtl-mine", title: t("mine_title") }, t("mine")));
+            ri.appendChild(rm);
             var rb = el("div", { className: "wtl-reply-body" }, r.body); ri.appendChild(rb);
             var ra = el("div", { className: "wtl-actions" }); ra.appendChild(likeBtn(r)); ra.appendChild(ownerControls(r, rb)); ri.appendChild(ra);
             rl.appendChild(ri);
@@ -519,6 +868,7 @@
     root.appendChild(buildForm(null));
     root.appendChild(gridBox);
     onLang(render);
+    onMember(render);
     render();
     return reload();
   }
@@ -557,6 +907,18 @@
     ".wtl-owner{margin-left:auto;display:inline-flex;gap:6px;align-items:center}.wtl-pwask{display:inline-flex;gap:6px;align-items:center}" +
     ".wtl-mini{background:transparent;border:1px solid #1e3348;color:#8aa0b5;border-radius:6px;padding:2px 8px;font-size:12px;cursor:pointer}.wtl-mini:hover{color:#e8eef5;border-color:#7ec8ff}.wtl-mini.on{color:#d4af37;border-color:#d4af37}.wtl-mini.danger{color:#e06c6c;border-color:#e06c6c}" +
     ".wtl-pwask .wtl-pw{width:110px;padding:3px 6px;font-size:12px}.wtl-gone{color:#8aa0b5;font-style:italic}.wtl-form .wtl-pw{max-width:220px}" +
+    ".wtl-pw-hint{color:#8aa0b5;font-size:12px;line-height:1.5}" +
+    ".wtl-mine{display:inline-block;margin:0 6px 0 0;padding:0 6px;border:1px solid #d4af37;border-radius:999px;color:#d4af37;font-size:10px;line-height:16px;vertical-align:1px}.wtl-reply-meta .wtl-mine{margin:0 0 0 6px}" +
+    ".wtl-memb{display:inline-block;margin-right:5px;color:#7ec8ff;font-size:11px}" +
+    ".wtl-auth{display:inline-flex;gap:6px;align-items:center;flex-wrap:wrap}.wtl-hello{color:#c9d7e6;font-size:13px}" +
+    ".wtl-admin-badge{background:#e06c6c;color:#fff;border-radius:999px;padding:1px 8px;font-size:11px;font-weight:700}" +
+    ".wtl-modal{position:fixed;inset:0;background:rgba(0,0,0,.55);display:flex;align-items:center;justify-content:center;z-index:100;padding:16px}" +
+    ".wtl-modal-box{background:#0e1a28;color:#e8eef5;border:1px solid #d4af37;border-radius:14px;padding:20px;max-width:440px;width:100%;font-family:system-ui,sans-serif;box-shadow:0 12px 40px rgba(0,0,0,.4)}" +
+    ".wtl-modal-box h3{margin:0 0 12px;font:600 18px Georgia,serif}.wtl-modal-box .wtl-form{margin:0}" +
+    ".wtl-modal-row{display:flex;gap:8px;align-items:center;justify-content:flex-end;margin-top:12px;flex-wrap:wrap}" +
+    ".wtl-code-msg{line-height:1.7;margin:0}.wtl-code{display:inline-block;margin:0 4px;padding:1px 8px;border-radius:6px;background:#071018;border:1px solid #d4af37;color:#d4af37;font:700 17px ui-monospace,Consolas,monospace;letter-spacing:.08em}" +
+    ".wtl-linkbtn{background:transparent;border:0;color:#7ec8ff;cursor:pointer;font-size:13px;margin-right:auto;padding:0}" +
+    ".wtl-nav-link{color:#c9d7e6;border:1px solid #1e3348;border-radius:999px;padding:4px 12px;text-decoration:none;font-size:14px}.wtl-nav-link:hover{border-color:#7ec8ff;color:#7ec8ff}" +
     ".wtl-form.reply{margin:10px 0 0}.wtl-empty{color:#8aa0b5;text-align:center;padding:18px}" +
     "@media (max-width:640px){.wtl-form-row{flex-wrap:wrap}.wtl-form-row input{flex:1 1 45%}.wtl-grid{min-width:0}.wtl-grid .c0{display:none}.wtl-grid .c3,.wtl-grid .c4{width:34px}.wtl-grid .c1{width:72px}.wtl-grid .c5{width:88px;font-size:11px}.wtl-form-row input{max-width:none}}";
   var st = document.createElement("style"); st.textContent = CSS; document.head.appendChild(st);
@@ -566,7 +928,7 @@
     loadLocales: loadLocales, loadLeaders: loadLeaders, leaderName: leaderName, wikiFor: wikiFor,
     makeWikiLink: makeWikiLink, initialsSVG: initialsSVG, el: el, toast: toast, fmtTime: fmtTime,
     mountLangSwitch: mountLangSwitch, mountCommentSheet: mountCommentSheet, fetchComments: fetchComments,
-    initIndex: initIndex
+    initIndex: initIndex, theme: theme, setTheme: setTheme, mountThemeSwitch: mountThemeSwitch
   };
 
   /* ---------- 순위표(index.html) 자동 보강 ----------
@@ -599,6 +961,7 @@
     table.classList.add("wtl-rank");
     var bgm = getComputedStyle(document.body).backgroundColor.match(/\d+/g);
     if (bgm && (+bgm[0] + +bgm[1] + +bgm[2]) / 3 > 160 && (bgm.length < 4 || +bgm[3] > 0)) document.body.classList.add("wtl-light");
+    applyTheme(); // 주간·야간 선택을 바로 적용 (2026-10-21)
     if (table.parentNode && !/table-wrap/.test(table.parentNode.className || "")) {
       var wrap = el("div", { className: "wtl-table-wrap" }); table.parentNode.insertBefore(wrap, table); wrap.appendChild(table);
     } else if (table.parentNode) table.parentNode.classList.add("wtl-table-wrap");
@@ -619,6 +982,16 @@
       if (!headRow.querySelector('[data-i18n="th_comments"]')) {
         var thc = el("th", null, "Comments"); thc.setAttribute("data-i18n", "th_comments"); headRow.appendChild(thc);
       }
+    }
+    var listQ = LIST === "business" ? "&list=business" : "";
+    // 2026-10-21: AI 리더 ↔ 비즈니스 리더 바로가기. 비즈니스 목록은 자료가 채워진 뒤에만 보인다
+    if (!langbar.querySelector(".wtl-nav-link")) {
+      var navKey = LIST === "business" ? "nav_ai" : "nav_biz";
+      var nav = el("a", { href: LIST === "business" ? "index.html" : "business.html", className: "wtl-nav-link" }, t(navKey));
+      nav.setAttribute("data-i18n", navKey);
+      if (LIST === "business") langbar.appendChild(nav);
+      else fetch("data/business_leaders.csv", { cache: "no-cache" }).then(function (r) { return r.ok ? r.text() : ""; })
+        .then(function (txt) { if (parseCSV(txt || "").length > 0) langbar.insertBefore(nav, langbar.firstChild); }).catch(function () {});
     }
     // 2026-10-21 추가: 순위표 위에 게시판(board.html) 바로가기
     if (!langbar.querySelector(".wtl-board-link")) {
@@ -646,14 +1019,14 @@
           var L = tr._leader; if (!L) return;
           var cell = tr.cells[NAME_COL]; cell.innerHTML = "";
           cell.appendChild(makeWikiLink(L, leaderName(L)));
-          cell.appendChild(el("a", { href: "leader.html?slug=" + encodeURIComponent(L.slug), className: "wtl-detail-link" }, t("link_detail") + " ›"));
+          cell.appendChild(el("a", { href: "leader.html?slug=" + encodeURIComponent(L.slug) + listQ, className: "wtl-detail-link" }, t("link_detail") + " ›"));
         });
       }
       function paintComments() {
         rows.forEach(function (tr) {
           var L = tr._leader, td = tr.cells[tr.cells.length - 1]; td.innerHTML = "";
           if (!L) return;
-          var a = el("a", { href: "leader.html?slug=" + encodeURIComponent(L.slug) + "#comments" });
+          var a = el("a", { href: "leader.html?slug=" + encodeURIComponent(L.slug) + listQ + "#comments" });
           var c = latest[L.slug];
           if (c) {
             a.appendChild(el("span", { className: "cmt-prev", title: c.body }, c.body));
@@ -711,6 +1084,11 @@
     }).catch(function () {});
   }
 
+  applyTheme(); // 저장된 주간·야간 선택을 첫 화면부터 적용
+  if (LIST === "business") {
+    var backA = document.querySelector("a.back");
+    if (backA) { backA.href = "business.html"; backA.setAttribute("data-i18n", "back_to_biz"); backA.textContent = t("back_to_biz"); }
+  }
   // leader.html처럼 순위표가 없는 페이지에서는 아무 일도 하지 않는다.
   if (document.readyState === "loading") { document.addEventListener("DOMContentLoaded", initIndex); document.addEventListener("DOMContentLoaded", initNotice); }
   else { initIndex(); initNotice(); }
