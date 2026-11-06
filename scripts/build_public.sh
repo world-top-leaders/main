@@ -11,12 +11,18 @@ if [ -f board.html ]; then cp board.html public/; fi
 if [ -f business.html ]; then cp business.html public/; fi
 
 # --- 게시판·다국어가 늘 켜지도록 (2026-10-21) ---
-# 매일 새로 만드는 index.html에서 wtl-common.js 줄이 빠지는 일이 잦아(10-11~10-21), 빠졌으면 여기서 넣는다.
+# 매일 새로 만드는 index.html에서 wtl-common.js 줄이 빠지는 일이 좋아(10-11~10-21), 빠졌으면 여기서 넣는다.
 if ! grep -q 'assets/wtl-common.js' public/index.html; then
   sed -i 's|</body>|<script src="assets/wtl-common.js"></script>\n</body>|' public/index.html
   echo "index.html에 wtl-common.js 줄을 자동으로 넣었습니다."
 fi
+# Dynamic Top 50 ranking (2026-11-06)
+if ! grep -q 'assets/dynamic-rank.js' public/index.html; then
+  sed -i 's|</body>|<script src="assets/dynamic-rank.js"></script>\n</body>|' public/index.html
+  echo "index.html에 dynamic-rank.js 줄을 자동으로 넣었습니다."
+fi
 cp assets/wtl-common.js public/assets/
+cp assets/dynamic-rank.js public/assets/
 if [ -d assets/leaders ]; then cp -r assets/leaders public/assets/; fi
 cp data/leaders.csv data/locales.json public/data/
 if [ -f data/notice.json ]; then cp data/notice.json public/data/; fi
