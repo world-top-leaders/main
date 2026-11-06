@@ -1,24 +1,24 @@
 rank,slug,name_en,name_ko,org,role_en,wiki_en,wiki_ko,photo,R,B,AGI,W,avg
-1,dario-amodei,Dario Amodei,다리오 아모데이,Anthropic,Co-founder & CEO,https://en.wikipedia.org/wiki/Dario_Amodei,,assets/leaders/dario-amodei.jpg,90,98,98,78,91.00
-2,elon-musk,Elon Musk,일론 머스크,xAI / SpaceX / Tesla,Founder & CEO,https://en.wikipedia.org/wiki/Elon_Musk,https://ko.wikipedia.org/wiki/일론_머스크,assets/leaders/elon-musk.jpg,60,98,95,99,88.00
-3,jensen-huang,Jensen Huang,젠슨 황,NVIDIA,"Founder, CEO & President",https://en.wikipedia.org/wiki/Jensen_Huang,https://ko.wikipedia.org/wiki/젠슨_황,assets/leaders/jensen-huang.jpg,78,100,72,95,86.25
-4,greg-brockman,Greg Brockman,그레그 브록머,OpenAI,President & Co-founder,https://en.wikipedia.org/wiki/Greg_Brockman,,assets/leaders/greg-brockman.jpg,75,90,88,85,84.50
-5,mark-zuckerberg,Mark Zuckerberg,마크 저커버그,Meta,"Founder, Chairman & CEO",https://en.wikipedia.org/wiki/Mark_Zuckerberg,https://ko.wikipedia.org/wiki/마크_저커버그,assets/leaders/mark-zuckerberg.jpg,65,95,85,92,84.25
-6,daniela-amodei,Daniela Amodei,다니엘라 아모데이,Anthropic,President & Co-founder,https://en.wikipedia.org/wiki/Daniela_Amodei,,assets/leaders/daniela-amodei.jpg,80,91,90,75,84.00
-7,ilya-sutskever,Ilya Sutskever,일리야 수츠케버,Safe Superintelligence,Co-founder & CEO,https://en.wikipedia.org/wiki/Ilya_Sutskever,https://ko.wikipedia.org/wiki/일리야_수츠케버,assets/leaders/ilya-sutskever.jpg,95,75,98,65,83.25
-8,demis-hassabis,Demis Hassabis,데미스 허사비스,Google DeepMind / Alphabet,Chair & Chief Scientist,https://en.wikipedia.org/wiki/Demis_Hassabis,https://ko.wikipedia.org/wiki/데미스_허사비스,assets/leaders/demis-hassabis.jpg,99,87,97,40,80.75
-9,liang-wenfeng,Liang Wenfeng,량문봉,DeepSeek,Founder & CEO,https://en.wikipedia.org/wiki/Liang_Wenfeng,,assets/leaders/liang-wenfeng.jpg,85,88,80,70,80.75
-10,sam-altman,Sam Altman,샘 올트먼,OpenAI,CEO & Co-founder,https://en.wikipedia.org/wiki/Sam_Altman,https://ko.wikipedia.org/wiki/샘_올트먼,assets/leaders/sam-altman.jpg,70,99,96,48,78.25
+1,dario-amodei,Dario Amodei,다리오 아모데이,Anthropic,Co-founder & CEO,https://en.wikipedia.org/wiki/Dario_Amodei,,assets/leaders/dario-amodei.jpg,96,100,99,90,96.25
+2,elon-musk,Elon Musk,일론 머스크,xAI / SpaceX / Tesla,Founder & CEO,https://en.wikipedia.org/wiki/Elon_Musk,https://ko.wikipedia.org/wiki/일론_머스크,assets/leaders/elon-musk.jpg,68,99,98,99,91
+3,liang-wenfeng,Liang Wenfeng,량문봉,DeepSeek,Founder & CEO,https://en.wikipedia.org/wiki/Liang_Wenfeng,,assets/leaders/liang-wenfeng.jpg,94,97,88,85,91
+4,daniela-amodei,Daniela Amodei,다니엘라 아모데이,Anthropic,President & Co-founder,https://en.wikipedia.org/wiki/Daniela_Amodei,,assets/leaders/daniela-amodei.jpg,85,96,95,86,90.5
+5,jensen-huang,Jensen Huang,젠슨 황,NVIDIA,"Founder, CEO & President",https://en.wikipedia.org/wiki/Jensen_Huang,https://ko.wikipedia.org/wiki/젠슨_황,assets/leaders/jensen-huang.jpg,84,100,80,97,90.25
+6,ilya-sutskever,Ilya Sutskever,일리야 수츠케버,Safe Superintelligence,Co-founder & CEO,https://en.wikipedia.org/wiki/Ilya_Sutskever,https://ko.wikipedia.org/wiki/일리야_수츠케버,assets/leaders/ilya-sutskever.jpg,98,83,99,78,89.5
+7,greg-brockman,Greg Brockman,그레그 브록머,OpenAI,President & Co-founder,https://en.wikipedia.org/wiki/Greg_Brockman,,assets/leaders/greg-brockman.jpg,81,94,92,90,89.25
+8,mark-zuckerberg,Mark Zuckerberg,마크 저커버그,Meta,"Founder, Chairman & CEO",https://en.wikipedia.org/wiki/Mark_Zuckerberg,https://ko.wikipedia.org/wiki/마크_저커버그,assets/leaders/mark-zuckerberg.jpg,72,97,92,94,88.75
+9,demis-hassabis,Demis Hassabis,데미스 허사비스,Google DeepMind / Alphabet,Chair & Chief Scientist,https://en.wikipedia.org/wiki/Demis_Hassabis,https://ko.wikipedia.org/wiki/데미스_허사비스,assets/leaders/demis-hassabis.jpg,99,95,99,45,84.5
+10,sam-altman,Sam Altman,샘 올트먼,OpenAI,CEO & Co-founder,https://en.wikipedia.org/wiki/Sam_Altman,https://ko.wikipedia.org/wiki/샘_올트먼,assets/leaders/sam-altman.jpg,78,100,98,56,83
 11,mark-chen,Mark Chen,마크 첸,OpenAI,Chief Research Officer,https://en.wikipedia.org/wiki/Mark_Chen_(researcher),,assets/leaders/mark-chen.jpg,92,75,90,55,78.00
 12,jeff-bezos,Jeff Bezos,제프 베이조스,Amazon / Prometheus,Founder; Co-CEO Prometheus,https://en.wikipedia.org/wiki/Jeff_Bezos,https://ko.wikipedia.org/wiki/제프_베이조스,assets/leaders/jeff-bezos.jpg,50,92,70,98,77.50
 13,yann-lecun,Yann LeCun,얀 르쿤,AMI Labs / NYU,Founder; Professor,https://en.wikipedia.org/wiki/Yann_LeCun,https://ko.wikipedia.org/wiki/얀_르쿤,assets/leaders/yann-lecun.jpg,96,70,88,50,76.00
 14,alexandr-wang,Alexandr Wang,앨릭산드르 왕,Meta / Scale AI,AI Lead; Co-founder Scale,https://en.wikipedia.org/wiki/Alexandr_Wang,,assets/leaders/alexandr-wang.jpg,70,85,78,70,75.75
-15,mustafa-suleyman,Mustafa Suleyman,무스타파 숲레이만,Microsoft AI,CEO,https://en.wikipedia.org/wiki/Mustafa_Suleyman,https://ko.wikipedia.org/wiki/무스타파_숲레이만,assets/leaders/mustafa-suleyman.jpg,70,85,85,55,73.75
+15,mustafa-suleyman,Mustafa Suleyman,무스타파 스레이만,Microsoft AI,CEO,https://en.wikipedia.org/wiki/Mustafa_Suleyman,https://ko.wikipedia.org/wiki/무스타파_스레이만,assets/leaders/mustafa-suleyman.jpg,70,85,85,55,73.75
 16,noam-shazeer,Noam Shazeer,노암 셰이저,Character.AI / Google,Co-founder,https://en.wikipedia.org/wiki/Noam_Shazeer,,assets/leaders/noam-shazeer.jpg,90,70,75,60,73.75
 17,ion-stoica,Ion Stoica,이온 스토이카,UC Berkeley / Databricks,Professor; Co-founder,https://en.wikipedia.org/wiki/Ion_Stoica,,assets/leaders/ion-stoica.jpg,85,80,55,70,72.50
 18,larry-ellison,Larry Ellison,래리 엘리슨,Oracle,CTO & Executive Chairman,https://en.wikipedia.org/wiki/Larry_Ellison,https://ko.wikipedia.org/wiki/래리_엘리슨,assets/leaders/larry-ellison.jpg,45,90,60,94,72.25
 19,ali-ghodsi,Ali Ghodsi,알리 고드시,Databricks,Co-founder & CEO,https://en.wikipedia.org/wiki/Ali_Ghodsi,,assets/leaders/ali-ghodsi.jpg,70,88,55,75,72.00
-20,arthur-mensch,Arthur Mensch,아르투르 멘쉬,Mistral AI,CEO & Co-founder,https://en.wikipedia.org/wiki/Arthur_Mensch,,assets/leaders/arthur-mensch.jpg,80,78,75,55,72.00
+20,arthur-mensch,Arthur Mensch,아르투르 멘슈,Mistral AI,CEO & Co-founder,https://en.wikipedia.org/wiki/Arthur_Mensch,,assets/leaders/arthur-mensch.jpg,80,78,75,55,72.00
 21,reid-hoffman,Reid Hoffman,리드 호프먼,Greylock / Manas AI,Partner; Co-founder,https://en.wikipedia.org/wiki/Reid_Hoffman,https://ko.wikipedia.org/wiki/리드_호프먼,assets/leaders/reid-hoffman.jpg,55,85,70,75,71.25
 22,eric-schmidt,Eric Schmidt,에릭 슈미트,Former Google / Investor,Investor & Advisor,https://en.wikipedia.org/wiki/Eric_Schmidt,https://ko.wikipedia.org/wiki/에릭_슈미트,assets/leaders/eric-schmidt.jpg,50,80,65,90,71.25
 23,guillaume-lample,Guillaume Lample,기요름 랑플,Mistral AI,Co-founder,https://en.wikipedia.org/wiki/Guillaume_Lample,,assets/leaders/guillaume-lample.jpg,85,70,75,55,71.25
