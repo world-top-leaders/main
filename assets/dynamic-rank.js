@@ -27,7 +27,8 @@
   }
 
   function render(leaders) {
-    var table = document.querySelector("table.wtl-rank");
+    // Support both classed and plain tables
+    var table = document.querySelector("table.wtl-rank") || document.querySelector("table");
     if (!table) return;
     var tbody = table.querySelector("tbody");
     if (!tbody) return;
@@ -43,9 +44,9 @@
         "<td>" + rank + "</td>" +
         "<td>-</td>" +
         "<td>0</td>" +
-        "<td class=\"name wtl-name\">" +
-          "<a href=\"" + wiki + "\" target=\"_blank\" rel=\"noopener\" class=\"wtl-wiki\">" + name + "</a>" +
-          "<a href=\"leader.html?slug=" + slug + "\" class=\"wtl-detail-link\">Profile ›</a>" +
+        "<td class=\"name\">" +
+          "<a href=\"" + wiki + "\" target=\"_blank\" rel=\"noopener\">" + name + "</a>" +
+          " <a href=\"leader.html?slug=" + slug + "\">Profile ›</a>" +
         "</td>" +
         "<td>" + (L.org || "") + "</td>" +
         "<td>" + (L.role_en || "") + "</td>" +
@@ -54,7 +55,7 @@
         "<td>" + (L.AGI || "") + "</td>" +
         "<td>" + (L.W || "") + "</td>" +
         "<td class=\"avg\">" + (L.avg || "") + "</td>" +
-        "<td class=\"cmt-cell\"><a href=\"leader.html?slug=" + slug + "#comments\"><span class=\"cmt-none\">✎ Write a comment</span></a></td>";
+        "<td><a href=\"leader.html?slug=" + slug + "#comments\">✎</a></td>";
       tbody.appendChild(tr);
     });
   }
