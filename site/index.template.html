@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!-- 공개용 첫 화면 틀 (클로드 2026-11-07). 순위 줄은 빌드 때 data/leaders.csv로 채운다. 이 파일은 매일 갱신에서 고치지 않는다. -->
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>World Top Leaders — AI Leaders Top 50 | {{DATE}}</title>
+  <style>
+    :root { --bg:#071018; --card:#0e1a28; --line:#1e3348; --gold:#d4af37; --text:#e8eef5; --muted:#8aa0b5; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: Georgia, "Times New Roman", serif; background: radial-gradient(1200px 600px at 10% -10%, #123 0%, var(--bg) 50%); color: var(--text); }
+    header { padding: 48px 24px 24px; text-align:center; border-bottom:1px solid var(--line); }
+    h1 { margin:0; letter-spacing:.12em; font-weight:600; font-size: clamp(28px,4vw,48px); }
+    .sub { color: var(--muted); margin-top:10px; font-family: system-ui, sans-serif; font-size:14px; }
+    .wrap { max-width: 1280px; margin: 0 auto; padding: 24px; }
+    .note { font-family: system-ui, sans-serif; color: var(--muted); font-size:13px; margin-bottom:16px; line-height:1.5; }
+    table { width:100%; border-collapse: collapse; background: var(--card); font-family: system-ui, sans-serif; font-size:13px; min-width:980px; }
+    th { text-align:left; padding:10px 8px; background:#102033; color:#c9d7e6; position:sticky; top:0; border-bottom:2px solid var(--gold); }
+    td { padding:8px; border-bottom:1px solid var(--line); vertical-align:top; }
+    tr:hover td { background:#132536; }
+    .r1 td { background: rgba(212,175,55,.18); }
+    .r2 td { background: rgba(192,192,192,.12); }
+    .r3 td { background: rgba(205,127,50,.12); }
+    .avg { font-variant-numeric: tabular-nums; font-weight:600; color: var(--gold); }
+    footer { text-align:center; padding: 32px 16px 64px; color: var(--muted); font-family: system-ui, sans-serif; font-size:12px; }
+    a { color:#7ec8ff; }
+    .topbar { display:flex; justify-content:flex-end; padding:12px 24px 0; }
+    .table-wrap { overflow-x:auto; }
+  </style>
+</head>
+<body>
+  <div class="topbar" id="langbar"></div><!-- WTL:KEEP -->
+  <header>
+    <h1>WORLD TOP LEADERS</h1>
+    <div class="sub"><span data-i18n="site_sub">Global AI Leaders — Top 50 · Daily ranking</span> · {{DATE}}</div>
+  </header>
+  <div class="wrap">
+    <p class="note"><span data-i18n="note_main">Influence scores (0–100) across Research, Business, AGI, and Wealth. Rank = arithmetic mean. Public sources only.</span> · {{DATE}}</p>
+    <div class="table-wrap"><!-- WTL:KEEP -->
+    <table id="rank-table">
+      <thead><tr><th>#</th><th>Prev</th><th>Chg</th><th>Name</th><th>Organization</th><th>Role</th><th>R</th><th>B</th><th>AGI</th><th>W</th><th>Avg</th></tr></thead>
+      <tbody>
+{{ROWS}}
+      </tbody>
+    </table>
+    </div><!-- WTL:KEEP -->
+    <div id="all-comments"></div><!-- WTL:KEEP -->
+  </div>
+  <footer>World Top Leaders · Daily public-source composite · <a href="https://worldtopleaders.org">worldtopleaders.org</a></footer>
+  <script src="assets/wtl-common.js"></script>
+</body>
+</html>

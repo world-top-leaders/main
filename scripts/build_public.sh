@@ -5,23 +5,18 @@ set -euo pipefail
 SITE="https://worldtopleaders.org"
 rm -rf public
 mkdir -p public/assets public/data public/tools
-cp index.html leader.html public/
+cp leader.html public/
 if [ -f board.html ]; then cp board.html public/; fi
 if [ -f business.html ]; then cp business.html public/; fi
 
-if ! grep -q 'assets/wtl-common.js' public/index.html; then
-  sed -i 's|</body>|<script src="assets/wtl-common.js"></script>\n</body>|' public/index.html
-fi
-if ! grep -q 'assets/dynamic-rank.js' public/index.html; then
-  sed -i 's|</body>|<script src="assets/dynamic-rank.js"></script>\n</body>|' public/index.html
-fi
-if ! grep -q 'assets/ui-restore.js' public/index.html; then
-  sed -i 's|</body>|<script src="assets/ui-restore.js"></script>\n</body>|' public/index.html
-  echo "index.html에 ui-restore.js 줄을 자동으로 넣었습니다."
+# 2026-11-07 클로드: 첫 화면은 틀 + leaders.csv로 만든다 (매일 판 index.html이 잘려도 50명 모두, 게시판·한국어 그대로)
+python3 scripts/render_index.py public/index.html
+# 공통 스크립트가 다른 파일로 덮어써지면(2026-11-06~07: 90KB → 2.8KB, 게시판·한국어 사라짐) 빌드를 멈춰 전 배포를 지킨다
+if [ "$(wc -c < assets/wtl-common.js)" -lt 60000 ] || ! grep -q 'mountLangSwitch' assets/wtl-common.js; then
+  echo "assets/wtl-common.js가 원본이 아닙니다(너무 작거나 게시판 기능 없음). 원본으로 되돌린 뒤 다시 올려 주세요." >&2
+  exit 1
 fi
 cp assets/wtl-common.js public/assets/
-cp assets/dynamic-rank.js public/assets/
-cp assets/ui-restore.js public/assets/
 if [ -d assets/leaders ]; then cp -r assets/leaders public/assets/; fi
 cp data/leaders.csv data/locales.json public/data/
 if [ -f data/notice.json ]; then cp data/notice.json public/data/; fi
