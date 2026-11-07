@@ -7,31 +7,28 @@ rm -rf public
 mkdir -p public/assets public/data public/tools
 cp index.html leader.html public/
 if [ -f board.html ]; then cp board.html public/; fi
-# 비즈니스/산업계 지도자 Top 50 (2026-10-21). 자료가 채워지기 전에는 페이지만 있고 첫 화면 바로가기는 숨는다
 if [ -f business.html ]; then cp business.html public/; fi
 
-# --- 게시판·다국어가 늘 켜지도록 (2026-10-21) ---
-# 매일 새로 만드는 index.html에서 wtl-common.js 줄이 빠지는 일이 좋아(10-11~10-21), 빠졌으면 여기서 넣는다.
 if ! grep -q 'assets/wtl-common.js' public/index.html; then
   sed -i 's|</body>|<script src="assets/wtl-common.js"></script>\n</body>|' public/index.html
-  echo "index.html에 wtl-common.js 줄을 자동으로 넣었습니다."
 fi
-# Dynamic Top 50 ranking (2026-11-06)
 if ! grep -q 'assets/dynamic-rank.js' public/index.html; then
   sed -i 's|</body>|<script src="assets/dynamic-rank.js"></script>\n</body>|' public/index.html
-  echo "index.html에 dynamic-rank.js 줄을 자동으로 넣었습니다."
+fi
+if ! grep -q 'assets/ui-restore.js' public/index.html; then
+  sed -i 's|</body>|<script src="assets/ui-restore.js"></script>\n</body>|' public/index.html
+  echo "index.html에 ui-restore.js 줄을 자동으로 넣었습니다."
 fi
 cp assets/wtl-common.js public/assets/
 cp assets/dynamic-rank.js public/assets/
+cp assets/ui-restore.js public/assets/
 if [ -d assets/leaders ]; then cp -r assets/leaders public/assets/; fi
 cp data/leaders.csv data/locales.json public/data/
 if [ -f data/notice.json ]; then cp data/notice.json public/data/; fi
 if [ -f data/business_leaders.csv ]; then cp data/business_leaders.csv public/data/; fi
-# 팀 회의실(임시로 유지 — 주소를 아는 사람은 누구나 열 수 있음)
 cp "tools/감)회의실.html" public/tools/ 2>/dev/null || true
 cp "tools/감)허브.html" public/tools/ 2>/dev/null || true
 
-# --- 검색엔진용 정보 (index.html은 매일 새로 만들어지므로 여기서 자동으로 넣는다) ---
 DESC="World Top Leaders — daily-updated ranking of the world's top 50 AI leaders, scored on Research, Business, AGI and Wealth from public sources. 세계 AI 지도자 Top 50 순위를 매일 공개 자료로 갱신합니다."
 META="<meta name=\"description\" content=\"$DESC\" /><meta property=\"og:type\" content=\"website\" /><meta property=\"og:site_name\" content=\"World Top Leaders\" /><meta property=\"og:title\" content=\"World Top Leaders — AI Leaders Top 50\" /><meta property=\"og:description\" content=\"$DESC\" /><meta property=\"og:url\" content=\"$SITE/\" /><link rel=\"canonical\" href=\"$SITE/\" />"
 if ! grep -q 'name="description"' public/index.html; then
@@ -42,7 +39,6 @@ if ! grep -q 'name="description"' public/leader.html; then
   sed -i "0,/<meta charset[^>]*>/s||&\n  $LMETA|" public/leader.html
 fi
 
-# robots.txt
 cat > public/robots.txt <<ROBOTS
 User-agent: *
 Allow: /
@@ -50,7 +46,6 @@ Disallow: /tools/
 Sitemap: $SITE/sitemap.xml
 ROBOTS
 
-# sitemap.xml (메인 + 지도자 50명)
 TODAY=$(date -u +%Y-%m-%d)
 {
   echo '<?xml version="1.0" encoding="UTF-8"?>'
