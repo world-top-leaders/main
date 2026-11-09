@@ -1,0 +1,16 @@
+Rank,Prev,Change,Name,Organization,Role,Research,Business,AGI,Wealth,Average
+1,1,0,Dario Amodei,Anthropic,Co-founder & CEO,96,100,99,91,96.5
+2,2,0,Elon Musk,xAI / SpaceX / Tesla,Founder & CEO,69,99,98,99,91.25
+3,3,0,Liang Wenfeng,DeepSeek,Founder & CEO,94,97,88,86,91.25
+4,4,0,Daniela Amodei,Anthropic,President & Co-founder,85,96,95,87,90.75
+5,5,0,Jensen Huang,NVIDIA,"Founder, CEO & President",84,100,81,97,90.5
+6,6,0,Ilya Sutskever,Safe Superintelligence,Co-founder & CEO,98,83,99,79,89.75
+7,7,0,Greg Brockman,OpenAI,President & Co-founder,81,94,92,90,89.25
+8,8,0,Mark Zuckerberg,Meta,"Founder, Chairman & CEO",72,97,92,94,88.75
+9,9,0,Demis Hassabis,Google DeepMind / Alphabet,Chair & Chief Scientist,99,95,99,45,84.5
+10,10,0,Sam Altman,OpenAI,CEO & Co-founder,78,100,98,57,83.25
+11,-,-,Mark Chen,OpenAI,Chief Research Officer,92,75,90,55,78.0
+12,-,-,Jeff Bezos,Amazon / Prometheus,Founder; Co-CEO Prometheus,50,92,70,98,77.5
+13,-,-,Yann LeCun,AMI Labs / NYU,Founder; Professor,96,70,88,50,76.0
+14,-,-,Alexandr Wang,Meta / Scale AI,AI Lead; Co-founder Scale,70,85,78,70,75.75
+15,-,-,Mustafa Suleyman,Microsoft AI,CEO,70,85,85,55,73.75
